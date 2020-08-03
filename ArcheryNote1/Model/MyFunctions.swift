@@ -11,9 +11,18 @@ import UIKit
 
 class MyFunctions: NSObject{
     
+    
+    class func getDate() -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyyMdE", options: 0, locale: Locale(identifier: "ja_JP"))
+        print(dateFormatter.string(from: date))
+        return dateFormatter.string(from: date)
+    }
+    
     class func Alert(alertType: String, viewController: UIViewController){
         switch alertType {
-        case "cansel":
+        case "cancel":
             // --------------このアラートのUXどうなん？-------------
             let alert = UIAlertController(title: "キャンセルしますか？", message: "記入内容が失われてしまいます", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "はい", style: .destructive) { (action) in

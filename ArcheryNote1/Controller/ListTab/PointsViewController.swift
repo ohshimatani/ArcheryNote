@@ -32,39 +32,15 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         checkPointTableView.tableFooterView = UIView()
         
         
-        let realmPath = Realm.Configuration.defaultConfiguration.fileURL!
-        let config = Realm.Configuration(fileURL: realmPath, encryptionKey: self.getKey())
-        do {
-            let realm = try Realm(configuration: config)
-            //処理を記述
-            print(realmPath)
-            print(getKey()!.map { String(format: "%.2hhx", $0) }.joined())
-        }
-        catch { /*省略*/
-            print("fault")
-            print(realmPath)
-            print
-        }
-        
-        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-//        let realm = try! Realm()
-//        checkPointList = realm.objects(CheckPoint.self).sorted(byKeyPath: "howImportant", ascending: false)
-//        self.checkPointTableView.reloadData()
-////        print(checkPointList[0])
-        print("a")
+        let realm = try! Realm()
+        checkPointList = realm.objects(CheckPoint.self).sorted(byKeyPath: "howImportant", ascending: false)
+        self.checkPointTableView.reloadData()
+        print(checkPointList[0])
     }
-    
-    
-    func getKey() -> Data? {
-            let key = "1234567890123456789012345678901234567890123456789012345678901234"
-            return key.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    }
-    
-    
     
     
     
@@ -116,21 +92,4 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 }
 
-extension UserDefaults {
-  func getCheckPoint(_ key:String) -> [CheckPoint]? {
-    // storedData: Data
-      if let storedData = self.object(forKey: key) as? Data {
-        // unarchivedObject: [CheckPoint] (Data to [CheckPoint])
-        if let unarchivedObject = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(storedData) as? [CheckPoint] {
-              return unarchivedObject
-          }
-      }
-      return []
-  }
 
-  func setCheckPoint(_ checkPoint:[CheckPoint],_ key:String) {
-    // data: Data ([CheckPoint] to Data)
-      let data = try! NSKeyedArchiver.archivedData(withRootObject: checkPoint, requiringSecureCoding: false)
-      self.set(data, forKey: key)
-  }
-}

@@ -39,6 +39,12 @@ class AddCheckPointViewController: UIViewController {
         
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
     // Save button can only use(activate) when text field is not nil.
     @IBAction func textFieldActionButtonInActive(_ sender: Any) {
         if checkPointTextField.text == ""{
@@ -92,7 +98,7 @@ class AddCheckPointViewController: UIViewController {
         if (checkPointTextField.text == "") && (memoTextView.text == ""){
             self.dismiss(animated: true, completion: nil)
         }else{
-            MyFunctions.Alert(alertType: "cansel", viewController: self)
+            MyFunctions.Alert(alertType: "cancel", viewController: self)
         }
     }
     
@@ -111,18 +117,3 @@ class AddCheckPointViewController: UIViewController {
     
 }
 
-//extension UserDefaults {
-//  func getCheckPoint(_ key:String) -> [CheckPoint]? {
-//      if let storedData = self.object(forKey: key) as? Data {
-//        if let unarchivedObject = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(storedData) as? [CheckPoint] {
-//              return unarchivedObject
-//          }
-//      }
-//      return []
-//  }
-//
-//  func setCheckPoint(_ checkPoint:[CheckPoint],_ key:String) {
-//      let data = try! NSKeyedArchiver.archivedData(withRootObject: checkPoint, requiringSecureCoding: false)
-//      self.set(data, forKey: key)
-//  }
-//}

@@ -34,6 +34,10 @@ class AddTrainingViewController: UIViewController {
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     @IBAction func textFieldButtonActionInActive(_ sender: Any) {
         if titleTextField.text == ""{
@@ -46,13 +50,15 @@ class AddTrainingViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        let _trainingMenu = TraingingMenu()
+        let _trainingMenu = TrainingMenu()
         _trainingMenu.title = titleTextField.text!
         _trainingMenu.detail = detailTextView.text!
         _trainingMenu.memo = memoTextView.text!
         try! realm.write{
             realm.add(_trainingMenu)
         }
+        print("save")
+        self.dismiss(animated: true, completion: nil)
     }
     
     

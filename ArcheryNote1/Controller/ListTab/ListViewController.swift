@@ -16,9 +16,13 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var tuningListButton: UIButton!
     
+    @IBOutlet weak var settingListButton: UIButton!
+    
     @IBOutlet weak var pointsButton: UIButton!
     
     @IBOutlet weak var trainingListButton: UIButton!
+    
+    let buttonsCornerRadiusNumber = 20.0
     
     
     override func viewDidLoad() {

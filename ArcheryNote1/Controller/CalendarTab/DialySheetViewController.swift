@@ -31,8 +31,6 @@ class DialySheetViewController: UIViewController{
     var weekday: Int!
     var dateLabelText = "9999年99月99日（日）"
     let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
-    
-    var UserDefaultsKey: String!
     var dateText: String!
 
     
@@ -46,7 +44,7 @@ class DialySheetViewController: UIViewController{
         self.listupTableView.tableFooterView = UIView()
         
         // only call number pad (sum of shooting)
-        self.sumOfShootingTextField.keyboardType = UIKeyboardType.numberPad
+        self.sumOfShootingTextField.keyboardType = UIKeyboardType.decimalPad
 
         
         // reflect date label
