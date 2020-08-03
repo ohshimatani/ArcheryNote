@@ -315,8 +315,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="qaG-0Z-u5H" id="WgI-17-hPN"/>
-                        <outlet property="tableViewCell" destination="sFQ-j9-UOy" id="Qvj-Ww-Jra"/>
+                        <outlet property="addTableView" destination="qaG-0Z-u5H" id="oEd-Pf-Zo2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oec-du-guK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

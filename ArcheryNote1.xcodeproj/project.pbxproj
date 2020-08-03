@@ -23,6 +23,8 @@
 		2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36503F24D862DD00DD60B2 /* Schedule.swift */; };
 		2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504124D867D400DD60B2 /* ScoreViewController.swift */; };
 		2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */; };
+		2A36504724D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504524D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.swift */; };
+		2A36504824D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A36504624D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.xib */; };
 		2A6B168D24A673B9009C497D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6B168C24A673B9009C497D /* AppDelegate.swift */; };
 		2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6B168E24A673B9009C497D /* SceneDelegate.swift */; };
 		2A6B169124A673B9009C497D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6B169024A673B9009C497D /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		2A36503F24D862DD00DD60B2 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		2A36504124D867D400DD60B2 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListDialyViewController.swift; sourceTree = "<group>"; };
+		2A36504524D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListForAddingDialyTableViewCell.swift; sourceTree = "<group>"; };
+		2A36504624D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListForAddingDialyTableViewCell.xib; sourceTree = "<group>"; };
 		2A6B168924A673B9009C497D /* ArcheryNote1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcheryNote1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6B168C24A673B9009C497D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A6B168E24A673B9009C497D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */,
 				2A36502424D6A90300DD60B2 /* TrainingListTableViewCell.xib */,
 				2A36503A24D84F0500DD60B2 /* TuningListTableViewCell.xib */,
+				2A36504524D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.swift */,
+				2A36504624D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 				2A36502624D6A90300DD60B2 /* TrainingListTableViewCell.xib in Resources */,
 				2A6B16C624AA0163009C497D /* Calendar.storyboard in Resources */,
 				2A6B16A424A6740B009C497D /* Main.storyboard in Resources */,
+				2A36504824D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.xib in Resources */,
 				2A6B16CA24AA0182009C497D /* Analysis.storyboard in Resources */,
 				2A6B16C824AA0172009C497D /* List.storyboard in Resources */,
 				2A6B169924A673BC009C497D /* LaunchScreen.storyboard in Resources */,
@@ -412,6 +419,7 @@
 				2A36503E24D85B4F00DD60B2 /* ScheduleViewController.swift in Sources */,
 				2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */,
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
+				2A36504724D87B9C00DD60B2 /* ListForAddingDialyTableViewCell.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
 				2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */,

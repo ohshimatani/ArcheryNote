@@ -13,10 +13,8 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
+    @IBOutlet weak var addTableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var tableViewCell: UITableViewCell!
     
     
     var selectedNumber: Int = 0
@@ -29,12 +27,20 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     
     let globalBowDiscipline = "RC"
     
+    let customCellVCName = "ListForAddingDialyTableViewCell"
+    let customCellKeyName = "listForDialyCustomCell"
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addTableView.delegate = self
+        addTableView.dataSource = self
         
+        let nib = UINib(nibName: customCellVCName, bundle: .main)
+        addTableView.register(nib, forCellReuseIdentifier: customCellKeyName)
+        addTableView.tableFooterView = UIView()
         
         let realm = try! Realm()
         checkPointList = realm.objects(CheckPoint.self).sorted(byKeyPath: "howImportant", ascending: false)
@@ -56,7 +62,7 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
         selectedNumber = sender.selectedSegmentIndex
-        tableView.reloadData()
+        addTableView.reloadData()
     }
     
     
@@ -69,7 +75,7 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dialyAddCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listForAddingDialyCustomCell", for: indexPath)
         
         return cell
     }
