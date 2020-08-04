@@ -28,11 +28,12 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let buttonsCornerRadiusNumber: CGFloat = 25.0
-        scoreListButton.layer.cornerRadius = buttonsCornerRadiusNumber
-        tuningListButton.layer.cornerRadius = buttonsCornerRadiusNumber
-        pointsButton.layer.cornerRadius = buttonsCornerRadiusNumber
-        trainingListButton.layer.cornerRadius = buttonsCornerRadiusNumber
+        let buttonsCornerRadiusValue: CGFloat = 25.0
+        scoreListButton.layer.cornerRadius = buttonsCornerRadiusValue
+        tuningListButton.layer.cornerRadius = buttonsCornerRadiusValue
+        settingListButton.layer.cornerRadius = buttonsCornerRadiusValue
+        pointsButton.layer.cornerRadius = buttonsCornerRadiusValue
+        trainingListButton.layer.cornerRadius = buttonsCornerRadiusValue
         
         
     }
@@ -47,6 +48,13 @@ class ListViewController: UIViewController {
     @IBAction func toTuningList(_ sender: Any) {
         performSegue(withIdentifier: "toTuningList", sender: nil)
     }
+    
+    
+    @IBAction func toSettingsList(_ sender: Any) {
+        performSegue(withIdentifier: "toBowSettings", sender: nil)
+    }
+    
+    
     
     // to Points ViewController
     @IBAction func toPoints(_ sender: Any) {
