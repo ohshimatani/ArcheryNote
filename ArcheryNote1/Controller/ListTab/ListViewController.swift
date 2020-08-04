@@ -49,12 +49,10 @@ class ListViewController: UIViewController {
         performSegue(withIdentifier: "toTuningList", sender: nil)
     }
     
-    
+    // to BowSettings ViewController
     @IBAction func toSettingsList(_ sender: Any) {
         performSegue(withIdentifier: "toBowSettings", sender: nil)
     }
-    
-    
     
     // to Points ViewController
     @IBAction func toPoints(_ sender: Any) {

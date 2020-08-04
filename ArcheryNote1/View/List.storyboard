@@ -48,7 +48,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="toScoreList:" destination="IXF-JP-pOl" eventType="touchUpInside" id="9SA-xS-0Hc"/>
                                     <action selector="toSettingsList:" destination="IXF-JP-pOl" eventType="touchUpInside" id="NxO-11-muQ"/>
                                 </connections>
                             </button>
@@ -790,7 +789,7 @@
                                 <segment title="CP"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="i01-oO-Ao2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i01-oO-Ao2"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwj-N5-l8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
