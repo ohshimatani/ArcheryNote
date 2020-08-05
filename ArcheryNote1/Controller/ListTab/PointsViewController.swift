@@ -88,6 +88,12 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    
+    
     
     
 }

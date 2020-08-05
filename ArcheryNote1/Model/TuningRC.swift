@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 class TuningRC: Object{
-    @objc var date: String = ""
-    @objc var title: String = ""
-    @objc var braceHeight: Double = 0
-    @objc var uppertillerHeight: Double = 0
-    @objc var lowertillerHeight: Double = 0
-    @objc var nockingPoint: String = ""
-    @objc var memo: String = ""
+    @objc dynamic var date: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var braceHeight: Double = 0
+    @objc dynamic var uppertillerHeight: Double = 0
+    @objc dynamic var lowertillerHeight: Double = 0
+    @objc dynamic var nockingPoint: String = ""
+    @objc dynamic var memo: String = ""
 }

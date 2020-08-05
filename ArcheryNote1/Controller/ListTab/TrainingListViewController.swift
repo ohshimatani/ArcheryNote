@@ -26,6 +26,9 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let realm = try! Realm()
+//        trainingMenuList = realm.objects(TrainingMenu.self)
+        
         trainingListTableView.delegate = self
         trainingListTableView.dataSource = self
         
@@ -40,8 +43,7 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
         let realm = try! Realm()
         trainingMenuList = realm.objects(TrainingMenu.self)
         self.trainingListTableView.reloadData()
-        print(trainingMenuList[0])
-        print("a")
+//        print(trainingMenuList[0])
     }
     
     
@@ -62,8 +64,14 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: customCellKeyName) as! TrainingListTableViewCell
+//        print("kakanen", trainingMenuList, trainingMenuList[indexPath.row])
         cell.trainingTitle.text = trainingMenuList[indexPath.row].title
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
 

@@ -99,6 +99,9 @@ class AddSomethingViewController: UIViewController {
         performSegue(withIdentifier: "toAddSchedule", sender: nil)
     }
     
+    @IBAction func toScoreSheet(_ sender: Any) {
+        performSegue(withIdentifier: "toScoreSheet", sender: nil)
+    }
     
     
     

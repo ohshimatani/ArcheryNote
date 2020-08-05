@@ -62,6 +62,7 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
         selectedNumber = sender.selectedSegmentIndex
+        
         addTableView.reloadData()
     }
     

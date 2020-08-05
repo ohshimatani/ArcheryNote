@@ -11,9 +11,9 @@ import RealmSwift
 
 class CheckPoint: Object{
         
-    @objc var checkPoint: String = ""
-    @objc var howImportant: Int = 0
-    @objc var memo: String = ""
+    @objc dynamic var checkPoint: String = ""
+    @objc dynamic var howImportant: Int = 0
+    @objc dynamic var memo: String = ""
     
 //    init(_checkPoint: String, _howImportant: Int, _Memo: String) {
 //        checkPoint = _checkPoint

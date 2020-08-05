@@ -24,6 +24,9 @@ class ScoreListViewController: UIViewController {
     
     
     
+    @IBAction func toNext(_ sender: Any) {
+        performSegue(withIdentifier: "toTarget", sender: nil)
+    }
     
     
     

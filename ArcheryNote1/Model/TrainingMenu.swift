@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class TrainingMenu: Object{
-    @objc var title: String = ""
-    @objc var detail: String = ""
-    @objc var memo: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var detail: String = ""
+    @objc dynamic var memo: String = ""
 }

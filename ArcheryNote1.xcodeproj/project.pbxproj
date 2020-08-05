@@ -44,6 +44,7 @@
 		2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802D8824B8A7FF00B366DF /* TrainingMenu.swift */; };
 		2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802D8A24B8A90500B366DF /* AddCheckPointViewController.swift */; };
 		2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802D8C24B8AD8900B366DF /* CheckPoint.swift */; };
+		2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A847C3A24DAFF7500B26189 /* TargetViewController.swift */; };
 		2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */; };
 		2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */; };
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
@@ -96,6 +97,7 @@
 		2A802D8A24B8A90500B366DF /* AddCheckPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckPointViewController.swift; sourceTree = "<group>"; };
 		2A802D8C24B8AD8900B366DF /* CheckPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
 		2A802D8E24B8C78100B366DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2A847C3A24DAFF7500B26189 /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
 		2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				2A36503D24D85B4F00DD60B2 /* ScheduleViewController.swift */,
 				2A36504124D867D400DD60B2 /* ScoreViewController.swift */,
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
+				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				2A36502224D6A87B00DD60B2 /* TrainingListViewController.swift in Sources */,
 				2A36502524D6A90300DD60B2 /* TrainingListTableViewCell.swift in Sources */,
 				2A36502824D6D28700DD60B2 /* AddRCTuningViewController.swift in Sources */,
+				2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */,
 				2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */,
 				2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */,
 				2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */,

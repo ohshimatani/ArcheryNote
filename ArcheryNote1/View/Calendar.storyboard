@@ -82,6 +82,9 @@
                                 <state key="normal" title="＋点取り">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="toScoreSheet:" destination="4KT-By-mHJ" eventType="touchUpInside" id="cPG-Ax-hEc"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0V-YX-i49">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="252"/>
@@ -130,7 +133,7 @@
                         <outlet property="todayScheduleTextView" destination="mwx-Hf-Is7" id="IUh-mJ-Hge"/>
                         <segue destination="sdN-tY-QU2" kind="presentation" identifier="toDialySheet" id="AZJ-gz-L4z"/>
                         <segue destination="gwc-AT-aAF" kind="presentation" identifier="toAddSchedule" modalPresentationStyle="fullScreen" id="af2-nx-ztN"/>
-                        <segue destination="bfW-mI-1qM" kind="presentation" modalPresentationStyle="fullScreen" id="zSE-zt-tv2"/>
+                        <segue destination="bfW-mI-1qM" kind="presentation" identifier="toScoreSheet" modalPresentationStyle="fullScreen" id="zSE-zt-tv2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-8O-lrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -518,14 +521,87 @@
                     <view key="view" contentMode="scaleToFill" id="ApD-Fm-e2j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-0H-cII">
+                                <rect key="frame" x="142" y="384" width="172" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toNext:" destination="KBJ-pk-Mgw" eventType="touchUpInside" id="Nn0-43-wla"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="GqM-bt-1gd"/>
                     </view>
                     <navigationItem key="navigationItem" id="s7S-Ed-muU"/>
+                    <connections>
+                        <segue destination="TtK-up-Afk" kind="show" identifier="toTarget" id="cGc-4S-14W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YU-4R-9NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4471.0144927536239" y="184.82142857142856"/>
+        </scene>
+        <!--Target View Controller-->
+        <scene sceneID="MOK-zd-hgX">
+            <objects>
+                <viewController id="TtK-up-Afk" customClass="TargetViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rH5-RZ-cnL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gn-Tj-MeE">
+                                <rect key="frame" x="52" y="161" width="345" height="386"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-ad-4Hh">
+                                        <rect key="frame" x="55" y="76" width="234" height="254"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tapRedButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="1Tz-Sb-kLk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-qn-033">
+                                        <rect key="frame" x="123" y="143" width="99" height="101"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tapYellowButton:" destination="TtK-up-Afk" eventType="touchUpInside" id="vN1-Iw-7AC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="dxc-rc-Wgb"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hQ2-D6-OPV"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aba-9W-SzP">
+                                <rect key="frame" x="70" y="582" width="309" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-lD-9tG">
+                                <rect key="frame" x="104" y="693" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Zy5-jT-CmU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jKX-BI-0xr"/>
+                    <connections>
+                        <outlet property="colorLabel" destination="Aba-9W-SzP" id="Pwk-7a-BP5"/>
+                        <outlet property="drawnDotView" destination="Seo-lD-9tG" id="8UP-Dr-nNz"/>
+                        <outlet property="redButton" destination="hNA-ad-4Hh" id="iVn-6d-qjS"/>
+                        <outlet property="yellowButton" destination="cCj-qn-033" id="JeT-1L-2Us"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgE-w2-zml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5334.7826086956529" y="184.82142857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G2A-pE-232">

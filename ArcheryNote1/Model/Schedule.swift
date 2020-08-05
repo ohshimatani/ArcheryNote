@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 class Schedule: Object {
-    @objc var date: String = ""
-    @objc var title: String = ""
-    @objc var category: Int = 0
-    @objc var memo: String = ""
+    @objc dynamic var date: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var category: Int = 0
+    @objc dynamic var memo: String = ""
 }
