@@ -66,7 +66,6 @@ class TargetViewController: UIViewController {
         dot.backgroundColor = .black
         self.view.addSubview(dot)
         
-        
     }
     
     
