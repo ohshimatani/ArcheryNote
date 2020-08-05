@@ -73,10 +73,6 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
         return 100
     }
     
-    // enable to swip action for tableViewCell
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
