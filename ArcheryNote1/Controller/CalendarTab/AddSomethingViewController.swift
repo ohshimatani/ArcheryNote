@@ -30,6 +30,8 @@ class AddSomethingViewController: UIViewController {
     var weekday: Int!
     var dateLabelText = "9999年99月99日（日）"
     let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
+    
+    
 
     
     override func viewDidLoad() {
@@ -52,6 +54,7 @@ class AddSomethingViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        var scheduleText = ""
         let realm = try! Realm()
         let dateText: String = String(year) + String(month) + String(day)
         print(dateText)
@@ -59,9 +62,10 @@ class AddSomethingViewController: UIViewController {
         let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == %@", dateText)
         print(_todaySchedules)
         if _todaySchedules.count != 0{
-            var scheduleText = ""
             for schedule in _todaySchedules{
-                scheduleText += schedule.date + "\n"
+                let scheduleCategoryList = ["（試　合）", "（練　習）", "（その他）"]
+                scheduleText += "- " + scheduleCategoryList[schedule.category] +  schedule.title + "\n"
+                todayScheduleTextView.text = scheduleText
             }
         }else{
             todayScheduleTextView.text = "今日の予定はありません．"
