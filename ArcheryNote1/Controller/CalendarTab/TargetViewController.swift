@@ -46,10 +46,7 @@ class TargetViewController: UIViewController {
 //    }
     
     
-    
-    
-    @IBAction func tapRedButton(_ sender: Any, forEvent event: UIEvent) {
-        
+    @IBAction func tapRedButton(_ sender: UIButton, forEvent event: UIEvent) {
         if colors == ""{
             colors += "red"
         }else{
@@ -60,17 +57,15 @@ class TargetViewController: UIViewController {
         if let location = event.touches(for: sender)?.first?.location(in: sender) {
             print(location)
             point = location
+        }else{
+            return
         }
         
         let dot = UIView()
-        let x_val = point.x
-        let y_val = point.y
-        dot.frame = CGRect(x: x_val, y: y_val, width: 10, height: 10)
+        dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
         dot.backgroundColor = .black
         self.view.addSubview(dot)
     }
-    
-    
     
     
     

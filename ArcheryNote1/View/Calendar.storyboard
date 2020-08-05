@@ -560,7 +560,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="tapRedButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="1Tz-Sb-kLk"/>
+                                            <action selector="tapRedButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="tWt-fk-dRT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-qn-033">
