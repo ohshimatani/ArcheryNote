@@ -50,11 +50,13 @@ class AddSomethingViewController: UIViewController {
                 
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
         let dateText: String = String(year) + String(month) + String(day)
+        print(dateText)
         print(realm.objects(Schedule.self))
-        let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == \(dateText)")
+        let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == %@", dateText)
         print(_todaySchedules)
         if _todaySchedules.count != 0{
             var scheduleText = ""
@@ -62,9 +64,10 @@ class AddSomethingViewController: UIViewController {
                 scheduleText += schedule.date + "\n"
             }
         }else{
-            self.todayScheduleTextView.text = "今日の予定はありません．"
+            todayScheduleTextView.text = "今日の予定はありません．"
         }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDialySheet"{
