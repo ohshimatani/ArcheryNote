@@ -65,8 +65,7 @@ class TargetViewController: UIViewController {
         dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
         dot.backgroundColor = .black
         self.view.addSubview(dot)
-        
-        
+
     }
     
     
