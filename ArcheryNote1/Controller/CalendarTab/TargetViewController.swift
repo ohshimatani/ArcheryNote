@@ -12,9 +12,7 @@ class TargetViewController: UIViewController {
 
     
     @IBOutlet weak var colorLabel: UILabel!
-    
-    @IBOutlet weak var drawnDotView: UIView!
-    
+        
     @IBOutlet weak var redButton: UIButton!
     
     @IBOutlet weak var yellowButton: UIButton!
@@ -28,22 +26,10 @@ class TargetViewController: UIViewController {
         
         colorLabel.text = colors
         
-        
-//        let dot = UIView()
-//        dot.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-//        dot.backgroundColor = .black
-//        self.view.addSubview(dot)
 
         
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for touch in touches {
-//            let location = touch.location(in: redButton)
-//            print(location)
-//            point = location
-//        }
-//    }
     
     
     @IBAction func tapRedButton(_ sender: UIButton, forEvent event: UIEvent) {
@@ -54,7 +40,7 @@ class TargetViewController: UIViewController {
         }
         colorLabel.text = colors
         
-        if let location = event.touches(for: sender)?.first?.location(in: sender) {
+        if let location = event.touches(for: sender)?.first?.location(in: self.view) {
             print(location)
             point = location
         }else{
@@ -64,22 +50,34 @@ class TargetViewController: UIViewController {
         let dot = UIView()
         dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
         dot.backgroundColor = .black
+        dot.layer.cornerRadius = 5
         self.view.addSubview(dot)
         
     }
     
     
-    
-    
-    
-    @IBAction func tapYellowButton(_ sender: Any) {
+    @IBAction func tapYellowButton(_ sender: UIButton, forEvent event: UIEvent) {
         if colors == ""{
             colors += "yellow"
         }else{
             colors += ", yellow"
         }
         colorLabel.text = colors
+        
+        if let location = event.touches(for: sender)?.first?.location(in: self.view) {
+            print(location)
+            point = location
+        }else{
+            return
+        }
+        
+        let dot = UIView()
+        dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
+        dot.backgroundColor = .black
+        dot.layer.cornerRadius = 5
+        self.view.addSubview(dot)
     }
+    
     
     
     

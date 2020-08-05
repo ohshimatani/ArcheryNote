@@ -568,7 +568,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="tapYellowButton:" destination="TtK-up-Afk" eventType="touchUpInside" id="vN1-Iw-7AC"/>
+                                            <action selector="tapYellowButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="p0b-IK-sFH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -582,11 +582,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-lD-9tG">
-                                <rect key="frame" x="104" y="693" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Zy5-jT-CmU"/>
@@ -594,7 +589,6 @@
                     <navigationItem key="navigationItem" id="jKX-BI-0xr"/>
                     <connections>
                         <outlet property="colorLabel" destination="Aba-9W-SzP" id="Pwk-7a-BP5"/>
-                        <outlet property="drawnDotView" destination="Seo-lD-9tG" id="8UP-Dr-nNz"/>
                         <outlet property="redButton" destination="hNA-ad-4Hh" id="iVn-6d-qjS"/>
                         <outlet property="yellowButton" destination="cCj-qn-033" id="JeT-1L-2Us"/>
                     </connections>
