@@ -108,7 +108,8 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.titleLabel.text = focused.title
             cell.dateLabel.text = focused.date
             cell.variableNameLabel.text = "ピープ："
-            cell.nockingPointLabel.text = focused.peep
+            cell.heightOrPeepLabel.text = focused.peep
+            cell.nockingPointLabel.text = focused.nockingPoint
             break
         default:
             break
@@ -122,6 +123,28 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
+            
+            let realm = try! Realm()
+            try! realm.write{
+                if self.selectedNumber == 0{
+                    realm.delete(self.RCTuningList[indexPath.row])
+                }else{
+                    realm.delete(self.CPTuningList[indexPath.row])
+                }
+                print("deleted")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
 
     
     

@@ -77,6 +77,35 @@ import Foundation
 
 
  
+ ------------------------------list------------------------------
+ 
+ //            var flag = true
+ //            let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+ //            let yesAction = UIAlertAction(title: "はい", style: .default) { (act) in
+ //                print("yes")
+ //                flag = true
+ //            }
+ //            let noAction = UIAlertAction(title: "いいえ", style: .cancel) { (act) in
+ //                print("no")
+ //                flag = false
+ //            }
+ //            alart.addAction(yesAction)
+ //            alart.addAction(noAction)
+ //            self.present(alart, animated: true, completion: nil)
+ //
+ //            if flag{
+ //                let realm = try! Realm()
+ //                try! realm.write{
+ //                    realm.delete(self.trainingMenuList[indexPath.row])
+ //                    print("deleted")
+ //                }
+ //                tableView.deleteRows(at: [indexPath], with: .automatic)
+ //            }else{
+ //                return
+ //            }
+
  
  
  */
+
+

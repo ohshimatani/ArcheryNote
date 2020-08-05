@@ -64,7 +64,6 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: customCellKeyName) as! TrainingListTableViewCell
-//        print("kakanen", trainingMenuList, trainingMenuList[indexPath.row])
         cell.trainingTitle.text = trainingMenuList[indexPath.row].title
 
         return cell
@@ -73,6 +72,29 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
+    // enable to swip action for tableViewCell
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
+            
+            let realm = try! Realm()
+            try! realm.write{
+                realm.delete(self.trainingMenuList[indexPath.row])
+                print("deleted")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
     
 
 }
