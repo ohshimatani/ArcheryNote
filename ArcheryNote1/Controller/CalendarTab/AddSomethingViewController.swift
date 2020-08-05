@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddSomethingViewController: UIViewController {
     
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var todayScheduleTextView: UITextView!
     
     @IBOutlet weak var checkTodaysListButton: UIButton!
     
@@ -47,6 +50,22 @@ class AddSomethingViewController: UIViewController {
                 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let realm = try! Realm()
+        let dateText: String = String(year) + String(month) + String(day)
+        print(realm.objects(Schedule.self))
+        let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == \(dateText)")
+        print(_todaySchedules)
+        if _todaySchedules.count != 0{
+            var scheduleText = ""
+            for schedule in _todaySchedules{
+                scheduleText += schedule.date + "\n"
+            }
+        }else{
+            self.todayScheduleTextView.text = "今日の予定はありません．"
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDialySheet"{
             let NC = segue.destination as! UINavigationController
@@ -73,7 +92,10 @@ class AddSomethingViewController: UIViewController {
     }
     
     
-        
+    @IBAction func toAddSchedule(_ sender: Any) {
+        performSegue(withIdentifier: "toAddSchedule", sender: nil)
+    }
+    
     
     
     

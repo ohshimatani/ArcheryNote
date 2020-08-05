@@ -107,6 +107,12 @@ class DialySheetViewController: UIViewController{
     }
     
     
+    @IBAction func addFromList(_ sender: Any) {
+        performSegue(withIdentifier: "addFromList", sender: nil)
+    }
+    
+    
+    
     
     
     

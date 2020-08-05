@@ -99,6 +99,7 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
             let heightValues = braceHeight + "/" + upperTillerHeight + "/" + lowerTillerHeight
             cell.titleLabel.text = focused.title
             cell.dateLabel.text = focused.date
+            cell.variableNameLabel.text = "ハイト："
             cell.heightOrPeepLabel.text = heightValues
             cell.nockingPointLabel.text = focused.nockingPoint
             break

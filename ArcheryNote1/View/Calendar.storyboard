@@ -84,25 +84,36 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU5-AT-W4C">
-                                <rect key="frame" x="142" y="172" width="130" height="130"/>
+                                <rect key="frame" x="142" y="171" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="＋予定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="toAddSchedule:" destination="4KT-By-mHJ" eventType="touchUpInside" id="zaz-LO-92V"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0V-YX-i49">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifz-Cc-3Dc">
-                                        <rect key="frame" x="8" y="18" width="196" height="39"/>
+                                        <rect key="frame" x="8" y="8" width="196" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mwx-Hf-Is7">
+                                        <rect key="frame" x="71" y="55" width="273" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -116,6 +127,7 @@
                         <outlet property="addScoreButton" destination="mDn-5G-cGx" id="dFF-sA-Hhf"/>
                         <outlet property="checkTodaysListButton" destination="9ED-dc-ny7" id="CcM-ij-a5d"/>
                         <outlet property="dateLabel" destination="ifz-Cc-3Dc" id="bmx-jo-NG1"/>
+                        <outlet property="todayScheduleTextView" destination="mwx-Hf-Is7" id="IUh-mJ-Hge"/>
                         <segue destination="sdN-tY-QU2" kind="presentation" identifier="toDialySheet" id="AZJ-gz-L4z"/>
                         <segue destination="gwc-AT-aAF" kind="presentation" identifier="toAddSchedule" modalPresentationStyle="fullScreen" id="af2-nx-ztN"/>
                         <segue destination="bfW-mI-1qM" kind="presentation" modalPresentationStyle="fullScreen" id="zSE-zt-tv2"/>
@@ -204,6 +216,9 @@
                                 <rect key="frame" x="19" y="493" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="リストからの追加"/>
+                                <connections>
+                                    <action selector="addFromList:" destination="cFq-7B-Dem" eventType="touchUpInside" id="ssV-8h-nH6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="（チューニング・トレーニング・チェックポイント）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJs-5v-EGm">
                                 <rect key="frame" x="48" y="531" width="319" height="16"/>
@@ -265,7 +280,7 @@
                         <outlet property="placeTextField" destination="WhS-f8-YgK" id="Bb7-FH-bgN"/>
                         <outlet property="reflectionTextView" destination="Bhb-Qa-Ms4" id="rXJ-Gb-pmW"/>
                         <outlet property="sumOfShootingTextField" destination="I8g-c3-2pt" id="zy9-bX-dhB"/>
-                        <segue destination="u96-IB-oMP" kind="show" id="2zP-wX-Kw7"/>
+                        <segue destination="u96-IB-oMP" kind="show" identifier="addFromList" id="2zP-wX-Kw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y76-FT-0O1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

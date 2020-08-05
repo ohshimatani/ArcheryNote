@@ -43,6 +43,7 @@ class ScheduleViewController: UIViewController {
         // set known infomation
         dateLabel.text = dateLabelText
         dateText = String(year) + String(month) + String(day)
+        print(dateText)
         
         
         
@@ -94,7 +95,6 @@ class ScheduleViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
         
-        
     }
     
     
@@ -103,6 +103,9 @@ class ScheduleViewController: UIViewController {
     
     
     @IBAction func clear(_ sender: Any) {
+        titleLabel.text = ""
+        categorySegmentedControl.selectedSegmentIndex = 0
+        memoTextView.text = ""
     }
     
     

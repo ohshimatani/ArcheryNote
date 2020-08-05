@@ -767,7 +767,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlX-eC-QDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="-2344"/>
+            <point key="canvasLocation" x="3370" y="-2465"/>
         </scene>
         <!--Bow Settings View Controller-->
         <scene sceneID="dhk-D8-HF4">
@@ -782,7 +782,7 @@
                     <navigationItem key="navigationItem" id="1f4-hu-Hsd">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="9OY-73-GtV">
-                            <rect key="frame" x="112" y="6" width="190" height="33"/>
+                            <rect key="frame" x="112" y="5.5" width="190" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="RC"/>
@@ -826,7 +826,7 @@
                     <navigationItem key="navigationItem" id="Aox-GR-TcK">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="qCr-gS-N19">
-                            <rect key="frame" x="112" y="6" width="190" height="33"/>
+                            <rect key="frame" x="112" y="5.5" width="190" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="RC"/>
