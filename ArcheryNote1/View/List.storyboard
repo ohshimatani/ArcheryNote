@@ -747,6 +747,7 @@
                         <outlet property="memoTextView" destination="tzQ-rj-UOi" id="x4P-I1-SaG"/>
                         <outlet property="saveButton" destination="VVi-YH-0wY" id="oQP-cP-f2M"/>
                         <outlet property="titleTextField" destination="4jS-59-wua" id="hAl-Ib-uuL"/>
+                        <outlet property="trashButton" destination="jOP-rb-OvN" id="WNO-Lb-0gd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uej-HI-HNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

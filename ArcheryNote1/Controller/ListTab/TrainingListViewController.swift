@@ -20,6 +20,9 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     let customCellVCName = "TrainingListTableViewCell"
     let customCellKeyName = "trainingCustomCell"
     
+    var passTitle = ""
+    var passTrainingMenu = ""
+    var passMemo = ""
     var trainingMenuList: Results<TrainingMenu>!
 
     
@@ -42,7 +45,7 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
         trainingMenuList = realm.objects(TrainingMenu.self)
-        self.trainingListTableView.reloadData()
+        trainingListTableView.reloadData()
 //        print(trainingMenuList[0])
     }
     
@@ -93,11 +96,24 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        passTitle = trainingMenuList[indexPath.row].title
+        passTrainingMenu = trainingMenuList[indexPath.row].detail
+        passMemo = trainingMenuList[indexPath.row].memo
         performSegue(withIdentifier: "newTrainingMenu", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        if segue.identifier == "newTrainingMenu" {
+            let NC = segue.destination as! UINavigationController
+            let VC = NC.topViewController as! AddTrainingViewController
+            VC.titleText = passTitle
+            VC.trainingMenuText = passTrainingMenu
+            VC.memoText = passMemo
+            VC.isEdit = true
+            passTitle = ""
+            passTrainingMenu = ""
+            passMemo = ""
+        }
     }
 
     

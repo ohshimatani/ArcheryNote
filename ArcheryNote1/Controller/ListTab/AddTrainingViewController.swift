@@ -19,9 +19,11 @@ class AddTrainingViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
-    var passTitle = ""
-    var passTrainingMenu = ""
-    var passMemo = ""
+    @IBOutlet weak var trashButton: UIBarButtonItem!
+    
+    var titleText = ""
+    var trainingMenuText = ""
+    var memoText = ""
     var isEdit = false
     var result: TrainingMenu!
     
@@ -33,17 +35,25 @@ class AddTrainingViewController: UIViewController {
         }else{
             saveButton.isEnabled = true
         }
+        
+        
+        titleTextField.text = titleText
+        detailTextView.text = trainingMenuText
+        memoTextView.text = memoText
 
         if isEdit {
-            titleTextField.text = passTitle
-            detailTextView.text = passTrainingMenu
-            memoTextView.text = passMemo
+            let realm = try! Realm()
+            result = realm.objects(TrainingMenu.self).filter("title == %@ AND detail == %@ AND memo == %@", trainingMenuText, trainingMenuText, memoText).first
+            
+        }else{
+            trashButton.isEnabled = false
         }
         
         
     }
     
     
+    // close keyboard when tap any point
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -61,7 +71,11 @@ class AddTrainingViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
         if isEdit{
-            
+            try! realm.write {
+                result.title = titleTextField.text!
+                result.detail = detailTextView.text
+                result.memo = memoTextView.text
+            }
         }else{
             let _trainingMenu = TrainingMenu()
             _trainingMenu.title = titleTextField.text!
@@ -91,7 +105,26 @@ class AddTrainingViewController: UIViewController {
 
     }
     
+    
     @IBAction func trash(_ sender: Any) {
+        if isEdit == false { return }
+        let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
+            print("yes")
+            if self.result != nil{
+                let realm = try! Realm()
+                try! realm.write{
+                    realm.delete(self.result)
+                }
+            }
+        }
+        let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+            print("no")
+        }
+        alart.addAction(yesAction)
+        alart.addAction(noAction)
+        self.present(alart, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

@@ -47,9 +47,7 @@ class ScheduleViewController: UIViewController {
 
         // set known infomation
         dateLabel.text = dateLabelText
-        dateText = String(year) + String(month) + String(day)
-        print(dateText as Any)
-        
+        dateText = String(year) + String(month) + String(day)        
         categorySegmentedControl.selectedSegmentIndex = selectedNumber
         titleLabel.text = titleTextFieldText
         memoTextView.text = memoTextViewText
@@ -59,7 +57,6 @@ class ScheduleViewController: UIViewController {
 //            let predicate = NSPredicate(format: "date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText, titleTextFieldText, selectedNumber, memoTextViewText)
             result = realm.objects(Schedule.self).filter("date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText!, titleTextFieldText, selectedNumber, memoTextViewText).first
         }
-        
         
     }
     

@@ -24,7 +24,7 @@ class MyFunctions: NSObject{
         switch alertType {
         case "cancel":
             // --------------このアラートのUXどうなん？-------------
-            let alert = UIAlertController(title: "キャンセルしますか？", message: "記入内容が失われてしまいます", preferredStyle: .alert)
+            let alert = UIAlertController(title: "キャンセル", message: "本当にキャンセルしますか？", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "はい", style: .destructive) { (action) in
                 viewController.dismiss(animated: true, completion: nil)
             }
