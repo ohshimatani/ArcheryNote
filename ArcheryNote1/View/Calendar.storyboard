@@ -58,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <state key="normal" title="確認">
+                                <state key="normal" title="予定の編集">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -105,6 +105,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBd-Jo-oDz">
+                                        <rect key="frame" x="360" y="125" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="編集"/>
+                                        <connections>
+                                            <action selector="toSheduleEdit:" destination="4KT-By-mHJ" eventType="touchUpInside" id="Jhh-0t-4Ch"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -134,6 +142,7 @@
                         <segue destination="sdN-tY-QU2" kind="presentation" identifier="toDialySheet" id="AZJ-gz-L4z"/>
                         <segue destination="gwc-AT-aAF" kind="presentation" identifier="toAddSchedule" modalPresentationStyle="fullScreen" id="af2-nx-ztN"/>
                         <segue destination="bfW-mI-1qM" kind="presentation" identifier="toScoreSheet" modalPresentationStyle="fullScreen" id="zSE-zt-tv2"/>
+                        <segue destination="oZj-YV-BHW" kind="presentation" identifier="toScheduleEdit" modalPresentationStyle="fullScreen" id="DSP-JZ-abJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUj-8O-lrn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -492,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5es-3x-T1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4471.0144927536239" y="-1274.3303571428571"/>
+            <point key="canvasLocation" x="5381.1594202898559" y="-1274.3303571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="txr-Fd-LgX">
@@ -597,6 +606,54 @@
             </objects>
             <point key="canvasLocation" x="5334.7826086956529" y="184.82142857142856"/>
         </scene>
+        <!--Schedule Edit View Controller-->
+        <scene sceneID="8Av-Qs-hVZ">
+            <objects>
+                <viewController id="c7a-nb-MRJ" customClass="ScheduleEditViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tYj-Xh-ILx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="shx-vR-u2U">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleListCell" id="d1c-Bd-Vhb">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d1c-Bd-Vhb" id="Agm-mt-Ow4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="QhT-oz-57f"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QhY-eA-jIJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="ODe-Eb-tUz">
+                            <connections>
+                                <action selector="done:" destination="c7a-nb-MRJ" id="SAP-no-asc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4zf-jc-7Xh">
+                            <connections>
+                                <action selector="addNewSchedule:" destination="c7a-nb-MRJ" id="aSv-Qi-QvM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scheduleListTableView" destination="shx-vR-u2U" id="xAU-so-ZcA"/>
+                        <segue destination="gwc-AT-aAF" kind="presentation" identifier="addNewSchedule" modalPresentationStyle="fullScreen" id="Xx5-ZV-dyj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXD-2w-Srb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2951" y="-1290"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="G2A-pE-232">
             <objects>
@@ -613,7 +670,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4N-WN-ypK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8695652173915" y="-1274.3303571428571"/>
+            <point key="canvasLocation" x="4471.0144927536239" y="-1274.3303571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mkN-lj-flE">
@@ -633,7 +690,28 @@
             </objects>
             <point key="canvasLocation" x="3560.8695652173915" y="184.82142857142856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yJs-yH-AvA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oZj-YV-BHW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cXL-L8-Rpm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c7a-nb-MRJ" kind="relationship" relationship="rootViewController" id="vgI-c5-hAS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhc-q9-DCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="-1564"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xx5-ZV-dyj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
     </resources>

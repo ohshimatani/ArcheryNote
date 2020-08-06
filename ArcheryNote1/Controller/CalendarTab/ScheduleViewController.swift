@@ -31,6 +31,11 @@ class ScheduleViewController: UIViewController {
     let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
     var dateText: String!
     var selectedNumber: Int = 0
+    var titleTextFieldText: String = ""
+    var memoTextViewText: String = ""
+    var isEdit = false
+    
+    var result: Schedule!
     
     
     override func viewDidLoad() {
@@ -43,10 +48,17 @@ class ScheduleViewController: UIViewController {
         // set known infomation
         dateLabel.text = dateLabelText
         dateText = String(year) + String(month) + String(day)
-        print(dateText)
+        print(dateText as Any)
         
+        categorySegmentedControl.selectedSegmentIndex = selectedNumber
+        titleLabel.text = titleTextFieldText
+        memoTextView.text = memoTextViewText
         
-        
+        if isEdit {
+            let realm = try! Realm()
+//            let predicate = NSPredicate(format: "date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText, titleTextFieldText, selectedNumber, memoTextViewText)
+            result = realm.objects(Schedule.self).filter("date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText!, titleTextFieldText, selectedNumber, memoTextViewText).first
+        }
         
         
     }
@@ -83,14 +95,22 @@ class ScheduleViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        let _shcedule = Schedule()
-        _shcedule.date = dateText
-        _shcedule.title = titleLabel.text!
-        _shcedule.category = selectedNumber
-        _shcedule.memo = memoTextView.text
-        try! realm.write {
-            realm.add(_shcedule)
-            print("done")
+        if isEdit{
+            try! realm.write {
+                result.title = titleLabel.text!
+                result.category = selectedNumber
+                result.memo = memoTextView.text
+            }
+        }else{
+            let _shcedule = Schedule()
+            _shcedule.date = dateText
+            _shcedule.title = titleLabel.text!
+            _shcedule.category = selectedNumber
+            _shcedule.memo = memoTextView.text
+            try! realm.write {
+                realm.add(_shcedule)
+                print("done")
+            }
         }
         
         self.dismiss(animated: true, completion: nil)

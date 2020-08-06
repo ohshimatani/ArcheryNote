@@ -58,9 +58,7 @@ class AddSomethingViewController: UIViewController {
         let realm = try! Realm()
         let dateText: String = String(year) + String(month) + String(day)
         print(dateText)
-        print(realm.objects(Schedule.self))
         let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == %@", dateText)
-        print(_todaySchedules)
         if _todaySchedules.count != 0{
             for schedule in _todaySchedules{
                 let scheduleCategoryList = ["（試　合）", "（練　習）", "（その他）"]
@@ -88,6 +86,14 @@ class AddSomethingViewController: UIViewController {
             VC.month = month
             VC.day = day
             VC.weekday = weekday
+        }else if segue.identifier == "toScheduleEdit"{
+            let NC = segue.destination as! UINavigationController
+            let VC = NC.topViewController as! ScheduleEditViewController
+//            print(month, day)
+            VC.year = year
+            VC.month = month
+            VC.day = day
+            VC.weekday = weekday
         }
     }
 
@@ -103,8 +109,14 @@ class AddSomethingViewController: UIViewController {
         performSegue(withIdentifier: "toAddSchedule", sender: nil)
     }
     
+    
     @IBAction func toScoreSheet(_ sender: Any) {
         performSegue(withIdentifier: "toScoreSheet", sender: nil)
+    }
+    
+    
+    @IBAction func toSheduleEdit(_ sender: Any) {
+        performSegue(withIdentifier: "toScheduleEdit", sender: nil)
     }
     
     

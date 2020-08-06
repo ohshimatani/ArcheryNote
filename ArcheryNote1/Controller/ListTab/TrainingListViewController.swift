@@ -90,6 +90,15 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "newTrainingMenu", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 
     
 

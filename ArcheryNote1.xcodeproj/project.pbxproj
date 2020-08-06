@@ -48,6 +48,7 @@
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
 		2AA4E47924AA301900A944B2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47824AA301900A944B2 /* Events.swift */; };
 		2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */; };
+		2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */; };
 		2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E624AA48E90065EE7E /* ComentOuts.swift */; };
 		2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E824AA51480065EE7E /* DialySheet.swift */; };
 		2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */; };
@@ -99,6 +100,7 @@
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
 		2AA4E47824AA301900A944B2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSomethingViewController.swift; sourceTree = "<group>"; };
+		2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditViewController.swift; sourceTree = "<group>"; };
 		2ADA34E624AA48E90065EE7E /* ComentOuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentOuts.swift; sourceTree = "<group>"; };
 		2ADA34E824AA51480065EE7E /* DialySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheet.swift; sourceTree = "<group>"; };
 		2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheetViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				2A36504124D867D400DD60B2 /* ScoreViewController.swift */,
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
 				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
+				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */,
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
+				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
 				2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */,
 				2A802D8724B8A7BE00B366DF /* AddTrainingViewController.swift in Sources */,

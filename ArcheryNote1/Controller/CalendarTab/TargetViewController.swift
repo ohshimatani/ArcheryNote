@@ -64,7 +64,8 @@ class TargetViewController: UIViewController {
         }
         colorLabel.text = colors
         
-        if let location = event.touches(for: sender)?.first?.location(in: self.view) {
+        // for: self.view
+        if let location = event.touches(for: sender)?.first?.location(in: sender) {
             print(location)
             point = location
         }else{
@@ -72,9 +73,13 @@ class TargetViewController: UIViewController {
         }
         
         let dot = UIView()
-        dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
+        let dotRadius: CGFloat = 10.0
+//        dot.frame = CGRect(x: point.x, y: point.y, width: 10, height: 10)
+        let dotPoint: CGPoint = CGPoint(x: point.x, y: point.y)
+        let dotSize: CGSize = CGSize(width: dotRadius, height: dotRadius)
+        dot.frame = CGRect(origin: dotPoint, size: dotSize)
         dot.backgroundColor = .black
-        dot.layer.cornerRadius = 5
+        dot.layer.cornerRadius = dotRadius/2
         self.view.addSubview(dot)
     }
     

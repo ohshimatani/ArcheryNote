@@ -19,6 +19,12 @@ class AddTrainingViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     
+    var passTitle = ""
+    var passTrainingMenu = ""
+    var passMemo = ""
+    var isEdit = false
+    var result: TrainingMenu!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +34,11 @@ class AddTrainingViewController: UIViewController {
             saveButton.isEnabled = true
         }
 
-        
+        if isEdit {
+            titleTextField.text = passTitle
+            detailTextView.text = passTrainingMenu
+            memoTextView.text = passMemo
+        }
         
         
     }
@@ -50,13 +60,18 @@ class AddTrainingViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        let _trainingMenu = TrainingMenu()
-        _trainingMenu.title = titleTextField.text!
-        _trainingMenu.detail = detailTextView.text!
-        _trainingMenu.memo = memoTextView.text!
-        try! realm.write{
-            realm.add(_trainingMenu)
+        if isEdit{
+            
+        }else{
+            let _trainingMenu = TrainingMenu()
+            _trainingMenu.title = titleTextField.text!
+            _trainingMenu.detail = detailTextView.text!
+            _trainingMenu.memo = memoTextView.text!
+            try! realm.write{
+                realm.add(_trainingMenu)
+            }
         }
+        
         print("save")
         self.dismiss(animated: true, completion: nil)
     }
