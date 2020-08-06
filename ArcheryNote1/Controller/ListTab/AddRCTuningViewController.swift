@@ -30,23 +30,34 @@ class AddRCTuningViewController: UIViewController {
     
     var today: String!
     
+    var result: TuningRC!
+    var isEdit = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyyMdE", options: 0, locale: Locale(identifier: "ja_JP"))
-        print(dateFormatter.string(from: date))
         
-        today = dateFormatter.string(from: date)
-        titleTextField.text = today
         
         self.braceHeightTextField.keyboardType = UIKeyboardType.decimalPad
         self.upperTillerHeightTextField.keyboardType = UIKeyboardType.decimalPad
         self.lowerTillerHeightTextField.keyboardType = UIKeyboardType.decimalPad
         
-        
+        if isEdit{
+            titleTextField.text = result.title
+            braceHeightTextField.text = String(result.braceHeight)
+            upperTillerHeightTextField.text = String(result.uppertillerHeight)
+            lowerTillerHeightTextField.text = String(result.lowertillerHeight)
+            nockingPointTextView.text = result.nockingPoint
+            memoTextView.text = result.memo
+        }else{
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyyMdE", options: 0, locale: Locale(identifier: "ja_JP"))
+            print(dateFormatter.string(from: date))
+            today = dateFormatter.string(from: date)
+            titleTextField.text = today
+        }
 
     }
     
@@ -95,17 +106,28 @@ class AddRCTuningViewController: UIViewController {
         let uppertillerHeightValue: Double = valueList[1]
         let lowertillerHeightValue: Double  = valueList[2]
         let realm = try! Realm()
-        let _tuningRC = TuningRC()
-        _tuningRC.date = today
-        _tuningRC.title = titleTextField.text!
-        _tuningRC.braceHeight = braceHeightValue
-        _tuningRC.uppertillerHeight = uppertillerHeightValue
-        _tuningRC.lowertillerHeight = lowertillerHeightValue
-        _tuningRC.nockingPoint = nockingPointTextView.text!
-        _tuningRC.memo = memoTextView.text
-        
-        try! realm.write {
-            realm.add(_tuningRC)
+        if isEdit{
+            try! realm.write {
+                result.title = titleTextField.text!
+                result.braceHeight = braceHeightValue
+                result.uppertillerHeight = uppertillerHeightValue
+                result.lowertillerHeight = lowertillerHeightValue
+                result.nockingPoint = nockingPointTextView.text
+                result.memo = memoTextView.text
+            }
+        }else{
+            let _tuningRC = TuningRC()
+            _tuningRC.date = today
+            _tuningRC.title = titleTextField.text!
+            _tuningRC.braceHeight = braceHeightValue
+            _tuningRC.uppertillerHeight = uppertillerHeightValue
+            _tuningRC.lowertillerHeight = lowertillerHeightValue
+            _tuningRC.nockingPoint = nockingPointTextView.text!
+            _tuningRC.memo = memoTextView.text
+
+            try! realm.write {
+                realm.add(_tuningRC)
+            }
         }
         
         print("save")
@@ -124,6 +146,28 @@ class AddRCTuningViewController: UIViewController {
     
     
     @IBAction func trash(_ sender: Any) {
+        if isEdit == false {
+            return
+        }else{
+            let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
+                print("yes")
+                if self.result != nil{
+                    let realm = try! Realm()
+                    try! realm.write{
+                        realm.delete(self.result)
+                    }
+                }
+            }
+            let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                print("no")
+            }
+            alart.addAction(yesAction)
+            alart.addAction(noAction)
+            self.present(alart, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
+
     }
     
     

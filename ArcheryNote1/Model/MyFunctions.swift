@@ -25,7 +25,7 @@ class MyFunctions: NSObject{
         case "cancel":
             // --------------このアラートのUXどうなん？-------------
             let alert = UIAlertController(title: "キャンセル", message: "本当にキャンセルしますか？", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "はい", style: .destructive) { (action) in
+            let OKAction = UIAlertAction(title: "はい", style: .cancel) { (action) in
                 viewController.dismiss(animated: true, completion: nil)
             }
             let NGAction = UIAlertAction(title: "いいえ", style: .default) { (action) in

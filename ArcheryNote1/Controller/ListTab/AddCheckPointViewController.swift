@@ -23,6 +23,9 @@ class AddCheckPointViewController: UIViewController {
     
     var howImportant: Int = 0
 //    let UserDefaultsKey = "CheckPointList"
+    
+    var result: CheckPoint!
+    var isEdit = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +33,31 @@ class AddCheckPointViewController: UIViewController {
         howImportantColor.layer.cornerRadius = howImportantColor.bounds.width / 2.0
         howImportantColor.layer.masksToBounds = true
         
-        if checkPointTextField.text == ""{
+        if checkPointTextField.text == "" && isEdit == false{
             saveButton.isEnabled = false
         }else{
             saveButton.isEnabled = true
         }
         
-        
+        checkPointTextField.text = result.checkPoint
+        howImportant = result.howImportant
+        howImportantColor.backgroundColor = setColor(howImportant: howImportant)
+        howImportantSegmentedControl.selectedSegmentIndex = howImportant
+        memoTextView.text = result.memo
+    }
+    
+    
+    func setColor(howImportant: Int) -> UIColor{
+        switch howImportant {
+        case 0:
+            return UIColor.blue
+        case 1:
+            return UIColor.systemYellow
+        case 2:
+            return UIColor.red
+        default:
+            return UIColor.blue
+        }
     }
     
     
@@ -57,23 +78,8 @@ class AddCheckPointViewController: UIViewController {
     
     // Tap segmented control
     @IBAction func tapSegmentedControl(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            howImportant = 0
-            howImportantColor.backgroundColor = UIColor.blue
-            break
-        case 1:
-            howImportant = 1
-            howImportantColor.backgroundColor = UIColor.systemYellow
-            break
-        case 2:
-            howImportant = 2
-            howImportantColor.backgroundColor = UIColor.red
-            break
-        default:
-            print("default")
-            break
-        }
+        howImportant = sender.selectedSegmentIndex
+        howImportantColor.backgroundColor = setColor(howImportant: howImportant)
     }
     
     
@@ -81,13 +87,22 @@ class AddCheckPointViewController: UIViewController {
     // Tap save button.
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        let _checkPoint = CheckPoint()
-        _checkPoint.checkPoint = checkPointTextField.text!
-        _checkPoint.howImportant = howImportant
-        _checkPoint.memo = memoTextView.text!
-        try! realm.write {
-            realm.add(_checkPoint)
+        if isEdit {
+            try! realm.write{
+                result.checkPoint = checkPointTextField.text!
+                result.howImportant = howImportant
+                result.memo = memoTextView.text
+            }
+        }else{
+            let _checkPoint = CheckPoint()
+            _checkPoint.checkPoint = checkPointTextField.text!
+            _checkPoint.howImportant = howImportant
+            _checkPoint.memo = memoTextView.text!
+            try! realm.write {
+                realm.add(_checkPoint)
+            }
         }
+        
         
         print("done")
         self.dismiss(animated: true, completion: nil)
@@ -104,11 +119,26 @@ class AddCheckPointViewController: UIViewController {
     
     
     @IBAction func trash(_ sender: Any) {
-        //-------------------------------------------
-        if checkPointTextField.text == nil && memoTextView.text == nil{
+        if isEdit == false {
             return
         }else{
-            MyFunctions.Alert(alertType: "trash", viewController: self)
+            let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
+                print("yes")
+                if self.result != nil{
+                    let realm = try! Realm()
+                    try! realm.write{
+                        realm.delete(self.result)
+                    }
+                }
+            }
+            let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                print("no")
+            }
+            alart.addAction(yesAction)
+            alart.addAction(noAction)
+            self.present(alart, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
 
     }

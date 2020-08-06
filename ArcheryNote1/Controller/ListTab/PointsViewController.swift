@@ -19,6 +19,9 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let customCellKeyName = "checkPointCustomCell"
     
     var checkPointList: Results<CheckPoint>!
+    
+    var passResult = CheckPoint()
+    var isEdit = false
 
     
     override func viewDidLoad() {
@@ -107,6 +110,24 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        passResult = checkPointList[indexPath.row]
+        isEdit = true
+        performSegue(withIdentifier: "newCheckPoint", sender: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newCheckPoint" && isEdit == true{
+            let NC = segue.destination as! UINavigationController
+            let VC = NC.topViewController as! AddCheckPointViewController
+            VC.result = passResult
+            VC.isEdit = true
+            isEdit = false
+            passResult = CheckPoint()
+        }
     }
 
     

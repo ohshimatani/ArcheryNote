@@ -21,34 +21,24 @@ class AddTrainingViewController: UIViewController {
     
     @IBOutlet weak var trashButton: UIBarButtonItem!
     
-    var titleText = ""
-    var trainingMenuText = ""
-    var memoText = ""
     var isEdit = false
     var result: TrainingMenu!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if titleTextField.text == ""{
+        if titleTextField.text! == "" && isEdit == false{
             saveButton.isEnabled = false
         }else{
             saveButton.isEnabled = true
         }
         
         
-        titleTextField.text = titleText
-        detailTextView.text = trainingMenuText
-        memoTextView.text = memoText
+        titleTextField.text = result.title
+        detailTextView.text = result.detail
+        memoTextView.text = result.memo
 
-        if isEdit {
-            let realm = try! Realm()
-            result = realm.objects(TrainingMenu.self).filter("title == %@ AND detail == %@ AND memo == %@", trainingMenuText, trainingMenuText, memoText).first
-            
-        }else{
-            trashButton.isEnabled = false
-        }
-        
+                
         
     }
     
@@ -70,7 +60,7 @@ class AddTrainingViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        if isEdit{
+        if isEdit && result != nil{
             try! realm.write {
                 result.title = titleTextField.text!
                 result.detail = detailTextView.text
@@ -107,25 +97,38 @@ class AddTrainingViewController: UIViewController {
     
     
     @IBAction func trash(_ sender: Any) {
-        if isEdit == false { return }
-        let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
-            print("yes")
-            if self.result != nil{
-                let realm = try! Realm()
-                try! realm.write{
-                    realm.delete(self.result)
+        if isEdit == false {
+            return
+        }else{
+            let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
+                print("yes")
+                if self.result != nil{
+                    let realm = try! Realm()
+                    try! realm.write{
+                        realm.delete(self.result)
+                    }
                 }
             }
+            let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                print("no")
+            }
+            alart.addAction(yesAction)
+            alart.addAction(noAction)
+            self.present(alart, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
-        let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
-            print("no")
-        }
-        alart.addAction(yesAction)
-        alart.addAction(noAction)
-        self.present(alart, animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

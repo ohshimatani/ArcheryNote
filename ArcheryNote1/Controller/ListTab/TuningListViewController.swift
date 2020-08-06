@@ -24,6 +24,12 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let customCellVCName = "TuningListTableViewCell"
     let customCellKeyName = "tuningListCustomCell"
+    
+    var passResultRC = TuningRC()
+    var passResultCP = TuningCP()
+    var isEdit = false
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,6 +151,41 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
         return UISwipeActionsConfiguration(actions: [action])
     }
 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isEdit = true
+        switch selectedNumber {
+        case 0:
+            passResultRC = RCTuningList[indexPath.row]
+            performSegue(withIdentifier: "newTuningRC", sender: nil)
+        case 1:
+            passResultCP = CPTuningList[indexPath.row]
+            performSegue(withIdentifier: "newTuningCP", sender: nil)
+        default:
+            break
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if isEdit{
+            if segue.identifier == "newTuningRC"{
+                let NC = segue.destination as! UINavigationController
+                let VC = NC.topViewController as! AddRCTuningViewController
+                VC.result = passResultRC
+                VC.isEdit = true
+                passResultRC = TuningRC()
+            }else if segue.identifier == "newTuningCP"{
+                let NC = segue.destination as! UINavigationController
+                let VC = NC.topViewController as! AddCPTuningViewController
+                VC.result = passResultCP
+                VC.isEdit = true
+                passResultCP = TuningCP()
+            }
+            isEdit = false
+        }
+        
+    }
 
     
     

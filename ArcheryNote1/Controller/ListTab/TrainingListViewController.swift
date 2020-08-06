@@ -23,6 +23,8 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     var passTitle = ""
     var passTrainingMenu = ""
     var passMemo = ""
+    var passResult = TrainingMenu()
+    var isEdit = false
     var trainingMenuList: Results<TrainingMenu>!
 
     
@@ -96,23 +98,21 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        passTitle = trainingMenuList[indexPath.row].title
-        passTrainingMenu = trainingMenuList[indexPath.row].detail
-        passMemo = trainingMenuList[indexPath.row].memo
+        passResult = trainingMenuList[indexPath.row]
+        isEdit = true
         performSegue(withIdentifier: "newTrainingMenu", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newTrainingMenu" {
-            let NC = segue.destination as! UINavigationController
-            let VC = NC.topViewController as! AddTrainingViewController
-            VC.titleText = passTitle
-            VC.trainingMenuText = passTrainingMenu
-            VC.memoText = passMemo
-            VC.isEdit = true
-            passTitle = ""
-            passTrainingMenu = ""
-            passMemo = ""
+            if isEdit{
+                let NC = segue.destination as! UINavigationController
+                let VC = NC.topViewController as! AddTrainingViewController
+                VC.result = passResult
+                VC.isEdit = true
+                isEdit = false
+                passResult = TrainingMenu()
+            }
         }
     }
 
