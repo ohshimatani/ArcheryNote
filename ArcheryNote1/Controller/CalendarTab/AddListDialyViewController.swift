@@ -16,6 +16,7 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var addTableView: UITableView!
     
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var selectedNumber: Int = 0
     var checkPointList: Results<CheckPoint>!
@@ -29,6 +30,8 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     var customCellKeyName = "checkPointCustomCell"
     
     var tableViewRowNumbers = [0, 0, 0]
+    
+    var dateText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,14 +162,32 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "追加") { (_, _, completionHandler) in
             
-//            let realm = try! Realm()
-//            try! realm.write{
-//                realm.delete(self.checkPointList[indexPath.row])
-//                switch selectedNumber{
-//                case 0:
-//
-//                }
-//            }
+            let realm = try! Realm()
+            let _dialyAddList = DialyAddList()
+            
+            _dialyAddList.date = self.dateText
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 0:
+                _dialyAddList.checkPoint = self.checkPointList[indexPath.row]
+                break
+            case 1:
+                _dialyAddList.trainingMenu = self.trainingMenuList[indexPath.row]
+                break
+            case 2:
+                if self.globalBowDiscipline == "RC" {
+                    _dialyAddList.tuningRC = self.RCTuningList[indexPath.row]
+                }else if self.globalBowDiscipline == "CP"{
+                    _dialyAddList.tuningCP = self.CPTuningList[indexPath.row]
+                }
+                break
+            default:
+                break
+            }
+            
+            try! realm.write {
+                realm.add(_dialyAddList)
+            }
+            
 //            self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
             completionHandler(true)
@@ -174,6 +195,33 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
         action.backgroundColor = .systemBlue
         
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            let VC = self.storyboard?.instantiateViewController(withIdentifier: "editCheckPointFromDialy") as! PointsViewController
+            self.present(VC, animated: true, completion: nil)
+        case 1:
+            let VC = self.storyboard?.instantiateViewController(withIdentifier: "editTrainingMenuFromDialy") as! TrainingListViewController
+            self.present(VC, animated: true, completion: nil)
+        case 2:
+            if globalBowDiscipline == "RC" {
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "editRCTuningFromDialy") as! AddRCTuningViewController
+                self.present(VC, animated: true, completion: nil)
+            }else if globalBowDiscipline == "CP"{
+                let VC = self.storyboard?.instantiateViewController(withIdentifier: "editCPTuningFromDialy") as! AddCPTuningViewController
+                self.present(VC, animated: true, completion: nil)
+            }
+        default:
+            break
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == 
     }
 
     

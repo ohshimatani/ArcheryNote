@@ -145,7 +145,7 @@
         <!--CP-->
         <scene sceneID="UwE-ma-fdt">
             <objects>
-                <viewController id="tkC-pe-zD8" customClass="AddCPTuningViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editCPTuningFromDialy" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tkC-pe-zD8" customClass="AddCPTuningViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bl2-Ff-K4A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,7 +285,7 @@
         <!--RC-->
         <scene sceneID="Sxm-bw-3ak">
             <objects>
-                <viewController id="RkU-vc-4aH" customClass="AddRCTuningViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editRCTuningFromDialy" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RkU-vc-4aH" customClass="AddRCTuningViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k0t-Rb-ZvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -479,7 +479,7 @@
         <!--Add Check Point View Controller-->
         <scene sceneID="U8g-pg-Kp9">
             <objects>
-                <viewController storyboardIdentifier="newCheckPoint" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUt-nj-1l4" customClass="AddCheckPointViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editCheckPointFromDialy" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CUt-nj-1l4" customClass="AddCheckPointViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IuM-Wt-ZdD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,7 +641,7 @@
         <!--Add Training View Controller-->
         <scene sceneID="BC3-IO-lqM">
             <objects>
-                <viewController storyboardIdentifier="newTrainingMenu" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBS-2o-9dC" customClass="AddTrainingViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editTrainingMenuFromDialy" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kBS-2o-9dC" customClass="AddTrainingViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P3S-QL-NbF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -768,7 +768,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlX-eC-QDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3370" y="-2465"/>
+            <point key="canvasLocation" x="239" y="-1039"/>
         </scene>
         <!--Bow Settings View Controller-->
         <scene sceneID="dhk-D8-HF4">
@@ -777,6 +777,23 @@
                     <view key="view" contentMode="scaleToFill" id="yW7-Xm-mLJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-Pg-EaJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6cc-oH-yJc">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6cc-oH-yJc" id="MWB-dg-xk1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="g2t-Cu-53c"/>
                     </view>
@@ -790,12 +807,92 @@
                                 <segment title="CP"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i01-oO-Ao2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="i01-oO-Ao2">
+                            <connections>
+                                <action selector="addBowSettings:" destination="fh9-dT-xre" id="6FS-f4-kf0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="9OY-73-GtV" id="hkc-ax-200"/>
+                        <segue destination="8U7-HE-sfx" kind="presentation" identifier="toCPBowSettings" modalPresentationStyle="fullScreen" id="3zk-9A-QKS"/>
+                        <segue destination="Ozf-aQ-3CW" kind="presentation" identifier="toRCBowSettings" modalPresentationStyle="fullScreen" id="J9E-hN-3Ei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwj-N5-l8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3371.0144927536235" y="-1686.1607142857142"/>
+            <point key="canvasLocation" x="3369.5652173913045" y="-2157.5892857142858"/>
+        </scene>
+        <!--CP-->
+        <scene sceneID="wmu-R0-Gce">
+            <objects>
+                <viewController id="FI6-ni-gc1" customClass="AddCPBowSettingsViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i0V-MO-YhV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iSK-Cw-rQ7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="CP" id="d1I-dQ-XMy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3li-Ir-fUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5090" y="-2498"/>
+        </scene>
+        <!--RC-->
+        <scene sceneID="o0x-rE-96E">
+            <objects>
+                <viewController id="HmU-hf-AQQ" customClass="AddRCBowSettingsViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eqL-Ia-DBV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIW-JE-sXH">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QYb-Kg-H6g">
+                                        <rect key="frame" x="-87" y="-36" width="414" height="200"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QYb-Kg-H6g" firstAttribute="top" secondItem="QIW-JE-sXH" secondAttribute="top" constant="-36" id="Itb-B6-PaD"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="7W1-h9-oLb"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="7yU-4R-cKs"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-sG-eUB">
+                                <rect key="frame" x="126" y="824" width="162" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="うえ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-gm-ICd">
+                                <rect key="frame" x="126" y="240" width="162" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="N8I-II-yxW" firstAttribute="bottom" secondItem="QIW-JE-sXH" secondAttribute="bottom" id="2Y1-jY-FTo"/>
+                            <constraint firstItem="QIW-JE-sXH" firstAttribute="leading" secondItem="N8I-II-yxW" secondAttribute="leading" id="li5-s5-Chs"/>
+                            <constraint firstItem="QIW-JE-sXH" firstAttribute="top" secondItem="N8I-II-yxW" secondAttribute="top" id="uIK-Oz-T4N"/>
+                            <constraint firstItem="N8I-II-yxW" firstAttribute="trailing" secondItem="QIW-JE-sXH" secondAttribute="trailing" id="vPt-di-6AF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N8I-II-yxW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="RC" id="E1m-TB-FqD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="y6z-of-qHx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Kjb-R8-usy"/>
+                    </navigationItem>
+                    <size key="freeformSize" width="414" height="1200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EEJ-M8-mr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6276.811594202899" y="-1773.2142857142856"/>
         </scene>
         <!--Tuning List View Controller-->
         <scene sceneID="Elf-u5-Aps">
@@ -944,6 +1041,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Di-5L-bZ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4180" y="-325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xg5-L2-FC9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ozf-aQ-3CW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="irJ-Ep-mbE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HmU-hf-AQQ" kind="relationship" relationship="rootViewController" id="8V2-fX-G7q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZd-Bs-w2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4180" y="-1773"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bfA-B9-LS5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8U7-HE-sfx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TzB-Jh-hdx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FI6-ni-gc1" kind="relationship" relationship="rootViewController" id="fsD-QC-Ubt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9O-91-ldw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4180" y="-2498"/>
         </scene>
     </scenes>
     <resources>

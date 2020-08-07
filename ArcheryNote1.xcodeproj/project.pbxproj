@@ -49,6 +49,13 @@
 		2AA4E47924AA301900A944B2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47824AA301900A944B2 /* Events.swift */; };
 		2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */; };
 		2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */; };
+		2AB93B0724DBF2CF00389A05 /* AddRCBowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */; };
+		2AB93B0924DBF2E000389A05 /* AddCPBowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */; };
+		2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */; };
+		2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */; };
+		2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */; };
+		2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */; };
+		2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1424DD52E500389A05 /* DialyAddList.swift */; };
 		2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E624AA48E90065EE7E /* ComentOuts.swift */; };
 		2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E824AA51480065EE7E /* DialySheet.swift */; };
 		2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */; };
@@ -101,6 +108,13 @@
 		2AA4E47824AA301900A944B2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSomethingViewController.swift; sourceTree = "<group>"; };
 		2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditViewController.swift; sourceTree = "<group>"; };
+		2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRCBowSettingsViewController.swift; sourceTree = "<group>"; };
+		2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCPBowSettingsViewController.swift; sourceTree = "<group>"; };
+		2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		2AB93B1424DD52E500389A05 /* DialyAddList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialyAddList.swift; sourceTree = "<group>"; };
 		2ADA34E624AA48E90065EE7E /* ComentOuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentOuts.swift; sourceTree = "<group>"; };
 		2ADA34E824AA51480065EE7E /* DialySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheet.swift; sourceTree = "<group>"; };
 		2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheetViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +141,8 @@
 				2A36503924D84F0500DD60B2 /* TuningListTableViewCell.swift */,
 				2A36502324D6A90300DD60B2 /* TrainingListTableViewCell.swift */,
 				2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */,
+				2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */,
+				2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -188,6 +204,8 @@
 				2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */,
 				2A36502424D6A90300DD60B2 /* TrainingListTableViewCell.xib */,
 				2A36503A24D84F0500DD60B2 /* TuningListTableViewCell.xib */,
+				2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */,
+				2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +221,7 @@
 				2A36502B24D7DCE400DD60B2 /* TuningRC.swift */,
 				2A36502D24D7E8DD00DD60B2 /* TuningCP.swift */,
 				2A36503F24D862DD00DD60B2 /* Schedule.swift */,
+				2AB93B1424DD52E500389A05 /* DialyAddList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +271,8 @@
 				2A36502724D6D28700DD60B2 /* AddRCTuningViewController.swift */,
 				2A36502924D6D29500DD60B2 /* AddCPTuningViewController.swift */,
 				2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */,
+				2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */,
+				2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */,
 			);
 			path = ListTab;
 			sourceTree = "<group>";
@@ -360,6 +381,8 @@
 				2A6B169624A673BC009C497D /* Assets.xcassets in Resources */,
 				2A6B16CC24AA018E009C497D /* Settings.storyboard in Resources */,
 				2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */,
+				2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */,
+				2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,10 +452,13 @@
 				2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */,
 				2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */,
 				2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */,
+				2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */,
 				2A6B168D24A673B9009C497D /* AppDelegate.swift in Sources */,
 				2A36504B24D9488000DD60B2 /* BowSettingsViewController.swift in Sources */,
 				2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */,
+				2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */,
 				2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */,
+				2AB93B0924DBF2E000389A05 /* AddCPBowSettingsViewController.swift in Sources */,
 				2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */,
 				2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */,
 				2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */,
@@ -443,8 +469,10 @@
 				2A36502224D6A87B00DD60B2 /* TrainingListViewController.swift in Sources */,
 				2A36502524D6A90300DD60B2 /* TrainingListTableViewCell.swift in Sources */,
 				2A36502824D6D28700DD60B2 /* AddRCTuningViewController.swift in Sources */,
+				2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */,
 				2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */,
 				2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */,
+				2AB93B0724DBF2CF00389A05 /* AddRCBowSettingsViewController.swift in Sources */,
 				2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */,
 				2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */,
 			);

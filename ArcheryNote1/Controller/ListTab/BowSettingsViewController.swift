@@ -11,6 +11,7 @@ import UIKit
 class BowSettingsViewController: UIViewController {
     
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
     
@@ -24,7 +25,18 @@ class BowSettingsViewController: UIViewController {
         
     }
     
+    @IBAction func addBowSettings(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            performSegue(withIdentifier: "toRCBowSettings", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "toCPBowSettings", sender: nil)
+        default:
+            break
+        }
+    }
     
+   
     
     
     

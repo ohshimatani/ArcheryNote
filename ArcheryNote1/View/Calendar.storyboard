@@ -224,14 +224,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-Ps-tIL">
-                                <rect key="frame" x="19" y="493" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="リストからの追加"/>
-                                <connections>
-                                    <action selector="addFromList:" destination="cFq-7B-Dem" eventType="touchUpInside" id="ssV-8h-nH6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="（チューニング・トレーニング・チェックポイント）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJs-5v-EGm">
                                 <rect key="frame" x="48" y="531" width="319" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -274,11 +266,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-Ps-tIL">
+                                <rect key="frame" x="139" y="493" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="リストからの追加"/>
+                                <connections>
+                                    <action selector="addFromList:" destination="cFq-7B-Dem" eventType="touchUpInside" id="ssV-8h-nH6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tUJ-9k-HmV"/>
                     </view>
                     <navigationItem key="navigationItem" title="日誌" id="qvj-Fl-6Tm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PkW-D1-jfq">
+                            <connections>
+                                <action selector="cansel:" destination="cFq-7B-Dem" id="j81-gA-ntk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="v9v-O2-7I5">
                             <connections>
                                 <action selector="save:" destination="cFq-7B-Dem" id="p5D-cz-1xV"/>
@@ -320,7 +325,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qaG-0Z-u5H">
-                                <rect key="frame" x="0.0" y="144" width="414" height="373"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -343,6 +348,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addTableView" destination="qaG-0Z-u5H" id="oEd-Pf-Zo2"/>
+                        <outlet property="segmentedControl" destination="U2h-Sx-5OQ" id="lQm-Pb-4kS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oec-du-guK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
