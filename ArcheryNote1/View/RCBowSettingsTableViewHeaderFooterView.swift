@@ -15,6 +15,8 @@ protocol RCBowSettingsTableViewHeaderFooterViewDelegate: AnyObject {
 
 class RCBowSettingsTableViewHeaderFooterView: UITableViewHeaderFooterView {
     
+    @IBOutlet weak var sectionLabel: UILabel!
+    
     
     var delegate: RCBowSettingsTableViewHeaderFooterViewDelegate?
     var section: Int = 0

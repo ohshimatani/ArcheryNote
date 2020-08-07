@@ -58,6 +58,9 @@
 		2AB93B1D24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */; };
 		2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */; };
 		2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */; };
+		2AB93B2524DDA92100389A05 /* BowSettingsRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */; };
+		2AB93B2824DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B2624DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift */; };
+		2AB93B2924DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B2724DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib */; };
 		2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E624AA48E90065EE7E /* ComentOuts.swift */; };
 		2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E824AA51480065EE7E /* DialySheet.swift */; };
 		2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */; };
@@ -119,6 +122,9 @@
 		2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RCBowSettingsTableViewHeaderFooterView.swift; path = ArcheryNote1/View/RCBowSettingsTableViewHeaderFooterView.swift; sourceTree = SOURCE_ROOT; };
 		2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewController.swift; sourceTree = "<group>"; };
+		2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowSettingsRC.swift; sourceTree = "<group>"; };
+		2AB93B2624DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersInBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2AB93B2724DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OthersInBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2ADA34E624AA48E90065EE7E /* ComentOuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentOuts.swift; sourceTree = "<group>"; };
 		2ADA34E824AA51480065EE7E /* DialySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheet.swift; sourceTree = "<group>"; };
 		2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheetViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +218,8 @@
 				2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */,
 				2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */,
 				2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */,
+				2AB93B2624DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift */,
+				2AB93B2724DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 				2A36502D24D7E8DD00DD60B2 /* TuningCP.swift */,
 				2A36503F24D862DD00DD60B2 /* Schedule.swift */,
 				2AB93B1424DD52E500389A05 /* DialyAddList.swift */,
+				2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,6 +399,7 @@
 				2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */,
 				2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */,
 				2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */,
+				2AB93B2924DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,12 +454,14 @@
 			files = (
 				2AA4E47924AA301900A944B2 /* Events.swift in Sources */,
 				2A6B16CE24AA1D19009C497D /* CalendarViewController.swift in Sources */,
+				2AB93B2524DDA92100389A05 /* BowSettingsRC.swift in Sources */,
 				2A6B169124A673B9009C497D /* ViewController.swift in Sources */,
 				2A36502E24D7E8DD00DD60B2 /* TuningCP.swift in Sources */,
 				2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */,
 				2A6B16D424AA1D3B009C497D /* SettingsViewController.swift in Sources */,
 				2A36503E24D85B4F00DD60B2 /* ScheduleViewController.swift in Sources */,
 				2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */,
+				2AB93B2824DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift in Sources */,
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
 				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,

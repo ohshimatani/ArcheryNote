@@ -165,7 +165,18 @@
                             <outlet property="delegate" destination="Bcp-yU-GpE" id="76r-WR-Pdj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="RC" id="wgC-8P-S7c"/>
+                    <navigationItem key="navigationItem" title="RC" id="wgC-8P-S7c">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="FaR-0b-f6h">
+                            <connections>
+                                <action selector="cansel:" destination="Bcp-yU-GpE" id="WEz-Ae-IZg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cAF-2y-u5K">
+                            <connections>
+                                <action selector="save:" destination="Bcp-yU-GpE" id="hLd-iH-yG8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjM-HD-gKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RCBowSettingsTableViewController: UITableViewController {
 
@@ -17,33 +18,58 @@ class RCBowSettingsTableViewController: UITableViewController {
     // ----------------
     
     
+    
+    
+    
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
     
     var tableDataList = [[CellData]]()
-    var sections = ["AAA", "BBB", "CCC", "DDD", "EEE"]
+    var sections = ["ハンドル", "リム", "矢", "弦", "スタビライザー",
+                    "サイト", "プランジャー", "タブ", "その他"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // ---------------------
-        tableDataList.append([.init(name: "test_001.txt"),
-                              .init(name: "test_002.txt"),
-                              .init(name: "test_003.txt")])
-        tableDataList.append([.init(name: "test_004.txt"),
-                              .init(name: "test_005.txt"),
-                              .init(name: "test_006.txt")])
-        tableDataList.append([.init(name: "test_007.txt"),
-                              .init(name: "test_008.txt")])
-        tableDataList.append([.init(name: "test_009.txt"),
-                              .init(name: "test_010.txt"),
-                              .init(name: "test_011.txt")])
-        tableDataList.append([.init(name: "test_012.txt"),
-                              .init(name: "test_013.txt")])
+        
+        // riser
+        tableDataList.append([.init(name: "- 名前"),
+                              .init(name: "- サイズ")])
+        // limb
+        tableDataList.append([.init(name: "- 名前"),
+                              .init(name: "- サイズ")])
+        // arrow
+        tableDataList.append([.init(name: "- 名前"),
+                              .init(name: "- スパイン"),
+                              .init(name: "- 長さ"),
+                              .init(name: "- ノック"),
+                              .init(name: "- 羽")])
+        // string
+        tableDataList.append([.init(name: "- 原糸"),
+                              .init(name: "- サービング"),
+                              .init(name: "- 長さ"),
+                              .init(name: "- ストランド数")])
+        // stabilizer
+        tableDataList.append([.init(name: "- センターロッド"),
+                              .init(name: "    - サイズ"),
+                              .init(name: "- センターロッド"),
+                              .init(name: "    - サイズ")])
+        // sight
+        tableDataList.append([.init(name: "- 名前")])
+        // plunger
+        tableDataList.append([.init(name: "- 名前")])
+        // tab
+        tableDataList.append([.init(name: "- 名前")])
+        // others
+        tableDataList.append([.init(name: "- その他")])
         // ---------------------
         
         
         
+        
+        
+        tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: headerName, bundle: nil), forHeaderFooterViewReuseIdentifier: "RCHeader")
         
         
@@ -62,29 +88,85 @@ class RCBowSettingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RCToolsDetailCell", for: indexPath)
-        cell.textLabel?.text = tableDataList[indexPath.section][indexPath.row].name
-        return cell
+        if indexPath.section == 8 {
+            let nib = UINib(nibName: "OthersInBowSettingsTableViewCell", bundle: .main)
+            tableView.register(nib, forCellReuseIdentifier: "bowSettingsOthers")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsOthers") as! OthersInBowSettingsTableViewCell
+            return cell
+        } else {
+            let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
+            tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
+            cell.label.text = tableDataList[indexPath.section][indexPath.row].name
+            return cell
+        }
+        
     }
     
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RCHeader") as! RCBowSettingsTableViewHeaderFooterView
         header.section = section
+        header.sectionLabel.text = sections[section]
         header.delegate = self
         return header
     }
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 8{
+            return 130
+        }else {
+            return 44
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
+    
+    
+    
+    @IBAction func save(_ sender: Any) {
+        for _section in 0..<sections.count{
+            for _row in 0..<tableDataList[_section].count{
+                
+            }
+        }
+        let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
+        tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
+        
+//        let realm = try! Realm()
+//        let _bowSettingsRC = BowSettingsRC()
+//        _bowSettingsRC.riser["name"] = tableView.cellForRow(at: [0, 0]).textField.text
+//        try! realm.write {
+//
+//        }
+        
+    }
+    
+    
+    @IBAction func cansel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
     
     
 
 }
 
-extension RCBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate {
+extension RCBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate, RCBowSettingsTableViewCellDelegate {
+    func getTextFieldInformation(inputText: String) {        print(inputText)
+        print("よばれたよ")
+    }
+    
     func RCHeaderFooterView(_ header: RCBowSettingsTableViewHeaderFooterView, section: Int) {
         if expandSectionSet.contains(section) {
             expandSectionSet.remove(section)
