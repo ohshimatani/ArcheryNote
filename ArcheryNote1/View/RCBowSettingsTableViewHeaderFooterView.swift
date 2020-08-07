@@ -20,12 +20,9 @@ class RCBowSettingsTableViewHeaderFooterView: UITableViewHeaderFooterView {
     var section: Int = 0
     
     override func awakeFromNib() {
-        
+        contentView.backgroundColor = .systemBackground
     }
-    
-    
-    
-    
+        
     @IBAction func didTap(_ sender: Any) {
         delegate?.RCHeaderFooterView(self, section: section)
     }
