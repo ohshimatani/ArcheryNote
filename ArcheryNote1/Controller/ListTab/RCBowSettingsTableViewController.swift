@@ -10,16 +10,10 @@ import UIKit
 import RealmSwift
 
 class RCBowSettingsTableViewController: UITableViewController {
-
-    // ----------------
+    
     struct CellData {
         let name: String
     }
-    // ----------------
-    
-    
-    
-    
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
@@ -27,6 +21,9 @@ class RCBowSettingsTableViewController: UITableViewController {
     var tableDataList = [[CellData]]()
     var sections = ["ハンドル", "リム", "矢", "弦", "スタビライザー",
                     "サイト", "プランジャー", "タブ", "その他"]
+    
+    var textArray = [String]()
+    var cellIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +49,9 @@ class RCBowSettingsTableViewController: UITableViewController {
                               .init(name: "- ストランド数")])
         // stabilizer
         tableDataList.append([.init(name: "- センターロッド"),
-                              .init(name: "    - サイズ"),
+                              .init(name: "      - サイズ"),
                               .init(name: "- センターロッド"),
-                              .init(name: "    - サイズ")])
+                              .init(name: "      - サイズ")])
         // sight
         tableDataList.append([.init(name: "- 名前")])
         // plunger
@@ -65,8 +62,9 @@ class RCBowSettingsTableViewController: UITableViewController {
         tableDataList.append([.init(name: "- その他")])
         // ---------------------
         
-        
-        
+        for _ in 0..<21{
+            textArray.append("")
+        }
         
         
         tableView.tableFooterView = UIView()
@@ -88,16 +86,22 @@ class RCBowSettingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIndexList = [0, 2, 4, 9, 13, 17, 18, 19, 20]
         if indexPath.section == 8 {
             let nib = UINib(nibName: "OthersInBowSettingsTableViewCell", bundle: .main)
             tableView.register(nib, forCellReuseIdentifier: "bowSettingsOthers")
             let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsOthers") as! OthersInBowSettingsTableViewCell
+            cellIndex = 20
+            textArray[cellIndex] = cell.othersTextView.text
             return cell
         } else {
             let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
             tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
+//            cell.delegate = self
             cell.label.text = tableDataList[indexPath.section][indexPath.row].name
+            cellIndex = cellIndexList[indexPath.section] + indexPath.row
+            textArray[cellIndex] = cell.textField.text!
             return cell
         }
         
@@ -108,6 +112,7 @@ class RCBowSettingsTableViewController: UITableViewController {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RCHeader") as! RCBowSettingsTableViewHeaderFooterView
         header.section = section
         header.sectionLabel.text = sections[section]
+        header.sectionLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
         header.delegate = self
         return header
     }
@@ -125,17 +130,21 @@ class RCBowSettingsTableViewController: UITableViewController {
         return 44
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
     
     
     @IBAction func save(_ sender: Any) {
-        for _section in 0..<sections.count{
-            for _row in 0..<tableDataList[_section].count{
-                
-            }
-        }
-        let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
+        tableView.reloadData()
+        print(textArray)
+        
+        
+//        let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
+//        tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
         
 //        let realm = try! Realm()
 //        let _bowSettingsRC = BowSettingsRC()
@@ -162,10 +171,12 @@ class RCBowSettingsTableViewController: UITableViewController {
 
 }
 
-extension RCBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate, RCBowSettingsTableViewCellDelegate {
-    func getTextFieldInformation(inputText: String) {        print(inputText)
-        print("よばれたよ")
-    }
+extension RCBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate {
+//    func getTextFieldInformation(cell: RCBowSettingsTableViewCell, inputText: String) {
+//        print("よばれたよ")
+//        print(cell.textField.text!)
+//
+//    }
     
     func RCHeaderFooterView(_ header: RCBowSettingsTableViewHeaderFooterView, section: Int) {
         if expandSectionSet.contains(section) {

@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol RCBowSettingsTableViewCellDelegate {
-    func getTextFieldInformation(inputText: String)
-}
+//protocol RCBowSettingsTableViewCellDelegate: AnyObject {
+//    func getTextFieldInformation(cell: RCBowSettingsTableViewCell, inputText: String)
+//}
 
 
 class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -19,12 +19,12 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     
-    var delegate: RCBowSettingsTableViewCellDelegate?
+//    var delegate: RCBowSettingsTableViewCellDelegate?
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.textField.delegate = self
+//        self.textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,23 +34,23 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("tttttttttt")
-        let inputText = textField.text!
-        print("bbb", inputText)
-        textField.resignFirstResponder()
-        delegate?.getTextFieldInformation(inputText: inputText)
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("tttttttttt")
-        let inputText = textField.text!
-        print("aaa", inputText)
-        textField.resignFirstResponder()
-        delegate?.getTextFieldInformation(inputText: inputText)
-        
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        print("tttttttttt")
+//        let inputText = textField.text!
+//        print("bbb", inputText)
+//        textField.resignFirstResponder()
+//        self.delegate?.getTextFieldInformation(cell: self, inputText: inputText)
+//        return true
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("tttttttttt")
+//        let inputText = textField.text!
+//        print("aaa", inputText)
+//        textField.resignFirstResponder()
+//        self.delegate?.getTextFieldInformation(cell: self, inputText: inputText)
+//
+//    }
     
     
     
