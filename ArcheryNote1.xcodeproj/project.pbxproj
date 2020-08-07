@@ -49,13 +49,15 @@
 		2AA4E47924AA301900A944B2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47824AA301900A944B2 /* Events.swift */; };
 		2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */; };
 		2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */; };
-		2AB93B0724DBF2CF00389A05 /* AddRCBowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */; };
-		2AB93B0924DBF2E000389A05 /* AddCPBowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */; };
 		2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */; };
 		2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */; };
 		2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */; };
 		2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */; };
 		2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1424DD52E500389A05 /* DialyAddList.swift */; };
+		2AB93B1924DD6AA500389A05 /* ScoreSheetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */; };
+		2AB93B1D24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */; };
+		2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */; };
+		2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */; };
 		2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E624AA48E90065EE7E /* ComentOuts.swift */; };
 		2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E824AA51480065EE7E /* DialySheet.swift */; };
 		2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */; };
@@ -108,13 +110,15 @@
 		2AA4E47824AA301900A944B2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSomethingViewController.swift; sourceTree = "<group>"; };
 		2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditViewController.swift; sourceTree = "<group>"; };
-		2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRCBowSettingsViewController.swift; sourceTree = "<group>"; };
-		2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCPBowSettingsViewController.swift; sourceTree = "<group>"; };
 		2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2AB93B1424DD52E500389A05 /* DialyAddList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialyAddList.swift; sourceTree = "<group>"; };
+		2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheetDetailViewController.swift; sourceTree = "<group>"; };
+		2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RCBowSettingsTableViewHeaderFooterView.swift; path = ArcheryNote1/View/RCBowSettingsTableViewHeaderFooterView.swift; sourceTree = SOURCE_ROOT; };
+		2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
+		2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2ADA34E624AA48E90065EE7E /* ComentOuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentOuts.swift; sourceTree = "<group>"; };
 		2ADA34E824AA51480065EE7E /* DialySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheet.swift; sourceTree = "<group>"; };
 		2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheetViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		2A36502024D6A1BA00DD60B2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */,
 				2A36503924D84F0500DD60B2 /* TuningListTableViewCell.swift */,
 				2A36502324D6A90300DD60B2 /* TrainingListTableViewCell.swift */,
 				2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */,
@@ -206,6 +211,7 @@
 				2A36503A24D84F0500DD60B2 /* TuningListTableViewCell.xib */,
 				2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */,
 				2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */,
+				2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
 				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
+				2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -271,8 +278,7 @@
 				2A36502724D6D28700DD60B2 /* AddRCTuningViewController.swift */,
 				2A36502924D6D29500DD60B2 /* AddCPTuningViewController.swift */,
 				2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */,
-				2AB93B0624DBF2CF00389A05 /* AddRCBowSettingsViewController.swift */,
-				2AB93B0824DBF2E000389A05 /* AddCPBowSettingsViewController.swift */,
+				2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */,
 			);
 			path = ListTab;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				2A6B169924A673BC009C497D /* LaunchScreen.storyboard in Resources */,
 				2A36503C24D84F0500DD60B2 /* TuningListTableViewCell.xib in Resources */,
 				2A6B169624A673BC009C497D /* Assets.xcassets in Resources */,
+				2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */,
 				2A6B16CC24AA018E009C497D /* Settings.storyboard in Resources */,
 				2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */,
 				2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */,
@@ -446,6 +453,8 @@
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
 				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,
+				2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */,
+				2AB93B1924DD6AA500389A05 /* ScoreSheetDetailViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
 				2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */,
 				2A802D8724B8A7BE00B366DF /* AddTrainingViewController.swift in Sources */,
@@ -453,12 +462,12 @@
 				2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */,
 				2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */,
 				2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */,
+				2AB93B1D24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift in Sources */,
 				2A6B168D24A673B9009C497D /* AppDelegate.swift in Sources */,
 				2A36504B24D9488000DD60B2 /* BowSettingsViewController.swift in Sources */,
 				2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */,
 				2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */,
 				2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */,
-				2AB93B0924DBF2E000389A05 /* AddCPBowSettingsViewController.swift in Sources */,
 				2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */,
 				2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */,
 				2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */,
@@ -472,7 +481,6 @@
 				2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */,
 				2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */,
 				2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */,
-				2AB93B0724DBF2CF00389A05 /* AddRCBowSettingsViewController.swift in Sources */,
 				2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */,
 				2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */,
 			);

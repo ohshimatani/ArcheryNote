@@ -38,6 +38,9 @@ class DialySheetViewController: UIViewController{
     var customCellVCName = "CheckPointListTableViewCell"
     var customCellKeyName = "checkPointCustomCell"
 
+    var firstPlaceStasus: String!
+    var firstShotNumStatus: String!
+    var firstReflectionStatus: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +65,11 @@ class DialySheetViewController: UIViewController{
         
         // if todays dailySheet already fill, it reflect.
         fillText()
+        
+        firstPlaceStasus = placeTextField.text
+        firstShotNumStatus = sumOfShootingTextField.text
+        firstReflectionStatus = reflectionTextView.text
+        
     }
     
     
@@ -120,7 +128,11 @@ class DialySheetViewController: UIViewController{
     }
     
     @IBAction func cansel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if (placeTextField.text == firstPlaceStasus) && (sumOfShootingTextField.text == firstShotNumStatus) && (reflectionTextView.text == firstReflectionStatus){
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            MyFunctions.Alert(alertType: "cancel", viewController: self)
+        }
     }
     
     
