@@ -31,6 +31,11 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         scoreTableCollectionView.backgroundColor = .blue
         
         
+        let collectionViewCellLayout = UICollectionViewFlowLayout()
+        collectionViewCellLayout.itemSize = CGSize(width: 20.0, height: 20.0)
+        collectionViewCellLayout.sectionInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        scoreTableCollectionView.collectionViewLayout = collectionViewCellLayout
+        
         
     }
     
@@ -40,11 +45,17 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         return 12
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .red
         return cell
     }
+    
+    
     
     
     
