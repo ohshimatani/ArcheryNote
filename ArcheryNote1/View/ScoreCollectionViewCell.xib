@@ -27,6 +27,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-2s-LDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <action selector="didTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="2ya-fb-UeZ"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
@@ -37,6 +44,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="button" destination="pPh-2s-LDZ" id="2VX-tV-aSV"/>
                 <outlet property="label" destination="lcG-hI-1L7" id="SvA-6h-vrX"/>
             </connections>
             <point key="canvasLocation" x="131.15942028985509" y="120.20089285714285"/>

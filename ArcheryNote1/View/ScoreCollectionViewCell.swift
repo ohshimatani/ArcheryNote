@@ -14,11 +14,18 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var button: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         label.text = ""
         
     }
+    
+    @IBAction func didTap(_ sender: Any) {
+        print("tap!!!")
+    }
+    
 
 }
