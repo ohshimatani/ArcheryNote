@@ -111,7 +111,7 @@ class AddSomethingViewController: UIViewController {
     
     
     @IBAction func toScoreSheet(_ sender: Any) {
-        let num = 1
+        let num = 999
         if num == 1{
             performSegue(withIdentifier: "toScoreSheet", sender: nil)
         }else if num == 2{

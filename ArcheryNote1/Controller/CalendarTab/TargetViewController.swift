@@ -22,10 +22,10 @@ class TargetViewController: UIViewController {
         
         let buttonList = [targetView.buttonX, targetView.button10, targetView.button9, targetView.button8, targetView.button7, targetView.button6,  targetView.button5, targetView.button4, targetView.button3, targetView.button2, targetView.button1, targetView.buttonM]
         
-        for button in buttonList {
-            button?.clipsToBounds = true
-            button?.layer.masksToBounds = true
-        }
+//        for button in buttonList {
+//            button?.clipsToBounds = true
+//            button?.layer.masksToBounds = true
+//        }
         
         targetView.buttonX.addTarget(self, action: #selector(didTapX(sender:forEvent:)), for: .touchUpInside)
         targetView.button10.addTarget(self, action: #selector(didTap10(sender:forEvent:)), for: .touchUpInside)

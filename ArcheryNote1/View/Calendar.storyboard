@@ -577,9 +577,6 @@
                                 <rect key="frame" x="348" y="131" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="変更"/>
-                                <connections>
-                                    <action selector="distanceWillChange:" destination="KBJ-pk-Mgw" eventType="touchUpInside" id="01c-b8-xMq"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQQ-vT-0G8">
                                 <rect key="frame" x="0.0" y="164" width="414" height="1"/>
@@ -1205,14 +1202,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9V-ro-bie">
                                         <rect key="frame" x="0.0" y="0.0" width="712" height="614"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-qn-033">
-                                                <rect key="frame" x="307" y="248" width="98" height="118"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="tapYellowButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="p0b-IK-sFH"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNA-ad-4Hh">
                                                 <rect key="frame" x="261" y="169" width="191" height="276"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1221,6 +1210,19 @@
                                                     <action selector="tapRedButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="tWt-fk-dRT"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-qn-033">
+                                                <rect key="frame" x="307" y="248" width="98" height="118"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="tapYellowButton:forEvent:" destination="TtK-up-Afk" eventType="touchUpInside" id="p0b-IK-sFH"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNL-b9-dps">
+                                                <rect key="frame" x="166" y="139" width="380" height="380"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1255,12 +1257,13 @@
                     <connections>
                         <outlet property="colorLabel" destination="Aba-9W-SzP" id="Pwk-7a-BP5"/>
                         <outlet property="redButton" destination="hNA-ad-4Hh" id="iVn-6d-qjS"/>
+                        <outlet property="whiteView" destination="rNL-b9-dps" id="Kiu-gv-aZD"/>
                         <outlet property="yellowButton" destination="cCj-qn-033" id="JeT-1L-2Us"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgE-w2-zml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8004" y="185"/>
+            <point key="canvasLocation" x="8002.898550724638" y="184.82142857142856"/>
         </scene>
         <!--Target View Controller-->
         <scene sceneID="8SM-AC-3u2">

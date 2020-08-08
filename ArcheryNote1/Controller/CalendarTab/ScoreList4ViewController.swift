@@ -135,6 +135,8 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
     }
     
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
     }
