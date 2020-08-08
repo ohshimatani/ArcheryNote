@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate, UIPickerViewDataSource, UIToolbarDelegate {
+class ScoreListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIToolbarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     
@@ -44,14 +44,16 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         
         // card settings
+//        cardView = SingleScoreTableCollectionView()
         cardView.layer.cornerRadius = 12.0
+        
         
         // delegate settings
         scoreTableCollectionView.delegate = self
         scoreTableCollectionView.dataSource = self
         scoreTableCollectionView.backgroundColor = .white
-        
-        
+
+
         // set nib
         let nib = UINib(nibName: "ScoreCollectionViewCell", bundle: .main)
         scoreTableCollectionView.register(nib, forCellWithReuseIdentifier: "scoreCell")
@@ -64,7 +66,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
-        
+
         
         
         
@@ -75,29 +77,29 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 7
     }
-    
-    
+
+
     // number of column
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
-        
+
         if indexPath.section == 0 {
-            
+
             switch indexPath.row {
             case 0, 9:
                 break
@@ -129,6 +131,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     
+    // picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -143,16 +146,21 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     @IBAction func distanceWillChange(_ sender: Any) {
-        
+        didTapChangeButton()
+    }
+    
+    func didTapChangeButton(){
         // picker view
         distancePickerView = UIPickerView()
         
+        let ratio: CGFloat = 0.4
+        let pickerViewRect = CGRect(x: 0, y: self.view.frame.height * (1-ratio) , width: self.view.frame.width, height: self.view.frame.height * ratio)
+        distancePickerView.frame = pickerViewRect
+//        distancePickerView.backgroundColor = .blue
         distancePickerView.delegate = self
         distancePickerView.dataSource = self
         let vi = UIView(frame: distancePickerView.bounds)
         vi.backgroundColor = .red
-        let pickerViewRect = CGRect(x: 0, y: self.view.frame.height * 0.7 , width: self.view.frame.width, height: self.view.frame.height * 0.3)
-        distancePickerView.frame = pickerViewRect
         vi.addSubview(distancePickerView)
         
         // tool bar
@@ -164,7 +172,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         distanceToolBar.items = [toolBarButton]
         distanceToolBar.sizeToFit()
         vi.addSubview(distanceToolBar)
-        distanceToolBar.delegate = self
+//        distanceToolBar.delegate = self
         
         view.addSubview(vi)
         let screenSize = UIScreen.main.bounds.size
@@ -172,9 +180,17 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         UIView.animate(withDuration: 0.3) {
             vi.frame.origin.y = screenSize.height - vi.bounds.size.height
         }
-        
     }
     
+    
+    @IBAction func save(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     
@@ -184,6 +200,9 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         performSegue(withIdentifier: "toTarget", sender: nil)
     }
     
+    @IBAction func toSample(_ sender: Any) {
+        performSegue(withIdentifier: "toSampleTarget", sender: nil)
+    }
     
     
 }

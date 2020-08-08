@@ -583,14 +583,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-0H-cII">
-                                <rect key="frame" x="315" y="802" width="79" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="toNext:" destination="KBJ-pk-Mgw" eventType="touchUpInside" id="Nn0-43-wla"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PgC-gp-rHF">
                                 <rect key="frame" x="244" y="92" width="150" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -655,13 +647,37 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WH6-cD-XcE">
+                                <rect key="frame" x="35" y="832" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="toSample"/>
+                                <connections>
+                                    <action selector="toSample:" destination="KBJ-pk-Mgw" eventType="touchUpInside" id="c7a-tS-Qoe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-0H-cII">
+                                <rect key="frame" x="310" y="808" width="79" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="toTarget"/>
+                                <connections>
+                                    <action selector="toNext:" destination="KBJ-pk-Mgw" eventType="touchUpInside" id="Nn0-43-wla"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GqM-bt-1gd"/>
                     </view>
                     <navigationItem key="navigationItem" id="s7S-Ed-muU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QRp-70-ARQ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="j8K-PL-ReS"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QRp-70-ARQ">
+                            <connections>
+                                <action selector="cancel:" destination="KBJ-pk-Mgw" id="G6s-ja-Knr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="j8K-PL-ReS">
+                            <connections>
+                                <action selector="save:" destination="KBJ-pk-Mgw" id="BTG-5J-P2h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cardView" destination="QHC-Sl-4rR" id="CRn-Os-yvE"/>
@@ -672,8 +688,9 @@
                         <outlet property="sightTextField2" destination="E0y-eg-cvB" id="Qyb-91-L4V"/>
                         <outlet property="sightTextField3" destination="vbE-nk-F87" id="zl6-DT-wIw"/>
                         <outlet property="sightTextField4" destination="d5w-8b-hvL" id="SpL-JG-0MU"/>
-                        <segue destination="TtK-up-Afk" kind="show" identifier="toTarget" id="cGc-4S-14W"/>
+                        <segue destination="TtK-up-Afk" kind="show" identifier="toSampleTarget" id="cGc-4S-14W"/>
                         <segue destination="Eym-HK-nVK" kind="show" id="5rF-ab-nkR"/>
+                        <segue destination="bG3-Ym-PXU" kind="show" identifier="toTarget" id="ITj-Yh-N9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YU-4R-9NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -719,10 +736,10 @@
             </objects>
             <point key="canvasLocation" x="5334.7826086956529" y="184.82142857142856"/>
         </scene>
-        <!--Target View Controller-->
+        <!--Sample Target View Controller-->
         <scene sceneID="MOK-zd-hgX">
             <objects>
-                <viewController id="TtK-up-Afk" customClass="TargetViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TtK-up-Afk" customClass="SampleTargetViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rH5-RZ-cnL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -797,7 +814,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgE-w2-zml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4438" y="933"/>
+            <point key="canvasLocation" x="3610" y="1051"/>
+        </scene>
+        <!--Target View Controller-->
+        <scene sceneID="8SM-AC-3u2">
+            <objects>
+                <viewController id="bG3-Ym-PXU" customClass="TargetViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Xf-1g-pUM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ORk-f1-VtU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hyF-sv-Yqc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ok-ZB-VpB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4708" y="1025"/>
         </scene>
         <!--Schedule Edit View Controller-->
         <scene sceneID="8Av-Qs-hVZ">
