@@ -46,6 +46,10 @@
 		2A90F78E24DED2B40022FA28 /* SingleScoreTableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F78D24DED2B40022FA28 /* SingleScoreTableCollectionView.swift */; };
 		2A90F79124DED2F10022FA28 /* SingleScoreTableCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A90F79024DED2F10022FA28 /* SingleScoreTableCollectionView.xib */; };
 		2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */; };
+		2A90F79624DEE4890022FA28 /* TargetCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A90F79524DEE4890022FA28 /* TargetCustomView.xib */; };
+		2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */; };
+		2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */; };
+		2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */; };
 		2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */; };
 		2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */; };
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
@@ -57,7 +61,6 @@
 		2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */; };
 		2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */; };
 		2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1424DD52E500389A05 /* DialyAddList.swift */; };
-		2AB93B1924DD6AA500389A05 /* ScoreSheetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */; };
 		2AB93B1D24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */; };
 		2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */; };
 		2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */; };
@@ -115,6 +118,10 @@
 		2A90F78D24DED2B40022FA28 /* SingleScoreTableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleScoreTableCollectionView.swift; sourceTree = "<group>"; };
 		2A90F79024DED2F10022FA28 /* SingleScoreTableCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleScoreTableCollectionView.xib; sourceTree = "<group>"; };
 		2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTargetViewController.swift; sourceTree = "<group>"; };
+		2A90F79524DEE4890022FA28 /* TargetCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetCustomView.xib; sourceTree = "<group>"; };
+		2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCustomView.swift; sourceTree = "<group>"; };
+		2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList2ViewController.swift; sourceTree = "<group>"; };
+		2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList4ViewController.swift; sourceTree = "<group>"; };
 		2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +133,6 @@
 		2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AB93B1124DBF37D00389A05 /* CPBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CPBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2AB93B1424DD52E500389A05 /* DialyAddList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialyAddList.swift; sourceTree = "<group>"; };
-		2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheetDetailViewController.swift; sourceTree = "<group>"; };
 		2AB93B1C24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RCBowSettingsTableViewHeaderFooterView.swift; path = ArcheryNote1/View/RCBowSettingsTableViewHeaderFooterView.swift; sourceTree = SOURCE_ROOT; };
 		2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -270,11 +276,23 @@
 			path = ScoreView;
 			sourceTree = "<group>";
 		};
+		2A90F79424DEE4600022FA28 /* TargetView */ = {
+			isa = PBXGroup;
+			children = (
+				2A90F79524DEE4890022FA28 /* TargetCustomView.xib */,
+				2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */,
+			);
+			path = TargetView;
+			sourceTree = "<group>";
+		};
 		2AA4E46B24AA27C700A944B2 /* CalendarTab */ = {
 			isa = PBXGroup;
 			children = (
+				2A90F79424DEE4600022FA28 /* TargetView */,
 				2A90F78C24DED2630022FA28 /* ScoreView */,
 				2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */,
+				2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */,
+				2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */,
 				2A6B16CD24AA1D19009C497D /* CalendarViewController.swift */,
 				2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */,
 				2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */,
@@ -283,7 +301,6 @@
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
 				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
-				2AB93B1824DD6AA500389A05 /* ScoreSheetDetailViewController.swift */,
 				2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */,
 			);
 			path = CalendarTab;
@@ -419,6 +436,7 @@
 			files = (
 				2A90F79124DED2F10022FA28 /* SingleScoreTableCollectionView.xib in Resources */,
 				2A36502624D6A90300DD60B2 /* TrainingListTableViewCell.xib in Resources */,
+				2A90F79624DEE4890022FA28 /* TargetCustomView.xib in Resources */,
 				2A6B16C624AA0163009C497D /* Calendar.storyboard in Resources */,
 				2A6B16A424A6740B009C497D /* Main.storyboard in Resources */,
 				2A6B16CA24AA0182009C497D /* Analysis.storyboard in Resources */,
@@ -485,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */,
 				2AA4E47924AA301900A944B2 /* Events.swift in Sources */,
 				2A6B16CE24AA1D19009C497D /* CalendarViewController.swift in Sources */,
 				2AB93B2524DDA92100389A05 /* BowSettingsRC.swift in Sources */,
@@ -493,6 +512,7 @@
 				2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */,
 				2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */,
 				2A6B16D424AA1D3B009C497D /* SettingsViewController.swift in Sources */,
+				2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */,
 				2A36503E24D85B4F00DD60B2 /* ScheduleViewController.swift in Sources */,
 				2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */,
 				2AB93B2824DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift in Sources */,
@@ -500,10 +520,10 @@
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
 				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,
 				2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */,
-				2AB93B1924DD6AA500389A05 /* ScoreSheetDetailViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
 				2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */,
 				2A802D8724B8A7BE00B366DF /* AddTrainingViewController.swift in Sources */,
+				2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */,
 				2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */,
 				2AB93B2E24DEA0BD00389A05 /* ScoreCollectionViewCell.swift in Sources */,
 				2A90F78E24DED2B40022FA28 /* SingleScoreTableCollectionView.swift in Sources */,

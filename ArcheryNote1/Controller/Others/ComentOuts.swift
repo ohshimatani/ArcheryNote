@@ -103,6 +103,58 @@ import Foundation
  //            }else{
  //                return
  //            }
+ 
+ 
+ // picker view
+     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+         return 1
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+         return distanceList.count
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+         return distanceList[row]
+     }
+     
+     
+     @IBAction func distanceWillChange(_ sender: Any) {
+         didTapChangeButton()
+     }
+     
+     func didTapChangeButton(){
+         // picker view
+         distancePickerView = UIPickerView()
+         
+         let ratio: CGFloat = 0.4
+         let pickerViewRect = CGRect(x: 0, y: self.view.frame.height * (1-ratio) , width: self.view.frame.width, height: self.view.frame.height * ratio)
+         distancePickerView.frame = pickerViewRect
+ //        distancePickerView.backgroundColor = .blue
+         distancePickerView.delegate = self
+         distancePickerView.dataSource = self
+         let vi = UIView(frame: distancePickerView.bounds)
+         vi.backgroundColor = .red
+         vi.addSubview(distancePickerView)
+         
+         // tool bar
+         distanceToolBar = UIToolbar()
+         distanceToolBar.barStyle = .default
+         distanceToolBar.isTranslucent = true
+         distanceToolBar.backgroundColor = .black
+         let toolBarButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: Selector(("didCilckToolBarButton")))
+         distanceToolBar.items = [toolBarButton]
+         distanceToolBar.sizeToFit()
+         vi.addSubview(distanceToolBar)
+ //        distanceToolBar.delegate = self
+         
+         view.addSubview(vi)
+         let screenSize = UIScreen.main.bounds.size
+         vi.frame.origin.y = screenSize.height
+         UIView.animate(withDuration: 0.3) {
+             vi.frame.origin.y = screenSize.height - vi.bounds.size.height
+         }
+     }
 
  
  
