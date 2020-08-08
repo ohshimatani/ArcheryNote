@@ -50,6 +50,7 @@
 		2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */; };
 		2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */; };
 		2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */; };
+		2A90F79E24DF16A80022FA28 /* ChoiceDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */; };
 		2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */; };
 		2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */; };
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
@@ -122,6 +123,7 @@
 		2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCustomView.swift; sourceTree = "<group>"; };
 		2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList2ViewController.swift; sourceTree = "<group>"; };
 		2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList4ViewController.swift; sourceTree = "<group>"; };
+		2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDistanceViewController.swift; sourceTree = "<group>"; };
 		2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
 				2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */,
+				2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				2A36502224D6A87B00DD60B2 /* TrainingListViewController.swift in Sources */,
 				2A36502524D6A90300DD60B2 /* TrainingListTableViewCell.swift in Sources */,
 				2A36502824D6D28700DD60B2 /* AddRCTuningViewController.swift in Sources */,
+				2A90F79E24DF16A80022FA28 /* ChoiceDistanceViewController.swift in Sources */,
 				2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */,
 				2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */,
 				2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */,
