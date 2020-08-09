@@ -157,6 +157,14 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             VC.pointsIntList = thisEndIntPoints
             VC.pointsLocationListX = thisEndLocation[0]
             VC.pointsLocationListY = thisEndLocation[1]
+            var n: Int = 1
+            for str in thisEndStringPoints {
+                if str == "" {
+                    break
+                }
+                n += 1
+            }
+            VC.nowSelect = n
             VC.delegate = self
         }
     }

@@ -49,8 +49,10 @@
 		2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */; };
 		2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */; };
 		2A90F79E24DF16A80022FA28 /* ChoiceDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */; };
-		2A90F7A224E028DC0022FA28 /* PointsOneEndList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */; };
-		2A90F7A424E02D210022FA28 /* PointOneEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A324E02D210022FA28 /* PointOneEnd.swift */; };
+		2A90F7A624E082810022FA28 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A524E082810022FA28 /* Point.swift */; };
+		2A90F7A824E082BE0022FA28 /* PointsOneEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A724E082BE0022FA28 /* PointsOneEnd.swift */; };
+		2A90F7B424E084B10022FA28 /* OneRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7B324E084B10022FA28 /* OneRound.swift */; };
+		2A90F7B624E085230022FA28 /* ScoreSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7B524E085230022FA28 /* ScoreSheet.swift */; };
 		2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */; };
 		2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */; };
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
@@ -122,8 +124,10 @@
 		2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList2ViewController.swift; sourceTree = "<group>"; };
 		2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList4ViewController.swift; sourceTree = "<group>"; };
 		2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDistanceViewController.swift; sourceTree = "<group>"; };
-		2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOneEndList.swift; sourceTree = "<group>"; };
-		2A90F7A324E02D210022FA28 /* PointOneEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOneEnd.swift; sourceTree = "<group>"; };
+		2A90F7A524E082810022FA28 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		2A90F7A724E082BE0022FA28 /* PointsOneEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOneEnd.swift; sourceTree = "<group>"; };
+		2A90F7B324E084B10022FA28 /* OneRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRound.swift; sourceTree = "<group>"; };
+		2A90F7B524E085230022FA28 /* ScoreSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheet.swift; sourceTree = "<group>"; };
 		2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
@@ -257,8 +261,10 @@
 				2A36503F24D862DD00DD60B2 /* Schedule.swift */,
 				2AB93B1424DD52E500389A05 /* DialyAddList.swift */,
 				2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */,
-				2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */,
-				2A90F7A324E02D210022FA28 /* PointOneEnd.swift */,
+				2A90F7A524E082810022FA28 /* Point.swift */,
+				2A90F7A724E082BE0022FA28 /* PointsOneEnd.swift */,
+				2A90F7B324E084B10022FA28 /* OneRound.swift */,
+				2A90F7B524E085230022FA28 /* ScoreSheet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,7 +510,6 @@
 				2AB93B2824DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift in Sources */,
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
-				2A90F7A424E02D210022FA28 /* PointOneEnd.swift in Sources */,
 				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,
 				2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
@@ -524,18 +529,21 @@
 				2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */,
 				2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */,
 				2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */,
-				2A90F7A224E028DC0022FA28 /* PointsOneEndList.swift in Sources */,
 				2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */,
 				2A36502A24D6D29500DD60B2 /* AddCPTuningViewController.swift in Sources */,
 				2A6B16D024AA1D26009C497D /* ListViewController.swift in Sources */,
 				2A36503B24D84F0500DD60B2 /* TuningListTableViewCell.swift in Sources */,
+				2A90F7B424E084B10022FA28 /* OneRound.swift in Sources */,
 				2A36502C24D7DCE400DD60B2 /* TuningRC.swift in Sources */,
+				2A90F7B624E085230022FA28 /* ScoreSheet.swift in Sources */,
+				2A90F7A624E082810022FA28 /* Point.swift in Sources */,
 				2A36502224D6A87B00DD60B2 /* TrainingListViewController.swift in Sources */,
 				2A36502524D6A90300DD60B2 /* TrainingListTableViewCell.swift in Sources */,
 				2A36502824D6D28700DD60B2 /* AddRCTuningViewController.swift in Sources */,
 				2A90F79E24DF16A80022FA28 /* ChoiceDistanceViewController.swift in Sources */,
 				2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */,
 				2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */,
+				2A90F7A824E082BE0022FA28 /* PointsOneEnd.swift in Sources */,
 				2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */,
 				2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */,
 				2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */,

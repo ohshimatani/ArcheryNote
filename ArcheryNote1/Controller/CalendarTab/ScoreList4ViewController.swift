@@ -136,10 +136,10 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        if indexPath.row == 9{
+        if (indexPath.row == 8) || (indexPath.row == 9){
             round = Int(floor(Double(indexPath.section / 7)))
             end = indexPath.section % 7 - 1
-            print(round, end)
+            print("tap !!! : ", round, end)
             thisEndStringPoints = stringScoreSavingList[round][end]
             thisEndIntPoints = intScoreSavingList[round][end]
             thisEndLocation = [pointXScoreSavingList[round][end], pointYScoreSavingList[round][end]]
@@ -157,6 +157,14 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
             VC.pointsIntList = thisEndIntPoints
             VC.pointsLocationListX = thisEndLocation[0]
             VC.pointsLocationListY = thisEndLocation[1]
+            var n: Int = 1
+            for str in thisEndStringPoints {
+                if str == "" {
+                    break
+                }
+                n += 1
+            }
+            VC.nowSelect = n
             VC.delegate = self
         }
     }
@@ -169,6 +177,8 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
         pointYScoreSavingList[round][end] = locationY
         scoreTableCollectionView.reloadData()
     }
+    
+    
     
     
     

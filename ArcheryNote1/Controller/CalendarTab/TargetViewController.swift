@@ -89,9 +89,42 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         collectionView.backgroundColor = .white
         
-        
+        initiateDot()
         
     }
+    
+    
+    func initiateDot() {
+        if (pointsLocationListX != [0, 0, 0, 0, 0, 0]) && (pointsLocationListY != [0, 0, 0, 0, 0, 0]) {
+            for i in 0..<6 {
+                let dot = UIView()
+                let rad: CGFloat = 8
+                dot.frame = CGRect(x: CGFloat(pointsLocationListX[i]) - rad/2, y: CGFloat(pointsLocationListY[i]) - rad/2, width: rad, height: rad)
+                dot.backgroundColor = .black
+                dot.layer.borderColor = UIColor.white.cgColor
+                dot.layer.borderWidth = 0.5
+                dot.layer.cornerRadius = rad/2
+                dot.tag = i + 1
+                self.targetView.addSubview(dot)
+            }
+        }
+
+    }
+    
+    
+    func addDot(sender: UIButton, point: CGPoint){
+        let dot = UIView()
+        let rad: CGFloat = 8
+        dot.frame = CGRect(x: point.x - rad/2, y: point.y - rad/2, width: rad, height: rad)
+        dot.backgroundColor = .black
+        dot.layer.borderColor = UIColor.white.cgColor
+        dot.layer.borderWidth = 0.5
+        dot.layer.cornerRadius = rad/2
+        dot.tag = nowSelect
+        self.targetView.addSubview(dot)
+    }
+    
+    
     
     @objc func didTap(sender: UIButton, forEvent event: UIEvent) {
         if nowSelect > 6 {
@@ -102,8 +135,6 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
             nowSelect += 1
         }
         collectionView.reloadData()
-        print(pointString, pointInt, dotLocation)
-        print(pointsIntList)
     }
     
     func appendPoint(pointString: String, pointInt: Int, dotLocation: CGPoint){
@@ -128,19 +159,19 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         addDot(sender: sender, point: dotPoint)
         return (_pointString, _pointInt, dotPoint)
     }
-    
-    func addDot(sender: UIButton, point: CGPoint){
-        let dot = UIView()
-        let rad: CGFloat = 8
-        dot.frame = CGRect(x: point.x - rad/2, y: point.y - rad/2, width: rad, height: rad)
-        dot.backgroundColor = .black
-        dot.layer.borderColor = UIColor.white.cgColor
-        dot.layer.borderWidth = 0.5
-        dot.layer.cornerRadius = rad/2
-        dot.tag = nowSelect
-        self.targetView.addSubview(dot)
-    }
-    
+//
+//    func addDot(sender: UIButton, point: CGPoint){
+//        let dot = UIView()
+//        let rad: CGFloat = 8
+//        dot.frame = CGRect(x: point.x - rad/2, y: point.y - rad/2, width: rad, height: rad)
+//        dot.backgroundColor = .black
+//        dot.layer.borderColor = UIColor.white.cgColor
+//        dot.layer.borderWidth = 0.5
+//        dot.layer.cornerRadius = rad/2
+//        dot.tag = nowSelect
+//        self.targetView.addSubview(dot)
+//    }
+//
     
     
     
@@ -196,9 +227,18 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     @IBAction func done(_ sender: Any) {
+        pointLocationUpdate()
         delegate?.scoreFromTarget(round: round, end: end, pointInt: pointsIntList, pointString: pointsStringList, locationX: pointsLocationListX, locationY: pointsLocationListY)
-//        self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func pointLocationUpdate() {
+        var index = 0
+        for point in pointsLocationList {
+            pointsLocationListX[index] = Double(point.x)
+            pointsLocationListY[index] = Double(point.y)
+            index += 1
+        }
     }
     
     

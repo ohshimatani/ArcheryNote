@@ -126,9 +126,19 @@ class ScoreCollectionViewCell: UICollectionViewCell {
                     self.layer.borderWidth = 0.5
                     let slicedList = intScoreList[round][0..<end+1]
                     var sum: Int = 0
+                    var flag = false
                     for i in 0..<slicedList.count {
-                        sum += slicedList[i].reduce(0, +)
+                        let _sum = slicedList[i].reduce(0, +)
+                        if _sum == 0{
+                            if stringScoreList[round][i].contains("") {
+                                flag = true
+                                break
+                            }
+                        }
+//                        if flag { break }
+                        sum += _sum
                     }
+                    if flag { break }
                     if sum != 0 {
                         label.text = String(sum)
                     }
