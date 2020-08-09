@@ -68,7 +68,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         if self.layer.borderColor == UIColor.black.cgColor{
             self.layer.borderColor = UIColor.white.cgColor
         }
-        if self.layer.borderWidth == 0.5 {
+        if self.layer.borderWidth != 0 {
             self.layer.borderWidth = 0.0
         }
     }
@@ -80,7 +80,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     var pointXScoreSavingList: [[Double]]!
     var pointYScoreSavingList: [[Double]]!
     
-    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]]) {
+    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]]) {
         var query: Bool = (indexPath.section == 0)
         if scoreTableNum != 1{
             query = (indexPath.section % 7 == 0)
@@ -114,7 +114,25 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             case 7, 8:
                 self.backgroundColor = .white
                 self.layer.borderColor = UIColor.black.cgColor
-                self.layer.borderWidth = 0.5
+                let round = Int(floor(Double(indexPath.section/7)))
+                let end = Int(indexPath.section % 7) - 1
+                if indexPath.row == 7 {
+                    self.layer.borderWidth = 2
+                    let sum = intScoreList[round][end].reduce(0, +)
+                    if sum != 0 {
+                        label.text = String(sum)
+                    }
+                }else{
+                    self.layer.borderWidth = 0.5
+                    let slicedList = intScoreList[round][0..<end+1]
+                    var sum: Int = 0
+                    for i in 0..<slicedList.count {
+                        sum += slicedList[i].reduce(0, +)
+                    }
+                    if sum != 0 {
+                        label.text = String(sum)
+                    }
+                }
             default:
                 let round = Int(floor(Double(indexPath.section/7)))
                 let end = Int(indexPath.section % 7) - 1
@@ -157,6 +175,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             }
             if indexPath.row == 7 {
                 label.text = String(pointsIntList.reduce(0, +))
+                self.layer.borderWidth = 2
             } else if indexPath.row != 0 {
                 label.text = pointsStringList[indexPath.row-1]
             }

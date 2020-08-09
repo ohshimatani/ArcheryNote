@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate {
     
     
     
@@ -123,7 +123,7 @@ class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
         
-        cell.setScorePageCell(scoreTableNum: 2, indexPath: indexPath, stringScoreList: stringScoreSavingList)
+        cell.setScorePageCell(scoreTableNum: 2, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList)
         return cell
     }
     
@@ -153,9 +153,18 @@ class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UI
             VC.pointsIntList = thisEndIntPoints
             VC.pointsLocationListX = thisEndLocation[0]
             VC.pointsLocationListY = thisEndLocation[1]
+            VC.delegate = self
         }
     }
     
+    func scoreFromTarget(round: Int, end: Int, pointInt: [Int], pointString: [String], locationX: [Double], locationY: [Double]) {
+        intScoreSavingList[round][end] = pointInt
+        stringScoreSavingList[round][end] = pointString
+        pointXScoreSavingList[round][end] = locationX
+        pointYScoreSavingList[round][end] = locationY
+        scoreTableCollectionView.reloadData()
+    }
+
     
     
     

@@ -9,6 +9,10 @@
 import UIKit
 import RealmSwift
 
+protocol ScoreFromTargetDelegate {
+    func scoreFromTarget(round: Int, end: Int, pointInt: [Int], pointString: [String], locationX: [Double], locationY: [Double])
+}
+
 class TargetViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
 
@@ -16,6 +20,8 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var targetView: TargetCustomView!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var delegate: ScoreFromTargetDelegate?
     
     var centerOfTarget: CGPoint = CGPoint(x: 385.0, y: 385.0)
     
@@ -190,20 +196,9 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     
     @IBAction func done(_ sender: Any) {
-//        let realm = try! Realm()
-//        let thisEndPointList = PointsOneEndList()
-//        let pointOneEnd = PointOneEnd()
-//        for index in 0..<6{
-//            pointOneEnd.pointString = pointsStringList[index]
-//            pointOneEnd.pointInt = pointsIntList[index]
-//            pointOneEnd.dotLocationX = Double(pointsLocationList[index].x)
-//            pointOneEnd.dotLocationY = Double(pointsLocationList[index].y)
-//            thisEndPointList.points.append(pointOneEnd)
-//        }
-//        try! realm.write {
-//            realm.add(thisEndPointList)
-//        }
-        self.dismiss(animated: true, completion: nil)
+        delegate?.scoreFromTarget(round: round, end: end, pointInt: pointsIntList, pointString: pointsStringList, locationX: pointsLocationListX, locationY: pointsLocationListY)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
