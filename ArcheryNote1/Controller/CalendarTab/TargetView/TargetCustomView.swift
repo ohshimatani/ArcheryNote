@@ -52,7 +52,7 @@ class TargetCustomView: UIView {
         let red: UIColor = UIColor.red
         let blue: UIColor = UIColor.blue
         let black: UIColor = UIColor.black
-        let _black: UIColor = UIColor.init(displayP3Red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+//        let _black: UIColor = UIColor.init(displayP3Red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
         let white: UIColor = UIColor.white
         buttonX.backgroundColor = yellow
         button10.backgroundColor = yellow
@@ -70,7 +70,7 @@ class TargetCustomView: UIView {
         for button in buttonList{
             button?.layer.cornerRadius = (button?.frame.width)! / 2
             if button?.backgroundColor == black{
-                button?.layer.borderColor = CGColor(srgbRed: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+                button?.layer.borderColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button?.layer.borderColor = black.cgColor
             }

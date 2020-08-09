@@ -664,13 +664,32 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zd1-Hy-cs3">
-                                <rect key="frame" x="104" y="208" width="187" height="32"/>
+                                <rect key="frame" x="20" y="208" width="187" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="練習"/>
                                     <segment title="試合"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2P-TM-Gyq">
+                                <rect key="frame" x="315" y="213" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rg-93-27i">
+                                <rect key="frame" x="282" y="216" width="25" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEU-1K-cDx">
+                                <rect key="frame" x="268" y="239" width="137" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GqM-bt-1gd"/>
@@ -696,9 +715,10 @@
                         <outlet property="sightTextField2" destination="E0y-eg-cvB" id="Qyb-91-L4V"/>
                         <outlet property="sightTextField3" destination="vbE-nk-F87" id="zl6-DT-wIw"/>
                         <outlet property="sightTextField4" destination="d5w-8b-hvL" id="SpL-JG-0MU"/>
+                        <outlet property="sumLabel" destination="y2P-TM-Gyq" id="nXw-Mb-TVy"/>
                         <segue destination="TtK-up-Afk" kind="show" identifier="toSampleTarget" id="cGc-4S-14W"/>
                         <segue destination="Eym-HK-nVK" kind="presentation" modalPresentationStyle="fullScreen" id="5rF-ab-nkR"/>
-                        <segue destination="bG3-Ym-PXU" kind="show" identifier="toTarget" id="ITj-Yh-N9w"/>
+                        <segue destination="bG3-Ym-PXU" kind="show" identifier="toTargetFromS1" id="ITj-Yh-N9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YU-4R-9NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -788,7 +808,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Pg-9s-6Kc">
-                                <rect key="frame" x="114" y="207" width="187" height="32"/>
+                                <rect key="frame" x="20" y="207" width="187" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="練習"/>
@@ -828,6 +848,25 @@
                                     <segment title="" image="umbrella.fill" catalog="system"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA1-gh-SNS">
+                                <rect key="frame" x="317" y="212" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybw-bk-cYr">
+                                <rect key="frame" x="284" y="215" width="25" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-7q-LaP">
+                                <rect key="frame" x="272" y="238" width="136" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="qHl-aN-JdL"/>
@@ -852,8 +891,9 @@
                         <outlet property="sightTextField2" destination="XVS-Mt-8Ox" id="8ec-85-VSf"/>
                         <outlet property="sightTextField3" destination="qbJ-Lh-bkc" id="kV4-4S-3Yl"/>
                         <outlet property="sightTextField4" destination="fiR-cs-IOZ" id="u2g-cM-uSV"/>
+                        <outlet property="sumLabel" destination="zA1-gh-SNS" id="dK7-Dd-aVS"/>
                         <segue destination="Eym-HK-nVK" kind="presentation" id="IXB-D2-DKj"/>
-                        <segue destination="bG3-Ym-PXU" kind="show" id="Zw4-Q1-hdE"/>
+                        <segue destination="bG3-Ym-PXU" kind="show" identifier="toTargetFromS2" id="Zw4-Q1-hdE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nau-iq-lb6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -957,7 +997,7 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aQU-Y9-lp7">
-                                <rect key="frame" x="114" y="207" width="187" height="32"/>
+                                <rect key="frame" x="20" y="207" width="187" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="練習"/>
@@ -996,6 +1036,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="toSample"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="合計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vy-OU-74G">
+                                <rect key="frame" x="282" y="215" width="25" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLa-aT-gvQ">
+                                <rect key="frame" x="270" y="238" width="136" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmB-cM-Neg">
+                                <rect key="frame" x="315" y="212" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iDd-SW-H8c"/>
@@ -1020,6 +1079,7 @@
                         <outlet property="sightTextField2" destination="2Z4-Xq-n5i" id="BJ4-K2-LY3"/>
                         <outlet property="sightTextField3" destination="Bm9-fG-H7s" id="Lwq-YG-Vk0"/>
                         <outlet property="sightTextField4" destination="3kp-AW-cem" id="EBT-rz-xIk"/>
+                        <outlet property="sumLabel" destination="GmB-cM-Neg" id="oCh-k8-bdS"/>
                         <segue destination="Eym-HK-nVK" kind="presentation" id="F2L-SZ-ngB"/>
                         <segue destination="bG3-Ym-PXU" kind="show" identifier="toTargetFromS4" id="AIq-eN-Sfg"/>
                     </connections>

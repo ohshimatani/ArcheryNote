@@ -28,14 +28,26 @@ class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBOutlet weak var sightTextField4: UITextField!
     
+    @IBOutlet weak var sumLabel: UILabel!
     
     
     
+    var intScoreSavingList = [[[Int]]]()
+    var stringScoreSavingList = [[[String]]]()
+    var pointXScoreSavingList = [[[Double]]]()
+    var pointYScoreSavingList = [[[Double]]]()
+    
+    var round: Int = 1
+    var end: Int = 1
+    var thisEndStringPoints =  [String]()
+    var thisEndIntPoints = [Int]()
+    var thisEndLocation =  [[Double]]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeScoreList()
         
         // card settings
         //        cardView = SingleScoreTableCollectionView()
@@ -60,15 +72,30 @@ class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UI
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
-
-                
-                
-        
-        
-        
-        
     }
     
+    
+    
+    func initializeScoreList() {
+        for _ in 0..<2{
+            var intSubList =  [[Int]]()
+            var stringSubList = [[String]]()
+            var pointSubList = [[Double]]()
+            for _ in 0..<6 {
+                let intSubSubList: [Int] = [0, 0, 0, 0, 0, 0]
+                let stringSubSubList: [String] = ["", "", "", "", "", ""]
+                let pointSubSubList: [Double] = [0, 0, 0, 0, 0, 0]
+                intSubList.append(intSubSubList)
+                stringSubList.append(stringSubSubList)
+                pointSubList.append(pointSubSubList)
+            }
+            intScoreSavingList.append(intSubList)
+            stringScoreSavingList.append(stringSubList)
+            pointXScoreSavingList.append(pointSubList)
+            pointYScoreSavingList.append(pointSubList)
+        }
+        
+    }
     
     
     // number of row
@@ -96,19 +123,60 @@ class ScoreList2ViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
         
-        cell.setScorePageCell(scoreTableNum: 2, indexPath: indexPath)
-        
+        cell.setScorePageCell(scoreTableNum: 2, indexPath: indexPath, stringScoreList: stringScoreSavingList)
         return cell
     }
+    
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+        if indexPath.row == 9{
+            round = Int(floor(Double(indexPath.section / 7)))
+            end = indexPath.section % 7 - 1
+            print(round, end)
+            thisEndStringPoints = stringScoreSavingList[round][end]
+            thisEndIntPoints = intScoreSavingList[round][end]
+            thisEndLocation = [pointXScoreSavingList[round][end], pointYScoreSavingList[round][end]]
+            performSegue(withIdentifier: "toTargetFromS2", sender: nil)
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTargetFromS2" {
+            let VC = segue.destination as! TargetViewController
+            VC.end = end
+            VC.round = round
+            VC.pointsStringList = thisEndStringPoints
+            VC.pointsIntList = thisEndIntPoints
+            VC.pointsLocationListX = thisEndLocation[0]
+            VC.pointsLocationListY = thisEndLocation[1]
+        }
+    }
+    
+    
+    
+    
+    
     
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func save(_ sender: Any) {
+        
+        
+        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    @IBAction func toNext(_ sender: Any) {
+        performSegue(withIdentifier: "toTargetFromS2", sender: nil)
     }
     
     

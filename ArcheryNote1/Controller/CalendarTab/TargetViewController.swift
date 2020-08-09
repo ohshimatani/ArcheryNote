@@ -25,6 +25,8 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     var pointsStringList: [String] = ["", "", "", "", "", ""]
     var pointsIntList: [Int] = [0, 0, 0, 0, 0, 0]
     var pointsLocationList: [CGPoint] = [CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0)]
+    var pointsLocationListX: [Double] = [0, 0, 0, 0, 0, 0]
+    var pointsLocationListY: [Double] = [0, 0, 0, 0, 0, 0]
     
     var nowSelect: Int = 1
     
@@ -35,6 +37,9 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     var dot5 = UIView()
     var dot6 = UIView()
     var dotViewList = [UIView]()
+    
+    var round: Int = 1
+    var end: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,26 +183,26 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     // cell for item at indexPath
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
-        cell.setTargetPageCell(indexPath: indexPath, pointsStringList: pointsStringList, pointsIntList: pointsIntList, nowSelect: nowSelect)
+        cell.setTargetPageCell(indexPath: indexPath, pointsStringList: pointsStringList, pointsIntList: pointsIntList, roundAndEnd: [round, end], nowSelect: nowSelect)
         return cell
     }
     
     
     
     @IBAction func done(_ sender: Any) {
-        let realm = try! Realm()
-        let thisEndPointList = PointsOneEndList()
-        let pointOneEnd = PointOneEnd()
-        for index in 0..<6{
-            pointOneEnd.pointString = pointsStringList[index]
-            pointOneEnd.pointInt = pointsIntList[index]
-            pointOneEnd.dotLocationX = Double(pointsLocationList[index].x)
-            pointOneEnd.dotLocationY = Double(pointsLocationList[index].y)
-            thisEndPointList.points.append(pointOneEnd)
-        }
-        try! realm.write {
-            realm.add(thisEndPointList)
-        }
+//        let realm = try! Realm()
+//        let thisEndPointList = PointsOneEndList()
+//        let pointOneEnd = PointOneEnd()
+//        for index in 0..<6{
+//            pointOneEnd.pointString = pointsStringList[index]
+//            pointOneEnd.pointInt = pointsIntList[index]
+//            pointOneEnd.dotLocationX = Double(pointsLocationList[index].x)
+//            pointOneEnd.dotLocationY = Double(pointsLocationList[index].y)
+//            thisEndPointList.points.append(pointOneEnd)
+//        }
+//        try! realm.write {
+//            realm.add(thisEndPointList)
+//        }
         self.dismiss(animated: true, completion: nil)
     }
     
