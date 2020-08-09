@@ -20,4 +20,30 @@ class ScoreSheet: Object {
     @objc dynamic var sight4: String = ""
     
     var points = List<OneRound>()
+    
+    /*
+    distance:
+     - mach:
+        - 70mW
+        - 50mW
+        - SH
+        - 1440M
+        - 1440W
+        - indoor
+        - 30mW
+     - 36:
+        - 90
+        - 70
+        - 60
+        - 50
+        - 30
+        - 18_30
+        - 18_36
+        - 40
+        - 12
+     - others:
+        - free_36
+        - free_72
+        - free_144
+     */
 }
