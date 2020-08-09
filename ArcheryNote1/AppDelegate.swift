@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        //---------------------------------------
+//        var config = Realm.Configuration()
+//        config.migrationBlock = { migration, oldSchemaVersion in
+//            // 設定していなければ oldSchemaVersion はゼロがデフォルトです
+//            if oldSchemaVersion < 1 {
+//                // 保存されている User 全てを列挙
+//                migration.enumerateObjects(ofType: PointsOneEndList.className()) { (oldObject, newObject) in
+//
+//                }
+//            }
+//        }
+//        // 現在のRealmファイルの schemaVersion と、下記で設定した schemaVersion が違うと、マイグレーションが実行される
+//        config.schemaVersion = 1
+//        Realm.Configuration.defaultConfiguration = config
+//
+//        //-----------------------------------------
+        
+        
         return true
     }
 

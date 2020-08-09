@@ -98,33 +98,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
 
-        if indexPath.section == 0 {
-
-            switch indexPath.row {
-            case 0, 9:
-                break
-            case 7:
-                cell.label.text = "小計"
-                cell.label.font = UIFont.systemFont(ofSize: 12)
-            case 8:
-                cell.label.text = "計"
-                cell.label.font = UIFont.systemFont(ofSize: 12)
-            default:
-                cell.label.text = String(indexPath.row)
-            }
-
-        }else{
-            switch indexPath.row {
-            case 0:
-                cell.label.text = String(indexPath.section)
-            case 9:
-                cell.button.setImage(UIImage(named: "target1"), for: .normal)
-            default:
-                cell.backgroundColor = .white
-                cell.layer.borderColor = UIColor.black.cgColor
-                cell.layer.borderWidth = 0.5
-            }
-        }
+        cell.setScorePageCell(scoreTableNum: 1, indexPath: indexPath)
         return cell
     }
     

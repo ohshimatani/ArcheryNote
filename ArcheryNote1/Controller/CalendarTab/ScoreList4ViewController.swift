@@ -61,10 +61,6 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
 
-                
-                
-        
-        
         
         
     }
@@ -96,41 +92,7 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
         
-//        cell.contentView.subviews.forEach { subview in
-//                subview.removeFromSuperview()
-//        }
-        
-
-        if indexPath.section % 7 == 0 {
-
-            switch indexPath.row {
-            case 0:
-                cell.label.text = "70m"
-                cell.label.font = UIFont.systemFont(ofSize: 12)
-            case 7:
-                cell.label.text = "小計"
-                cell.label.font = UIFont.systemFont(ofSize: 12)
-            case 8:
-                cell.label.text = "計"
-                cell.label.font = UIFont.systemFont(ofSize: 12)
-            case 9:
-                break
-            default:
-                cell.label.text = String(indexPath.row)
-            }
-
-        }else{
-            switch indexPath.row {
-            case 0:
-                cell.label.text = String(indexPath.section % 7)
-            case 9:
-                cell.button.setImage(UIImage(named: "target1"), for: .normal)
-            default:
-                cell.backgroundColor = .white
-                cell.layer.borderColor = UIColor.black.cgColor
-                cell.layer.borderWidth = 0.5
-            }
-        }
+        cell.setScorePageCell(scoreTableNum: 4, indexPath: indexPath)
         return cell
     }
     
@@ -151,6 +113,14 @@ class ScoreList4ViewController:UIViewController, UICollectionViewDataSource, UIC
     @IBAction func save(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    
+    @IBAction func toNext(_ sender: Any) {
+        performSegue(withIdentifier: "toTargetFromS4", sender: nil)
+    }
+    
     
     
     

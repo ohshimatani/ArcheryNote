@@ -43,14 +43,14 @@
 		2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802D8A24B8A90500B366DF /* AddCheckPointViewController.swift */; };
 		2A802D8D24B8AD8900B366DF /* CheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A802D8C24B8AD8900B366DF /* CheckPoint.swift */; };
 		2A847C3B24DAFF7500B26189 /* TargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A847C3A24DAFF7500B26189 /* TargetViewController.swift */; };
-		2A90F78E24DED2B40022FA28 /* SingleScoreTableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F78D24DED2B40022FA28 /* SingleScoreTableCollectionView.swift */; };
-		2A90F79124DED2F10022FA28 /* SingleScoreTableCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A90F79024DED2F10022FA28 /* SingleScoreTableCollectionView.xib */; };
 		2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */; };
 		2A90F79624DEE4890022FA28 /* TargetCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A90F79524DEE4890022FA28 /* TargetCustomView.xib */; };
 		2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */; };
 		2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */; };
 		2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */; };
 		2A90F79E24DF16A80022FA28 /* ChoiceDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */; };
+		2A90F7A224E028DC0022FA28 /* PointsOneEndList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */; };
+		2A90F7A424E02D210022FA28 /* PointOneEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90F7A324E02D210022FA28 /* PointOneEnd.swift */; };
 		2AA4E47124AA2ACB00A944B2 /* ScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */; };
 		2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */; };
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
@@ -116,14 +116,14 @@
 		2A802D8C24B8AD8900B366DF /* CheckPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPoint.swift; sourceTree = "<group>"; };
 		2A802D8E24B8C78100B366DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2A847C3A24DAFF7500B26189 /* TargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetViewController.swift; sourceTree = "<group>"; };
-		2A90F78D24DED2B40022FA28 /* SingleScoreTableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleScoreTableCollectionView.swift; sourceTree = "<group>"; };
-		2A90F79024DED2F10022FA28 /* SingleScoreTableCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleScoreTableCollectionView.xib; sourceTree = "<group>"; };
 		2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTargetViewController.swift; sourceTree = "<group>"; };
 		2A90F79524DEE4890022FA28 /* TargetCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TargetCustomView.xib; sourceTree = "<group>"; };
 		2A90F79724DEE68B0022FA28 /* TargetCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetCustomView.swift; sourceTree = "<group>"; };
 		2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList2ViewController.swift; sourceTree = "<group>"; };
 		2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreList4ViewController.swift; sourceTree = "<group>"; };
 		2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceDistanceViewController.swift; sourceTree = "<group>"; };
+		2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOneEndList.swift; sourceTree = "<group>"; };
+		2A90F7A324E02D210022FA28 /* PointOneEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOneEnd.swift; sourceTree = "<group>"; };
 		2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47424AA2B2F00A944B2 /* TuningListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningListViewController.swift; sourceTree = "<group>"; };
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +240,6 @@
 				2AB93B2724DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib */,
 				2AB93B2C24DEA0BD00389A05 /* ScoreCollectionViewCell.swift */,
 				2AB93B2D24DEA0BD00389A05 /* ScoreCollectionViewCell.xib */,
-				2A90F78F24DED2D20022FA28 /* ScoreView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,24 +257,10 @@
 				2A36503F24D862DD00DD60B2 /* Schedule.swift */,
 				2AB93B1424DD52E500389A05 /* DialyAddList.swift */,
 				2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */,
+				2A90F7A124E028DB0022FA28 /* PointsOneEndList.swift */,
+				2A90F7A324E02D210022FA28 /* PointOneEnd.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		2A90F78C24DED2630022FA28 /* ScoreView */ = {
-			isa = PBXGroup;
-			children = (
-				2A90F78D24DED2B40022FA28 /* SingleScoreTableCollectionView.swift */,
-			);
-			path = ScoreView;
-			sourceTree = "<group>";
-		};
-		2A90F78F24DED2D20022FA28 /* ScoreView */ = {
-			isa = PBXGroup;
-			children = (
-				2A90F79024DED2F10022FA28 /* SingleScoreTableCollectionView.xib */,
-			);
-			path = ScoreView;
 			sourceTree = "<group>";
 		};
 		2A90F79424DEE4600022FA28 /* TargetView */ = {
@@ -291,17 +276,16 @@
 			isa = PBXGroup;
 			children = (
 				2A90F79424DEE4600022FA28 /* TargetView */,
-				2A90F78C24DED2630022FA28 /* ScoreView */,
 				2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */,
 				2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */,
 				2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */,
+				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2A6B16CD24AA1D19009C497D /* CalendarViewController.swift */,
 				2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */,
 				2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */,
 				2A36503D24D85B4F00DD60B2 /* ScheduleViewController.swift */,
 				2A36504124D867D400DD60B2 /* ScoreViewController.swift */,
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
-				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
 				2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */,
 				2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */,
@@ -437,7 +421,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A90F79124DED2F10022FA28 /* SingleScoreTableCollectionView.xib in Resources */,
 				2A36502624D6A90300DD60B2 /* TrainingListTableViewCell.xib in Resources */,
 				2A90F79624DEE4890022FA28 /* TargetCustomView.xib in Resources */,
 				2A6B16C624AA0163009C497D /* Calendar.storyboard in Resources */,
@@ -521,6 +504,7 @@
 				2AB93B2824DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift in Sources */,
 				2A6B16D224AA1D31009C497D /* AnalysisViewController.swift in Sources */,
 				2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */,
+				2A90F7A424E02D210022FA28 /* PointOneEnd.swift in Sources */,
 				2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */,
 				2AB93B2324DD9B2F00389A05 /* RCBowSettingsTableViewController.swift in Sources */,
 				2A802D8B24B8A90500B366DF /* AddCheckPointViewController.swift in Sources */,
@@ -529,7 +513,6 @@
 				2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */,
 				2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */,
 				2AB93B2E24DEA0BD00389A05 /* ScoreCollectionViewCell.swift in Sources */,
-				2A90F78E24DED2B40022FA28 /* SingleScoreTableCollectionView.swift in Sources */,
 				2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */,
 				2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */,
 				2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */,
@@ -541,6 +524,7 @@
 				2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */,
 				2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */,
 				2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */,
+				2A90F7A224E028DC0022FA28 /* PointsOneEndList.swift in Sources */,
 				2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */,
 				2A36502A24D6D29500DD60B2 /* AddCPTuningViewController.swift in Sources */,
 				2A6B16D024AA1D26009C497D /* ListViewController.swift in Sources */,
