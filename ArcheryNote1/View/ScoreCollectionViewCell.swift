@@ -83,7 +83,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]]) {
         var query: Bool = (indexPath.section == 0)
         if scoreTableNum != 1{
-            query = (indexPath.section % 7 == 0)
+            query = (indexPath.section % 8 == 0)
         }
         
         if query {
@@ -102,11 +102,19 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             default:
                 label.text = String(indexPath.row)
             }
-
-        }else{
+        }else if indexPath.section % 8 == 7{
+            switch indexPath.row {
+            case 5:
+                label.text = "X:"
+            case 7:
+                label.text = "10:"
+            default:
+                break
+            }
+        } else {
             switch indexPath.row {
             case 0:
-                self.label.text = String(indexPath.section % 7)
+                self.label.text = String(indexPath.section % 8)
             case 9:
                 label.text = "的中"
                 label.font = UIFont.systemFont(ofSize: 12, weight: .light)
@@ -114,8 +122,8 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             case 7, 8:
                 self.backgroundColor = .white
                 self.layer.borderColor = UIColor.black.cgColor
-                let round = Int(floor(Double(indexPath.section/7)))
-                let end = Int(indexPath.section % 7) - 1
+                let round = Int(floor(Double(indexPath.section/8)))
+                let end = Int(indexPath.section % 8) - 1
                 if indexPath.row == 7 {
                     self.layer.borderWidth = 2
                     let sum = intScoreList[round][end].reduce(0, +)
@@ -135,17 +143,19 @@ class ScoreCollectionViewCell: UICollectionViewCell {
                                 break
                             }
                         }
-//                        if flag { break }
                         sum += _sum
                     }
                     if flag { break }
                     if sum != 0 {
                         label.text = String(sum)
+                        if sum > 99 {
+                            label.font = UIFont.systemFont(ofSize: 15)
+                        }
                     }
                 }
             default:
-                let round = Int(floor(Double(indexPath.section/7)))
-                let end = Int(indexPath.section % 7) - 1
+                let round = Int(floor(Double(indexPath.section/8)))
+                let end = Int(indexPath.section % 8) - 1
                 let num = Int(indexPath.row - 1)
                 self.backgroundColor = .white
                 self.layer.borderColor = UIColor.black.cgColor

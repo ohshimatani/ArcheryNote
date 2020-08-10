@@ -77,6 +77,9 @@ class DialySheetViewController: UIViewController{
         let realm = try! Realm()
         dialyAddList = realm.objects(DialyAddList.self).filter("date == %@", dateText!)
         listupTableView.reloadData()
+        
+        
+        
     }
     
     

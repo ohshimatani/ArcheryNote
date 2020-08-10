@@ -283,8 +283,7 @@
 			children = (
 				2A90F79424DEE4600022FA28 /* TargetView */,
 				2AA4E47024AA2ACB00A944B2 /* ScoreListViewController.swift */,
-				2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */,
-				2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */,
+				2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */,
 				2A847C3A24DAFF7500B26189 /* TargetViewController.swift */,
 				2A6B16CD24AA1D19009C497D /* CalendarViewController.swift */,
 				2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */,
@@ -294,7 +293,6 @@
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
 				2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */,
-				2A90F79D24DF16A80022FA28 /* ChoiceDistanceViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -344,6 +342,8 @@
 		2ADA34E524AA48AD0065EE7E /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				2A90F79924DF09080022FA28 /* ScoreList2ViewController.swift */,
+				2A90F79B24DF09150022FA28 /* ScoreList4ViewController.swift */,
 				2ADA34E624AA48E90065EE7E /* ComentOuts.swift */,
 				2A802D8E24B8C78100B366DF /* README.md */,
 			);

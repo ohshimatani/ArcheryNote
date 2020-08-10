@@ -18,19 +18,21 @@ class ScoreSheet: Object {
     @objc dynamic var sight2: String = ""
     @objc dynamic var sight3: String = ""
     @objc dynamic var sight4: String = ""
+    @objc dynamic var memo: String = ""
     
     var points = List<OneRound>()
     
     /*
     distance:
      - mach:
-        - 70mW
-        - 50mW
+        - 70W
+        - 50W
         - SH
         - 1440M
+        - 60W
         - 1440W
         - indoor
-        - 30mW
+        - 30W
      - 36:
         - 90
         - 70

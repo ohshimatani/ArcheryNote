@@ -69,8 +69,6 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
             button?.addTarget(self, action: #selector(didTap(sender:forEvent:)), for: .touchUpInside)
         }
         
-        
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -108,7 +106,6 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.targetView.addSubview(dot)
             }
         }
-
     }
     
     
@@ -136,6 +133,7 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
         collectionView.reloadData()
     }
+    
     
     func appendPoint(pointString: String, pointInt: Int, dotLocation: CGPoint){
         pointsStringList[nowSelect-1] = pointString
@@ -225,12 +223,12 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    
     @IBAction func done(_ sender: Any) {
         pointLocationUpdate()
         delegate?.scoreFromTarget(round: round, end: end, pointInt: pointsIntList, pointString: pointsStringList, locationX: pointsLocationListX, locationY: pointsLocationListY)
         self.navigationController?.popViewController(animated: true)
     }
+    
     
     func pointLocationUpdate() {
         var index = 0
