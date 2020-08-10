@@ -94,6 +94,13 @@ class AddSomethingViewController: UIViewController {
             VC.month = month
             VC.day = day
             VC.weekday = weekday
+        } else if segue.identifier == "toScoreSheet" {
+            let NC = segue.destination as! UINavigationController
+            let VC = NC.topViewController as! ScoreListViewController
+            VC.year = year
+            VC.month = month
+            VC.day = day
+            VC.weekday = weekday
         }
     }
 

@@ -12,7 +12,11 @@ import RealmSwift
 class ScoreSheet: Object {
     @objc dynamic var date: String = ""
     @objc dynamic var title: String = ""
-    @objc dynamic var distance: String = ""
+    @objc dynamic var distanceKey: String = ""
+    @objc dynamic var distance1R: String = ""
+    @objc dynamic var distance2R: String = ""
+    @objc dynamic var distance3R: String = ""
+    @objc dynamic var distance4R: String = ""
     @objc dynamic var isMatch: Bool = false
     @objc dynamic var weather: Int = 0
     @objc dynamic var sight1: String = ""

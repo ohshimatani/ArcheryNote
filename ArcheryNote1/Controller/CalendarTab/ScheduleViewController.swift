@@ -47,7 +47,7 @@ class ScheduleViewController: UIViewController {
 
         // set known infomation
         dateLabel.text = dateLabelText
-        dateText = String(year) + String(month) + String(day)        
+        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
         categorySegmentedControl.selectedSegmentIndex = selectedNumber
         titleLabel.text = titleTextFieldText
         memoTextView.text = memoTextViewText

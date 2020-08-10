@@ -80,7 +80,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     var pointXScoreSavingList: [[Double]]!
     var pointYScoreSavingList: [[Double]]!
     
-    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]], isIndoor60: Bool, isIndoor30: Bool, sum10Lists: [[Int]], distanceKey: String) {
+    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]], isIndoor60: Bool, isIndoor30: Bool, sum10Lists: [[Int]], distanceKeys: [String]) {
         var query: Bool = (indexPath.section == 0)
         var sections: Int = 8
         
@@ -97,8 +97,15 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         if query {
             switch indexPath.row {
             case 0:
-                label.text = "70m"
-                label.font = UIFont.systemFont(ofSize: 12)
+                let str = distanceKeys[Int(floor(Double(indexPath.section / sections)))]
+                if str == "" {
+                    label.text = "+"
+                    label.textColor = .systemBlue
+                    label.font = UIFont.systemFont(ofSize: 25, weight: .regular)
+                } else {
+                    label.text = str
+                    label.font = UIFont.systemFont(ofSize: 12)
+                }
             case 7:
                 label.text = "小計"
                 label.font = UIFont.systemFont(ofSize: 12)

@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class PointsOneEnd: Object {
-    @objc dynamic var round: Int = 0
-    @objc dynamic var end: Int = 0
+//    @objc dynamic var round: Int = 0
+//    @objc dynamic var end: Int = 0
     var points = List<Point>()
 }

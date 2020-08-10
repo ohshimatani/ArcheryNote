@@ -14,6 +14,10 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
     
     @IBOutlet weak var averageOfThisMounthLabelText: UILabel!
     
+    @IBOutlet weak var averageOfaverageLabel: UILabel!
+    @IBOutlet weak var averageOf10PointsLabel: UILabel!
+    @IBOutlet weak var averageOfXPointsLabel: UILabel!
+    
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var totalScore: UILabel!
     
@@ -54,6 +58,9 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
 //        print(intScoreSavingList)
         
         averageOfThisMounthLabelText.text = ""
+        averageOfaverageLabel.text = ""
+        averageOf10PointsLabel.text = ""
+        averageOfXPointsLabel.text = ""
         distance.text = distanceText
         
         inintialization()

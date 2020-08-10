@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A008BAB24E15C310079C347 /* AddScoreInformationMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAA24E15C310079C347 /* AddScoreInformationMoreViewController.swift */; };
+		2A008BAD24E17FF90079C347 /* PickDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAC24E17FF90079C347 /* PickDistanceViewController.swift */; };
 		2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */; };
 		2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */; };
 		2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		2A008BAA24E15C310079C347 /* AddScoreInformationMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScoreInformationMoreViewController.swift; sourceTree = "<group>"; };
+		2A008BAC24E17FF90079C347 /* PickDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDistanceViewController.swift; sourceTree = "<group>"; };
 		2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFunctions.swift; sourceTree = "<group>"; };
 		2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPointListTableViewCell.swift; sourceTree = "<group>"; };
 		2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPointListTableViewCell.xib; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */,
 				2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */,
 				2A90F79224DEE26D0022FA28 /* SampleTargetViewController.swift */,
+				2A008BAC24E17FF90079C347 /* PickDistanceViewController.swift */,
 			);
 			path = CalendarTab;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				2A36502E24D7E8DD00DD60B2 /* TuningCP.swift in Sources */,
 				2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */,
 				2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */,
+				2A008BAD24E17FF90079C347 /* PickDistanceViewController.swift in Sources */,
 				2A6B16D424AA1D3B009C497D /* SettingsViewController.swift in Sources */,
 				2A90F79A24DF09080022FA28 /* ScoreList2ViewController.swift in Sources */,
 				2A36503E24D85B4F00DD60B2 /* ScheduleViewController.swift in Sources */,

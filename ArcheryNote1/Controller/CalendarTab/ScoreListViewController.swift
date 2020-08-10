@@ -7,24 +7,33 @@
 //
 
 import UIKit
+import RealmSwift
 
-class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate {
+class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate, PickDistanceDelegate {
+    
+    
     
     
     @IBOutlet weak var cardView: UIView!
     
     @IBOutlet weak var scoreTableCollectionView: UICollectionView!
     
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var distanceLabel: UILabel!
     
     
     @IBOutlet weak var sightTextField1: UITextField!
-    
     @IBOutlet weak var sightTextField2: UITextField!
-    
     @IBOutlet weak var sightTextField3: UITextField!
-    
     @IBOutlet weak var sightTextField4: UITextField!
+    
+    
+    @IBOutlet weak var weatherSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var matchSegmentedControl: UISegmentedControl!
+    
     
     
     @IBOutlet weak var sumLabel: UILabel!
@@ -43,6 +52,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var distanceText: String = "フリー（72射）"
     var distanceKey: String = "free_72"
+    var distanceKeys: [String] = ["", "", "", ""]
     var isIndoor60: Bool = false
     var isIndoor30: Bool = false
     
@@ -53,11 +63,23 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var memo: String = ""
     
-    var distanceKeys: [String] = ["70m", "70m", "", ""]
+    var year: Int!
+    var month: Int!
+    var day: Int!
+    var weekday: Int!
+    var dateLabelText = "9999年99月99日（日）"
+    let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
+    
+    var dateText: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let weekdayString = weekdayList[weekday-1]
+        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
+        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
+        dateLabel.text = dateLabelText
         
         initializeScoreList()
         
@@ -86,6 +108,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
+        
     }
     
     
@@ -150,36 +173,27 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     func generateDistanceKeys() {
         switch distanceKey {
         case "70W":
-            distanceKeys[0] = "70m"
-            distanceKeys[1] = "70m"
+            distanceKeys = ["70m", "70m", "", ""]
         case "50W":
-            distanceKeys[0] = "50m"
-            distanceKeys[1] = "50m"
+            distanceKeys = ["50m", "50m", "", ""]
         case "SH":
-            distanceKeys[0] = "50m"
-            distanceKeys[1] = "30m"
+            distanceKeys = ["50m", "30m", "", ""]
         case "1440M":
-            distanceKeys[0] = "90m"
-            distanceKeys[1] = "70m"
-            distanceKeys[2] = "50m"
-            distanceKeys[3] = "30m"
+            distanceKeys = ["90m", "70m", "50m", "30m"]
         case "1440W":
-            distanceKeys[0] = "70m"
-            distanceKeys[1] = "60m"
-            distanceKeys[2] = "50m"
-            distanceKeys[3] = "30m"
+            distanceKeys = ["70m", "60m", "50m", "30m"]
         case "60W":
-            distanceKeys[0] = "60m"
-            distanceKeys[1] = "60m"
+            distanceKeys = ["60m", "60m", "", ""]
         case "18W":
-            distanceKeys[0] = "18m"
-            distanceKeys[1] = "18m"
+            distanceKeys = ["18m", "18m", "", ""]
         case "30W":
-            distanceKeys[0] = "30m"
-            distanceKeys[1] = "30m"
-        case "free_36"
+            distanceKeys = ["30m", "30m", "", ""]
+        case "free_36", "free_72", "free_144":
+            distanceKeys = ["", "", "", ""]
+        case "18_30", "18_36":
+            distanceKeys = ["18m", "", "", ""]
         default:
-            <#code#>
+            distanceKeys = [distanceKey + "m", "", "", ""]
         }
     }
     
@@ -214,8 +228,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
-        
-        cell.setScorePageCell(scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList, isIndoor60: isIndoor60, isIndoor30: isIndoor30, sum10Lists: sum10Lists, distanceKey: distanceKey)
+        cell.setScorePageCell(scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList, isIndoor60: isIndoor60, isIndoor30: isIndoor30, sum10Lists: sum10Lists, distanceKeys: distanceKeys)
         return cell
     }
     
@@ -234,6 +247,9 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             thisEndIntPoints = intScoreSavingList[round][end]
             thisEndLocation = [pointXScoreSavingList[round][end], pointYScoreSavingList[round][end]]
             performSegue(withIdentifier: "toTarget", sender: nil)
+        }
+        if (distanceKey.contains("free")) && (indexPath.section % sectionsNum == 0) && (indexPath.row == 0) {
+            performSegue(withIdentifier: "toPickDistance", sender: nil)
         }
     }
     
@@ -273,6 +289,12 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             VC.sum10Lists = sum10Lists
             VC.total = sumLabel.text!
             VC.memo = memo
+        } else if segue.identifier == "toPickDistance" {
+            let VC = segue.destination as! PickDistanceViewController
+//            print(roundsNum)
+            VC.roundsNum = roundsNum
+            VC.distanceKeys = distanceKeys
+            VC.delegate = self
         }
     }
     
@@ -297,7 +319,15 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         self.isIndoor60 = isIndoor60
         self.isIndoor30 = isIndoor30
         
+        print(distanceKey)
+        generateDistanceKeys()
         distanceLabel.text = distanceText
+        scoreTableCollectionView.reloadData()
+    }
+    
+    func pickDistanceForFree(distanceKeys: [String]) {
+        self.distanceKeys = distanceKeys
+        print(self.distanceKeys)
         scoreTableCollectionView.reloadData()
     }
     
@@ -319,6 +349,51 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     @IBAction func save(_ sender: Any) {
+        let realm = try! Realm()
+        let _scoreSheet = ScoreSheet()
+        
+        let scoreOneRound = OneRound()
+        for i in 0..<4 {
+            let scoreOneEnd = PointsOneEnd()
+            for j in 0..<6 {
+                let _point = Point()
+                for k in 0..<6 {
+                    _point.pointString = stringScoreSavingList[i][j][k]
+                    _point.pointInt = intScoreSavingList[i][j][k]
+                    _point.dotLocationX = pointXScoreSavingList[i][j][k]
+                    _point.dotLocationY = pointYScoreSavingList[i][j][k]
+                    scoreOneEnd.points.append(_point)
+                }
+                scoreOneRound.points.append(scoreOneEnd)
+            }
+            _scoreSheet.points.append(scoreOneRound)
+        }
+        
+        
+        
+        _scoreSheet.date = dateText
+        _scoreSheet.title = titleTextField.text!
+        _scoreSheet.distanceKey = distanceKey
+        _scoreSheet.distance1R = distanceKeys[0]
+        _scoreSheet.distance2R = distanceKeys[1]
+        _scoreSheet.distance3R = distanceKeys[2]
+        _scoreSheet.distance4R = distanceKeys[3]
+        if matchSegmentedControl.selectedSegmentIndex == 0 {
+            _scoreSheet.isMatch = false
+        } else {
+            _scoreSheet.isMatch = true
+        }
+        _scoreSheet.weather = weatherSegmentedControl.selectedSegmentIndex
+        _scoreSheet.sight1 = sightTextField1.text!
+        _scoreSheet.sight2 = sightTextField2.text!
+        _scoreSheet.sight3 = sightTextField3.text!
+        _scoreSheet.sight4 = sightTextField4.text!
+        _scoreSheet.memo = memo
+        
+        try! realm.write {
+            realm.add(_scoreSheet)
+            print(_scoreSheet)
+        }
         
         
         
