@@ -11,6 +11,7 @@ import RealmSwift
 
 class ScoreSheet: Object {
     @objc dynamic var date: String = ""
+    @objc dynamic var title: String = ""
     @objc dynamic var distance: String = ""
     @objc dynamic var isMatch: Bool = false
     @objc dynamic var weather: Int = 0
@@ -31,7 +32,7 @@ class ScoreSheet: Object {
         - 1440M
         - 60W
         - 1440W
-        - indoor
+        - 18W(indoor)
         - 30W
      - 36:
         - 90

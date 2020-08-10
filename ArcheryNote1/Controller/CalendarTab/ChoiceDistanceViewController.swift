@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol FromDistancePageDelegate {
-    func fromDistancePage(intScoreSavingList: [[[Int]]], stringScoreSavingList: [[[String]]], pointXScoreSavingList: [[[Double]]], pointYScoreSavingList: [[[Double]]], distanceKey: String, distanceText: String)
+    func fromDistancePage(intScoreSavingList: [[[Int]]], stringScoreSavingList: [[[String]]], pointXScoreSavingList: [[[Double]]], pointYScoreSavingList: [[[Double]]], distanceKey: String, distanceText: String, rounds: Int, isIndoor30: Bool, isIndoor60: Bool)
 }
 
 class ChoiceDistanceViewController: UIViewController {
@@ -53,6 +53,9 @@ class ChoiceDistanceViewController: UIViewController {
     var selectedKey: String!
     var labelText: String!
     var rounds: Int!
+    
+    var isIndoor30: Bool = false
+    var isIndoor60: Bool = false
     
     
     override func viewDidLoad() {
@@ -119,18 +122,30 @@ class ChoiceDistanceViewController: UIViewController {
             rounds = 1
         // free
         case buttonFree36:
-            selectedKey = "free36"
+            selectedKey = "free_36"
             rounds = 1
         case buttonFree72:
-            selectedKey = "free72"
+            selectedKey = "free_72"
             rounds = 2
         case buttonFree144:
-            selectedKey = "free144"
+            selectedKey = "free_144"
             rounds = 4
         // default
         default:
-            selectedKey = "free72"
+            selectedKey = "free_72"
             rounds = 2
+        }
+        
+        // is Indoor or not
+        if selectedKey == "18_30" {
+            isIndoor30 = true
+        } else {
+            isIndoor30 = false
+        }
+        if selectedKey == "18W" {
+            isIndoor60 = true
+        } else {
+            isIndoor60 = false
         }
         distanceLabel.text = sender.titleLabel?.text
         
@@ -138,20 +153,8 @@ class ChoiceDistanceViewController: UIViewController {
     
     
     @IBAction func done(_ sender: Any) {
-        delegate?.fromDistancePage(intScoreSavingList: intScoreSavingList, stringScoreSavingList: stringScoreSavingList, pointXScoreSavingList: pointXScoreSavingList, pointYScoreSavingList: pointYScoreSavingList, distanceKey: distanceLabel.text!, distanceText: selectedKey)
-        switch rounds {
-        case 1:
-            let VC = (self.storyboard?.instantiateViewController(identifier: "score1"))! as ScoreListViewController
-            self.present(VC, animated: true, completion: nil)
-        case 4:
-            let VC = (self.storyboard?.instantiateViewController(identifier: "score4"))! as ScoreList4ViewController
-            self.present(VC, animated: true, completion: nil)
-        default:
-            let VC = (self.storyboard?.instantiateViewController(identifier: "score2"))! as ScoreList2ViewController
-            self.present(VC, animated: true, completion: nil)
-        }
-        
-//        self.dismiss(animated: true, completion: nil)
+        delegate?.fromDistancePage(intScoreSavingList: intScoreSavingList, stringScoreSavingList: stringScoreSavingList, pointXScoreSavingList: pointXScoreSavingList, pointYScoreSavingList: pointYScoreSavingList, distanceKey: selectedKey, distanceText: distanceLabel.text!, rounds: rounds, isIndoor30: isIndoor30, isIndoor60: isIndoor60)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

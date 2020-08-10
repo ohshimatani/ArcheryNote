@@ -80,10 +80,18 @@ class ScoreCollectionViewCell: UICollectionViewCell {
     var pointXScoreSavingList: [[Double]]!
     var pointYScoreSavingList: [[Double]]!
     
-    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]]) {
+    func setScorePageCell(scoreTableNum: Int, indexPath: IndexPath, stringScoreList: [[[String]]], intScoreList: [[[Int]]], isIndoor60: Bool, isIndoor30: Bool, sum10Lists: [[Int]], distanceKey: String) {
         var query: Bool = (indexPath.section == 0)
+        var sections: Int = 8
+        
+        if isIndoor60 || isIndoor30 {
+            sections = 7
+        } else {
+            sections = 8
+        }
+        
         if scoreTableNum != 1{
-            query = (indexPath.section % 8 == 0)
+            query = (indexPath.section % sections == 0)
         }
         
         if query {
@@ -102,10 +110,21 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             default:
                 label.text = String(indexPath.row)
             }
-        }else if indexPath.section % 8 == 7{
+        }else if indexPath.section % sections == (sections-1){
             switch indexPath.row {
             case 5:
                 label.text = "X:"
+            case 6, 8:
+                let round: Int = Int(floor(Double(indexPath.section / sections)))
+                var sumX: Int!
+                var sum10: Int!
+                sumX = sum10Lists[round][0]
+                sum10 = sum10Lists[round][1]
+                if indexPath.row == 6 {
+                    label.text = String(sumX)
+                } else {
+                    label.text = String(sum10)
+                }
             case 7:
                 label.text = "10:"
             default:
@@ -114,7 +133,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
         } else {
             switch indexPath.row {
             case 0:
-                self.label.text = String(indexPath.section % 8)
+                self.label.text = String(indexPath.section % sections)
             case 9:
                 label.text = "的中"
                 label.font = UIFont.systemFont(ofSize: 12, weight: .light)
@@ -122,8 +141,8 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             case 7, 8:
                 self.backgroundColor = .white
                 self.layer.borderColor = UIColor.black.cgColor
-                let round = Int(floor(Double(indexPath.section/8)))
-                let end = Int(indexPath.section % 8) - 1
+                let round = Int(floor(Double(indexPath.section/sections)))
+                let end = Int(indexPath.section % sections) - 1
                 if indexPath.row == 7 {
                     self.layer.borderWidth = 2
                     let sum = intScoreList[round][end].reduce(0, +)
@@ -154,8 +173,8 @@ class ScoreCollectionViewCell: UICollectionViewCell {
                     }
                 }
             default:
-                let round = Int(floor(Double(indexPath.section/8)))
-                let end = Int(indexPath.section % 8) - 1
+                let round = Int(floor(Double(indexPath.section/sections)))
+                let end = Int(indexPath.section % sections) - 1
                 let num = Int(indexPath.row - 1)
                 self.backgroundColor = .white
                 self.layer.borderColor = UIColor.black.cgColor

@@ -11,9 +11,6 @@ import UIKit
 class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate {
     
     
-    
-    
-    
     @IBOutlet weak var cardView: UIView!
     
     @IBOutlet weak var scoreTableCollectionView: UICollectionView!
@@ -45,9 +42,18 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     var distanceText: String = "フリー（72射）"
-    var distanceKey: String = "free72"
+    var distanceKey: String = "free_72"
+    var isIndoor60: Bool = false
+    var isIndoor30: Bool = false
     
     var roundsNum: Int = 2
+    var sectionsNum: Int = 8
+    
+    var sum10Lists: [[Int]] = [[0, 0], [0, 0], [0, 0], [0, 0]]
+    
+    var memo: String = ""
+    
+    var distanceKeys: [String] = ["70m", "70m", "", ""]
     
     
     override func viewDidLoad() {
@@ -58,6 +64,8 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         // card settings
         //        cardView = SingleScoreTableCollectionView()
         cardView.layer.cornerRadius = 12.0
+        cardView.layer.borderColor = UIColor.systemGray.cgColor
+        cardView.layer.borderWidth = 2.0
         
         
         // delegate settings
@@ -82,11 +90,30 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
         var sum: Int = 0
+        var sum10List: [Int] = [0, 0]
         for i in 0..<roundsNum {
+            var countX: Int = 0
+            var count10: Int = 0
             for j in 0..<6 {
                 sum += intScoreSavingList[i][j].reduce(0, +)
+                var endCountX: Int = 0
+                var endCount10: Int = 0
+                for k in 0..<6 {
+                    if stringScoreSavingList[i][j][k] == "X" {
+                        endCountX += 1
+                        endCount10 += 1
+                    } else if stringScoreSavingList[i][j][k] == "10" {
+                        endCount10 += 1
+                    }
+                }
+                countX += endCountX
+                count10 += endCount10
             }
+            sum10List[0] = countX
+            sum10List[1] = count10
+            sum10Lists[i] = sum10List
         }
         sumLabel.text = String(sum)
         sumLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -99,7 +126,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     func initializeScoreList() {
-        for _ in 0..<roundsNum{
+        for _ in 0..<4{
             var intSubList =  [[Int]]()
             var stringSubList = [[String]]()
             var pointSubList = [[Double]]()
@@ -120,10 +147,52 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     
+    func generateDistanceKeys() {
+        switch distanceKey {
+        case "70W":
+            distanceKeys[0] = "70m"
+            distanceKeys[1] = "70m"
+        case "50W":
+            distanceKeys[0] = "50m"
+            distanceKeys[1] = "50m"
+        case "SH":
+            distanceKeys[0] = "50m"
+            distanceKeys[1] = "30m"
+        case "1440M":
+            distanceKeys[0] = "90m"
+            distanceKeys[1] = "70m"
+            distanceKeys[2] = "50m"
+            distanceKeys[3] = "30m"
+        case "1440W":
+            distanceKeys[0] = "70m"
+            distanceKeys[1] = "60m"
+            distanceKeys[2] = "50m"
+            distanceKeys[3] = "30m"
+        case "60W":
+            distanceKeys[0] = "60m"
+            distanceKeys[1] = "60m"
+        case "18W":
+            distanceKeys[0] = "18m"
+            distanceKeys[1] = "18m"
+        case "30W":
+            distanceKeys[0] = "30m"
+            distanceKeys[1] = "30m"
+        case "free_36"
+        default:
+            <#code#>
+        }
+    }
+    
+    
     
     // number of row
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 8 * roundsNum
+        if isIndoor60 || isIndoor30 {
+            sectionsNum = 7
+        } else {
+            sectionsNum = 8
+        }
+        return sectionsNum * roundsNum
     }
 
 
@@ -146,7 +215,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "scoreCell", for: indexPath) as! ScoreCollectionViewCell
         
-        cell.setScorePageCell(scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList)
+        cell.setScorePageCell(scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList, isIndoor60: isIndoor60, isIndoor30: isIndoor30, sum10Lists: sum10Lists, distanceKey: distanceKey)
         return cell
     }
     
@@ -155,19 +224,22 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        if (indexPath.section % 8 != 7) && ((indexPath.row == 8) || (indexPath.row == 9)){
-            round = Int(floor(Double(indexPath.section / 8)))
-            end = indexPath.section % 8 - 1
+        if ((indexPath.section % sectionsNum != sectionsNum-1) && (indexPath.section % sectionsNum != 0)) && ((indexPath.row == 8) || (indexPath.row == 9)){
+            round = Int(floor(Double(indexPath.section / sectionsNum)))
+            end = indexPath.section % sectionsNum - 1
             print("tap !!! : ", round, end)
+            print(stringScoreSavingList)
+            print(round, end)
             thisEndStringPoints = stringScoreSavingList[round][end]
             thisEndIntPoints = intScoreSavingList[round][end]
             thisEndLocation = [pointXScoreSavingList[round][end], pointYScoreSavingList[round][end]]
-            performSegue(withIdentifier: "toTargetFromS1", sender: nil)
-        }    }
+            performSegue(withIdentifier: "toTarget", sender: nil)
+        }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTargetFromS1" {
+        if segue.identifier == "toTarget" {
             let VC = segue.destination as! TargetViewController
             VC.end = end
             VC.round = round
@@ -184,7 +256,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             }
             VC.nowSelect = n
             VC.delegate = self
-        } else if segue.identifier == "toDistanceFromS1" {
+        } else if segue.identifier == "toDistance" {
             let VC = segue.destination as! ChoiceDistanceViewController
             VC.intScoreSavingList = intScoreSavingList
             VC.stringScoreSavingList = stringScoreSavingList
@@ -193,7 +265,15 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             VC.labelText = distanceText
             VC.selectedKey = distanceKey
             VC.delegate = self
-       }
+        } else if segue.identifier == "toScoreDetail" {
+            let VC = segue.destination as! AddScoreInformationMoreViewController
+            VC.distanceText = distanceText
+            VC.intScoreSavingList = intScoreSavingList
+            VC.stringScoreSavingList = stringScoreSavingList
+            VC.sum10Lists = sum10Lists
+            VC.total = sumLabel.text!
+            VC.memo = memo
+        }
     }
     
     
@@ -206,19 +286,30 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     
-    func fromDistancePage(intScoreSavingList: [[[Int]]], stringScoreSavingList: [[[String]]], pointXScoreSavingList: [[[Double]]], pointYScoreSavingList: [[[Double]]], distanceKey: String, distanceText: String) {
+    func fromDistancePage(intScoreSavingList: [[[Int]]], stringScoreSavingList: [[[String]]], pointXScoreSavingList: [[[Double]]], pointYScoreSavingList: [[[Double]]], distanceKey: String, distanceText: String, rounds: Int, isIndoor30: Bool, isIndoor60: Bool) {
         self.intScoreSavingList = intScoreSavingList
         self.stringScoreSavingList = stringScoreSavingList
         self.pointXScoreSavingList = pointXScoreSavingList
         self.pointYScoreSavingList = pointYScoreSavingList
         self.distanceText = distanceText
         self.distanceKey = distanceKey
+        self.roundsNum = rounds
+        self.isIndoor60 = isIndoor60
+        self.isIndoor30 = isIndoor30
+        
+        distanceLabel.text = distanceText
         scoreTableCollectionView.reloadData()
     }
+    
 
     
     @IBAction func changeDistance(_ sender: Any) {
-        performSegue(withIdentifier: "toDistanceFromS1", sender: nil)
+        performSegue(withIdentifier: "toDistance", sender: nil)
+    }
+    
+    
+    @IBAction func toScoreDetail(_ sender: Any) {
+        performSegue(withIdentifier: "toScoreDetail", sender: nil)
     }
     
     
