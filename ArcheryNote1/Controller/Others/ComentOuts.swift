@@ -155,6 +155,49 @@ import Foundation
              vi.frame.origin.y = screenSize.height - vi.bounds.size.height
          }
      }
+ 
+ 
+ 
+ 
+
+
+    //            let resultArray = Array(result.points)
+    //            var strArray: [[[String]]]!
+    //            var intArray: [[[Int]]]!
+    //            var XArray: [[[Double]]]!
+    //            var YArray: [[[Double]]]!
+    //            for round in resultArray {
+    //                let roundArray = Array(round.points)
+    //                var roundStr: [[String]]!
+    //                var roundInt: [[Int]]!
+    //                var roundLocationX: [[Double]]!
+    //                var roundLocationY: [[Double]]!
+    //                for end in roundArray {
+    //                    let endArray = Array(end.points)
+    //                    var endStr: [String]!
+    //                    var endInt: [Int]!
+    //                    var endLocationX: [Double]!
+    //                    var endLocationY: [Double]!
+    //                    for num in endArray {
+    //                        endStr.append(num.pointString)
+    //                        endInt.append(num.pointInt)
+    //                        endLocationX.append(num.dotLocationX)
+    //                        endLocationY.append(num.dotLocationY)
+    //                    }
+    //                    roundStr.append(endStr)
+    //                    roundInt.append(endInt)
+    //                    roundLocationX.append(endLocationX)
+    //                    roundLocationY.append(endLocationY)
+    //                }
+    //                strArray.append(roundStr)
+    //                intArray.append(roundInt)
+    //                XArray.append(roundLocationX)
+    //                YArray.append(roundLocationY)
+    //            }
+    //            stringScoreSavingList = strArray
+    //            intScoreSavingList = intArray
+    //            pointXScoreSavingList = XArray
+    //            pointYScoreSavingList = YArray
 
  
  

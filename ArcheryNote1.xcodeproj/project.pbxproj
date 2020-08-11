@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2A008BAB24E15C310079C347 /* AddScoreInformationMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAA24E15C310079C347 /* AddScoreInformationMoreViewController.swift */; };
 		2A008BAD24E17FF90079C347 /* PickDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAC24E17FF90079C347 /* PickDistanceViewController.swift */; };
+		2A008BAF24E1A11B0079C347 /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */; };
+		2A008BB224E1A9F00079C347 /* ScoreTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BB024E1A9F00079C347 /* ScoreTableTableViewCell.swift */; };
+		2A008BB324E1A9F00079C347 /* ScoreTableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A008BB124E1A9F00079C347 /* ScoreTableTableViewCell.xib */; };
 		2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */; };
 		2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */; };
 		2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */; };
@@ -83,6 +86,9 @@
 /* Begin PBXFileReference section */
 		2A008BAA24E15C310079C347 /* AddScoreInformationMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScoreInformationMoreViewController.swift; sourceTree = "<group>"; };
 		2A008BAC24E17FF90079C347 /* PickDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDistanceViewController.swift; sourceTree = "<group>"; };
+		2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewController.swift; sourceTree = "<group>"; };
+		2A008BB024E1A9F00079C347 /* ScoreTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableTableViewCell.swift; sourceTree = "<group>"; };
+		2A008BB124E1A9F00079C347 /* ScoreTableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableTableViewCell.xib; sourceTree = "<group>"; };
 		2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFunctions.swift; sourceTree = "<group>"; };
 		2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPointListTableViewCell.swift; sourceTree = "<group>"; };
 		2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPointListTableViewCell.xib; sourceTree = "<group>"; };
@@ -246,6 +252,8 @@
 				2AB93B2024DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib */,
 				2AB93B2624DDB25000389A05 /* OthersInBowSettingsTableViewCell.swift */,
 				2AB93B2724DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib */,
+				2A008BB024E1A9F00079C347 /* ScoreTableTableViewCell.swift */,
+				2A008BB124E1A9F00079C347 /* ScoreTableTableViewCell.xib */,
 				2AB93B2C24DEA0BD00389A05 /* ScoreCollectionViewCell.swift */,
 				2AB93B2D24DEA0BD00389A05 /* ScoreCollectionViewCell.xib */,
 			);
@@ -333,6 +341,7 @@
 				2A36502924D6D29500DD60B2 /* AddCPTuningViewController.swift */,
 				2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */,
 				2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */,
+				2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */,
 			);
 			path = ListTab;
 			sourceTree = "<group>";
@@ -446,6 +455,7 @@
 				2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */,
 				2A6B16CC24AA018E009C497D /* Settings.storyboard in Resources */,
 				2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */,
+				2A008BB324E1A9F00079C347 /* ScoreTableTableViewCell.xib in Resources */,
 				2AB93B1324DBF37D00389A05 /* CPBowSettingsTableViewCell.xib in Resources */,
 				2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */,
 				2AB93B2924DDB25000389A05 /* OthersInBowSettingsTableViewCell.xib in Resources */,
@@ -508,6 +518,7 @@
 				2A6B169124A673B9009C497D /* ViewController.swift in Sources */,
 				2A36502E24D7E8DD00DD60B2 /* TuningCP.swift in Sources */,
 				2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */,
+				2A008BB224E1A9F00079C347 /* ScoreTableTableViewCell.swift in Sources */,
 				2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */,
 				2A008BAD24E17FF90079C347 /* PickDistanceViewController.swift in Sources */,
 				2A6B16D424AA1D3B009C497D /* SettingsViewController.swift in Sources */,
@@ -534,6 +545,7 @@
 				2A36504B24D9488000DD60B2 /* BowSettingsViewController.swift in Sources */,
 				2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */,
 				2AB93B1524DD52E500389A05 /* DialyAddList.swift in Sources */,
+				2A008BAF24E1A11B0079C347 /* ScoreTableViewController.swift in Sources */,
 				2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */,
 				2A36504024D862DD00DD60B2 /* Schedule.swift in Sources */,
 				2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */,

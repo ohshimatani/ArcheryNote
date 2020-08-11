@@ -34,9 +34,12 @@ class AddTrainingViewController: UIViewController {
         }
         
         
-        titleTextField.text = result.title
-        detailTextView.text = result.detail
-        memoTextView.text = result.memo
+        if result != nil {
+            titleTextField.text = result.title
+            detailTextView.text = result.detail
+            memoTextView.text = result.memo
+        }
+        
 
                 
         

@@ -46,7 +46,7 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dateText = String(year) + String(month) + String(day)
+        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
         
         let realm = try! Realm()
         _schedule = realm.objects(Schedule.self).filter("date == %@", dateText!)
@@ -119,6 +119,24 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
         
         performSegue(withIdentifier: "addNewSchedule", sender: nil)
     }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
+            
+            let realm = try! Realm()
+            try! realm.write{
+                realm.delete(self._schedule[indexPath.row])
+                print("deleted")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+
     
     
     

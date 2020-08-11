@@ -533,7 +533,7 @@
         <!--Score List View Controller-->
         <scene sceneID="Uv5-iO-iQA">
             <objects>
-                <viewController id="KBJ-pk-Mgw" customClass="ScoreListViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scoreSheetVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KBJ-pk-Mgw" customClass="ScoreListViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ApD-Fm-e2j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1617,7 +1617,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mkN-lj-flE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfW-mI-1qM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="scoreSheetNC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bfW-mI-1qM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZOY-9o-7ND">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1652,7 +1652,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="af2-nx-ztN"/>
+        <segue reference="Xx5-ZV-dyj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>

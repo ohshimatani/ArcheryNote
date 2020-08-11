@@ -56,7 +56,7 @@ class AddSomethingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         var scheduleText = ""
         let realm = try! Realm()
-        let dateText: String = String(year) + String(month) + String(day)
+        let dateText: String = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
         print(dateText)
         let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == %@", dateText)
         if _todaySchedules.count != 0{

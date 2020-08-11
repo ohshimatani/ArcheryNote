@@ -50,6 +50,7 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
     var memo: String = ""
     
     var roundAverageList: [Double] = [0.0, 0.0, 0.0, 0.0]
+    var totalAverage: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,17 +88,36 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
         } else {
             average4.text = "-"
         }
+        if totalAverage != 0 {
+            averageTotal.text = String(format: "%.2f", totalAverage)
+        } else {
+            average4.text = "-"
+        }
         
         let sum10s = [sum10_1, sum10_2, sum10_3, sum10_4]
         let sumXs = [sumX_1, sumX_2, sumX_3, sumX_4]
+        var total10s: Int = 0
+        var totalXs: Int = 0
         for i in 0..<4 {
             sum10s[i]?.text = String(sum10Lists[i][0])
             sumXs[i]?.text = String(sum10Lists[i][1])
+            total10s += sum10Lists[i][0]
+            totalXs += sum10Lists[i][1]
+        }
+        if total10s == 0 {
+            sum10Total.text = "-"
+        }else{
+            sum10Total.text = String(total10s)
+        }
+        if totalXs == 0 {
+            sumXTotal.text = "-"
+        }else{
+            sumXTotal.text = String(totalXs)
         }
         
         
+        
         totalScore.text = total
-        print(memo)
         memoTextView.text = memo
         
         navigationController?.delegate = self
@@ -106,6 +126,9 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
     
     
     func inintialization() {
+        var grandCount: Int = 0
+        var grandSum: Int = 0
+        
         for round in 0..<4 {
             var roundSum: Int = 0
             var roundCount: Int = 0
@@ -115,22 +138,29 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
                 
                 for num in 0..<6 {
                     roundCount += 1
+                    grandCount += 1
                     endSum += intScoreSavingList[round][end][num]
                     if intScoreSavingList[round][end][num] == 0 {
                         if stringScoreSavingList[round][end][num] == "" {
+                            grandCount -= 1
                             roundCount -= 1
+                            
                         }
                     }
                 }
                 
                 roundSum += endSum
+                grandSum += roundSum
             }
             
             if roundCount != 0 {
-                print("in")
                 roundAverageList[round] = Double(roundSum) / Double(roundCount)
             }
         }
+        if grandCount != 0 {
+            totalAverage = Double(grandSum) / Double(grandCount)
+        }
+        
         
     }
     

@@ -11,6 +11,7 @@ import RealmSwift
 
 class ScoreSheet: Object {
     @objc dynamic var date: String = ""
+    @objc dynamic var weekday: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var distanceKey: String = ""
     @objc dynamic var distance1R: String = ""
@@ -24,6 +25,7 @@ class ScoreSheet: Object {
     @objc dynamic var sight3: String = ""
     @objc dynamic var sight4: String = ""
     @objc dynamic var memo: String = ""
+    @objc dynamic var totalScore: Int = 0
     
     var points = List<OneRound>()
     

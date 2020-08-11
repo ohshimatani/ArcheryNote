@@ -40,9 +40,11 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
-        checkPointList = realm.objects(CheckPoint.self).sorted(byKeyPath: "howImportant", ascending: false)
+        let obj = realm.objects(CheckPoint.self)
+        if obj.count != 0 {
+            checkPointList = obj.sorted(byKeyPath: "howImportant", ascending: false)
+        }
         self.checkPointTableView.reloadData()
-        print(checkPointList[0])
     }
     
     
@@ -111,6 +113,7 @@ class PointsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         passResult = checkPointList[indexPath.row]

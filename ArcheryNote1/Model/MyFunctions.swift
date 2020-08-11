@@ -58,6 +58,38 @@ class MyFunctions: NSObject{
         }
     }
     
+    class func distanceKeytoLabelText(key: String) -> String {
+        switch key {
+        case "70W":
+            return "70mW"
+        case "50W":
+            return "50mW"
+        case "SH":
+            return "ショートハーフ（5030）"
+        case "1440M":
+            return "1440ラウンド(M)"
+        case "1440W":
+            return "1440ラウンド(W)"
+        case "60W":
+            return "60mW"
+        case "18W":
+            return "インドアラウンド（18m×60射）"
+        case "30W":
+            return "30mW"
+        case "free_36":
+            return "フリー（36射）"
+        case "free_72":
+            return "フリー（72射）"
+        case "free_144":
+            return "フリー（144射）"
+        case "18_30":
+            return "18m（30射）"
+        case "18_36":
+            return "18m（36射）"
+        default:
+            return key + "m"
+        }
+    }
     
     
     

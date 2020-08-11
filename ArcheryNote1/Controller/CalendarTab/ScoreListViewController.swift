@@ -37,6 +37,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     @IBOutlet weak var sumLabel: UILabel!
+    var totalScore: Int = 0
     
     var intScoreSavingList = [[[Int]]]()
     var stringScoreSavingList = [[[String]]]()
@@ -63,28 +64,23 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var memo: String = ""
     
-    var year: Int!
-    var month: Int!
-    var day: Int!
-    var weekday: Int!
+    var year: Int = 9999
+    var month: Int = 99
+    var day: Int = 99
+    var weekday: Int = 1
     var dateLabelText = "9999年99月99日（日）"
+    var weekdayString: String = ""
     let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
     
     var dateText: String!
+    
+    var isEdit = false
+    var result: ScoreSheet!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let weekdayString = weekdayList[weekday-1]
-        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
-        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
-        dateLabel.text = dateLabelText
-        
-        initializeScoreList()
-        
-        // card settings
-        //        cardView = SingleScoreTableCollectionView()
         cardView.layer.cornerRadius = 12.0
         cardView.layer.borderColor = UIColor.systemGray.cgColor
         cardView.layer.borderWidth = 2.0
@@ -109,10 +105,75 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
         
+        
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        print("iiiinnnnn")
+        weekdayString = weekdayList[weekday-1]
+        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
+        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
+        dateLabel.text = dateLabelText
+        
+        
+        if result != nil {
+            print("is edit in")
+            dateLabel.text = result.date
+            titleTextField.text = result.title
+            weatherSegmentedControl.selectedSegmentIndex = result.weather
+            distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: result.distanceKey)
+            sightTextField1.text = result.sight1
+            sightTextField2.text = result.sight2
+            sightTextField3.text = result.sight3
+            sightTextField4.text = result.sight4
+            if result.isMatch {
+                matchSegmentedControl.selectedSegmentIndex = 1
+            } else {
+                matchSegmentedControl.selectedSegmentIndex = 0
+            }
+            
+            
+            print(result.points.count)
+            for round_index in 0..<result.points.count {
+                print("for in !!!")
+                let thisRound = result.points[round_index]
+                var roundStr = [[String]]()
+                var roundInt = [[Int]]()
+                var roundX = [[Double]]()
+                var roundY = [[Double]]()
+                for end_index in 0..<thisRound.points.count {
+                    let thisEnd = thisRound.points[end_index]
+                    var endStr = [String]()
+                    var endInt = [Int]()
+                    var endX = [Double]()
+                    var endY = [Double]()
+                    for num_index in 0..<thisEnd.points.count {
+                        let thisNum = thisEnd.points[num_index]
+                        endStr.append(thisNum.pointString)
+                        endInt.append(thisNum.pointInt)
+                        endX.append(thisNum.dotLocationX)
+                        endY.append(thisNum.dotLocationY)
+                    }
+                    roundStr.append(endStr)
+                    roundInt.append(endInt)
+                    roundX.append(endX)
+                    roundY.append(endY)
+                }
+                stringScoreSavingList.append(roundStr)
+                intScoreSavingList.append(roundInt)
+                pointXScoreSavingList.append(roundX)
+                pointYScoreSavingList.append(roundY)
+            }
+            
+            
+
+        } else {
+            initializeScoreList()
+        }
+        scoreTableCollectionView.reloadData()
+        
         
         var sum: Int = 0
         var sum10List: [Int] = [0, 0]
@@ -141,11 +202,17 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         sumLabel.text = String(sum)
         sumLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
+        totalScore = sum
         
         distanceLabel.text = distanceText
         
     }
     
+    
+    // close keyboard when tap any point
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
     func initializeScoreList() {
@@ -346,57 +413,104 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        let _scoreSheet = ScoreSheet()
-        
-        let scoreOneRound = OneRound()
-        for i in 0..<4 {
-            let scoreOneEnd = PointsOneEnd()
-            for j in 0..<6 {
-                let _point = Point()
-                for k in 0..<6 {
-                    _point.pointString = stringScoreSavingList[i][j][k]
-                    _point.pointInt = intScoreSavingList[i][j][k]
-                    _point.dotLocationX = pointXScoreSavingList[i][j][k]
-                    _point.dotLocationY = pointYScoreSavingList[i][j][k]
-                    scoreOneEnd.points.append(_point)
+        if isEdit {
+            try! realm.write {
+                print("realm write")
+                for i in 0..<4 {
+                    let scoreOneRound = OneRound()
+                    for j in 0..<6 {
+                        let scoreOneEnd = PointsOneEnd()
+                        for k in 0..<6 {
+                            let _point = Point()
+                            _point.pointString = stringScoreSavingList[i][j][k]
+                            _point.pointInt = intScoreSavingList[i][j][k]
+                            _point.dotLocationX = pointXScoreSavingList[i][j][k]
+                            _point.dotLocationY = pointYScoreSavingList[i][j][k]
+                            scoreOneEnd.points.append(_point)
+                        }
+                        scoreOneRound.points.append(scoreOneEnd)
+                    }
+                    result.points.append(scoreOneRound)
                 }
-                scoreOneRound.points.append(scoreOneEnd)
+                
+                result.date = dateText
+                result.weekday = weekdayString
+                result.title = titleTextField.text!
+                result.distanceKey = distanceKey
+                result.distance1R = distanceKeys[0]
+                result.distance2R = distanceKeys[1]
+                result.distance3R = distanceKeys[2]
+                result.distance4R = distanceKeys[3]
+                if matchSegmentedControl.selectedSegmentIndex == 0 {
+                    result.isMatch = false
+                } else {
+                    result.isMatch = true
+                }
+                result.weather = weatherSegmentedControl.selectedSegmentIndex
+                result.sight1 = sightTextField1.text!
+                result.sight2 = sightTextField2.text!
+                result.sight3 = sightTextField3.text!
+                result.sight4 = sightTextField4.text!
+                result.memo = memo
+                result.totalScore = totalScore
             }
-            _scoreSheet.points.append(scoreOneRound)
-        }
-        
-        
-        
-        _scoreSheet.date = dateText
-        _scoreSheet.title = titleTextField.text!
-        _scoreSheet.distanceKey = distanceKey
-        _scoreSheet.distance1R = distanceKeys[0]
-        _scoreSheet.distance2R = distanceKeys[1]
-        _scoreSheet.distance3R = distanceKeys[2]
-        _scoreSheet.distance4R = distanceKeys[3]
-        if matchSegmentedControl.selectedSegmentIndex == 0 {
-            _scoreSheet.isMatch = false
+            
         } else {
-            _scoreSheet.isMatch = true
+//            print("else")
+            let _scoreSheet = ScoreSheet()
+            for i in 0..<4 {
+                let scoreOneRound = OneRound()
+                print(scoreOneRound)
+                for j in 0..<6 {
+                    let scoreOneEnd = PointsOneEnd()
+                    for k in 0..<6 {
+                        let _point = Point()
+                        _point.pointString = stringScoreSavingList[i][j][k]
+                        _point.pointInt = intScoreSavingList[i][j][k]
+                        _point.dotLocationX = pointXScoreSavingList[i][j][k]
+                        _point.dotLocationY = pointYScoreSavingList[i][j][k]
+                        scoreOneEnd.points.append(_point)
+                    }
+                    scoreOneRound.points.append(scoreOneEnd)
+                }
+//                print("-------------")
+//                print(scoreOneRound)
+//                print(_scoreSheet)
+                _scoreSheet.points.append(scoreOneRound)
+                
+            }
+            
+            _scoreSheet.date = dateText
+            _scoreSheet.weekday = weekdayString
+            _scoreSheet.title = titleTextField.text!
+            _scoreSheet.distanceKey = distanceKey
+            _scoreSheet.distance1R = distanceKeys[0]
+            _scoreSheet.distance2R = distanceKeys[1]
+            _scoreSheet.distance3R = distanceKeys[2]
+            _scoreSheet.distance4R = distanceKeys[3]
+            if matchSegmentedControl.selectedSegmentIndex == 0 {
+                _scoreSheet.isMatch = false
+            } else {
+                _scoreSheet.isMatch = true
+            }
+            _scoreSheet.weather = weatherSegmentedControl.selectedSegmentIndex
+            _scoreSheet.sight1 = sightTextField1.text!
+            _scoreSheet.sight2 = sightTextField2.text!
+            _scoreSheet.sight3 = sightTextField3.text!
+            _scoreSheet.sight4 = sightTextField4.text!
+            _scoreSheet.memo = memo
+            _scoreSheet.totalScore = totalScore
+            
+            try! realm.write {
+                realm.add(_scoreSheet)
+                
+            }
         }
-        _scoreSheet.weather = weatherSegmentedControl.selectedSegmentIndex
-        _scoreSheet.sight1 = sightTextField1.text!
-        _scoreSheet.sight2 = sightTextField2.text!
-        _scoreSheet.sight3 = sightTextField3.text!
-        _scoreSheet.sight4 = sightTextField4.text!
-        _scoreSheet.memo = memo
-        
-        try! realm.write {
-            realm.add(_scoreSheet)
-            print(_scoreSheet)
-        }
-        
-        
-        
         self.dismiss(animated: true, completion: nil)
     }
     

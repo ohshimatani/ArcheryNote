@@ -39,11 +39,14 @@ class AddCheckPointViewController: UIViewController {
             saveButton.isEnabled = true
         }
         
-        checkPointTextField.text = result.checkPoint
-        howImportant = result.howImportant
+        if result != nil {
+            checkPointTextField.text = result.checkPoint
+            howImportant = result.howImportant
+            memoTextView.text = result.memo
+        }
+        
         howImportantColor.backgroundColor = setColor(howImportant: howImportant)
         howImportantSegmentedControl.selectedSegmentIndex = howImportant
-        memoTextView.text = result.memo
     }
     
     

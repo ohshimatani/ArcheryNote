@@ -94,6 +94,7 @@ class ScheduleViewController: UIViewController {
         let realm = try! Realm()
         if isEdit{
             try! realm.write {
+                print(titleLabel.text!)
                 result.title = titleLabel.text!
                 result.category = selectedNumber
                 result.memo = memoTextView.text
