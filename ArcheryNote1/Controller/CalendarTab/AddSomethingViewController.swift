@@ -16,8 +16,6 @@ class AddSomethingViewController: UIViewController {
     
     @IBOutlet weak var todayScheduleTextView: UITextView!
     
-    @IBOutlet weak var checkTodaysListButton: UIButton!
-    
     @IBOutlet weak var addScheduleButton: UIButton!
     
     @IBOutlet weak var addScoreButton: UIButton!
@@ -48,7 +46,7 @@ class AddSomethingViewController: UIViewController {
             button!.layer.cornerRadius = button!.bounds.width / 2.0
             button!.clipsToBounds = true
         }
-        checkTodaysListButton.layer.cornerRadius = 20.0
+//        checkTodaysListButton.layer.cornerRadius = 20.0
                 
     }
     

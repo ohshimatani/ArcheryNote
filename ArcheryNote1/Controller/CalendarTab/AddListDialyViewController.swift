@@ -57,6 +57,8 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
             tableViewRowNumbers = [checkPointList.count, trainingMenuList.count, RCTuningList.count]
         }
         
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
+        
         
         
         

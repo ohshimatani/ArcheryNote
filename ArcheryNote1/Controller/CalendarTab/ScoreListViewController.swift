@@ -116,11 +116,9 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
         dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
         dateLabel.text = dateLabelText
-        
-        
         if result != nil {
             print("is edit in")
-            dateLabel.text = result.date
+//            dateLabel.text = result.date
             titleTextField.text = result.title
             weatherSegmentedControl.selectedSegmentIndex = result.weather
             distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: result.distanceKey)
@@ -172,7 +170,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         } else {
             initializeScoreList()
         }
-        scoreTableCollectionView.reloadData()
+        
         
         
         var sum: Int = 0
@@ -206,6 +204,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         distanceLabel.text = distanceText
         
+        scoreTableCollectionView.reloadData()
     }
     
     

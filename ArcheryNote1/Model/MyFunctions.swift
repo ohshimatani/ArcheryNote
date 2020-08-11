@@ -92,6 +92,13 @@ class MyFunctions: NSObject{
     }
     
     
+    class func dateString2Int(dateString: String) {
+        let dateInt = Int(dateString)!
+        
+        
+    }
+    
+    
     
     
     

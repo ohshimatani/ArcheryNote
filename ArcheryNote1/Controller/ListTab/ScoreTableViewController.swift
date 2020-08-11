@@ -73,6 +73,15 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let NC: UINavigationController = storyboard.instantiateViewController(identifier: "scoreSheetNC") as! UINavigationController
         let VC = NC.viewControllers[0] as! ScoreListViewController
         passResult = scoreSheets[indexPath.row]
+//        if let year = passResult.date[0..<4] as Int {
+//            if let month = passResult.date[4..<6] as Int {
+//                if let day = passResult.date[6..<8] as Int {
+//
+//                }
+//            }
+//
+//        }
+        
         VC.result = passResult
         VC.isEdit = true
         NC.modalPresentationStyle = .fullScreen
