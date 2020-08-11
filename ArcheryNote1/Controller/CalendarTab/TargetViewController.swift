@@ -17,6 +17,9 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
     
 
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     @IBOutlet weak var targetView: TargetCustomView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -78,7 +81,7 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         // collection view and its cell layout
         let layout = UICollectionViewFlowLayout()
-        let cellSize = collectionView.frame.width / 10
+        let cellSize = collectionView.frame.width / 8
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -88,6 +91,8 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.backgroundColor = .white
         
         initiateDot()
+        
+        scrollView.contentOffset = centerOfTarget
         
     }
     

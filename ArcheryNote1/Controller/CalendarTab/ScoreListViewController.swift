@@ -98,10 +98,11 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // collection view and its cell layout
         let layout = UICollectionViewFlowLayout()
-        let cellSize = scoreTableCollectionView.frame.width / 10
+        let cellSize = scoreTableCollectionView.frame.width / 10 - 0.3
+//        let cellSize = 20
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
         layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 5
+        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
         

@@ -43,7 +43,7 @@ class AddSomethingViewController: UIViewController {
         // settings buttons interface
         let buttonsList = [addScheduleButton, addScoreButton, addDialyButton]
         for button in buttonsList{
-            button!.layer.cornerRadius = button!.bounds.width / 2.0
+            button!.layer.cornerRadius = 5.0
             button!.clipsToBounds = true
         }
 //        checkTodaysListButton.layer.cornerRadius = 20.0

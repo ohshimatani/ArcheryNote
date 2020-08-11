@@ -16,15 +16,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-m4-R89">
-                        <rect key="frame" x="85" y="10" width="297" height="111"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-m4-R89">
+                        <rect key="frame" x="85" y="10" width="319" height="110"/>
                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="L5x-m4-R89" secondAttribute="bottom" constant="10" id="4El-g8-Fd7"/>
+                    <constraint firstItem="L5x-m4-R89" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="UOt-4L-FTC"/>
+                    <constraint firstItem="L5x-m4-R89" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="XRj-vd-ecv"/>
+                    <constraint firstAttribute="trailing" secondItem="L5x-m4-R89" secondAttribute="trailing" constant="10" id="Zln-nP-Ere"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

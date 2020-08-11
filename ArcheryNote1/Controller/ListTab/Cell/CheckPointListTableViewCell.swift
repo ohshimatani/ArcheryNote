@@ -17,14 +17,15 @@ class CheckPointListTableViewCell: UITableViewCell {
     
     @IBOutlet var howImportantLabel: UILabel!
     
-    @IBOutlet var checkPointTextView: UITextView!
-    
+    @IBOutlet weak var checkPointTextView: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         howImportantColor.layer.cornerRadius = howImportantColor.bounds.width / 2.0
         howImportantColor.layer.masksToBounds = true
+        
+        checkPointTextView.text = ""
         
         
     }

@@ -16,42 +16,62 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="重要度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWu-RH-Ja8">
-                        <rect key="frame" x="2" y="7" width="89" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重要度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWu-RH-Ja8">
+                        <rect key="frame" x="10" y="5" width="66" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="66" id="TbU-wp-aBz"/>
+                            <constraint firstAttribute="height" constant="28" id="gXy-ez-Ro6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NcF-Dr-JTL">
-                        <rect key="frame" x="81" y="16" width="10" height="10"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcF-Dr-JTL">
+                        <rect key="frame" x="84" y="14" width="10" height="10"/>
                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="oIz-Oz-IMO"/>
+                            <constraint firstAttribute="height" constant="10" id="om4-v5-SGb"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="高" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-wh-mXk">
-                        <rect key="frame" x="25" y="43" width="42" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJW-wh-mXk">
+                        <rect key="frame" x="25" y="43" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="2zy-Gw-7Uo"/>
+                            <constraint firstAttribute="height" constant="40" id="QSi-7h-zmr"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BfA-Vz-NNX">
-                        <rect key="frame" x="110" y="15" width="272" height="71"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KB-XB-1wy">
+                        <rect key="frame" x="117" y="10" width="287" height="80"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="8KB-XB-1wy" firstAttribute="leading" secondItem="NcF-Dr-JTL" secondAttribute="trailing" constant="23" id="7sP-OS-H3E"/>
+                    <constraint firstItem="8KB-XB-1wy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="CKG-Re-nDp"/>
+                    <constraint firstAttribute="trailing" secondItem="8KB-XB-1wy" secondAttribute="trailing" constant="10" id="FHN-eK-uYD"/>
+                    <constraint firstItem="rJW-wh-mXk" firstAttribute="top" secondItem="UWu-RH-Ja8" secondAttribute="bottom" constant="10" id="J0l-an-3gQ"/>
+                    <constraint firstItem="rJW-wh-mXk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="KYj-yI-GoE"/>
+                    <constraint firstItem="UWu-RH-Ja8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Qfs-Qe-kXE"/>
+                    <constraint firstItem="NcF-Dr-JTL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="ZnJ-CJ-2Wo"/>
+                    <constraint firstItem="UWu-RH-Ja8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="foE-tB-Xda"/>
+                    <constraint firstAttribute="bottom" secondItem="8KB-XB-1wy" secondAttribute="bottom" constant="10" id="iwz-gT-hor"/>
+                    <constraint firstItem="NcF-Dr-JTL" firstAttribute="leading" secondItem="UWu-RH-Ja8" secondAttribute="trailing" constant="8" id="qLW-Ve-wmL"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="checkPointTextView" destination="BfA-Vz-NNX" id="bkC-Uj-Xf3"/>
+                <outlet property="checkPointTextView" destination="8KB-XB-1wy" id="Hf2-FT-0Wy"/>
                 <outlet property="howImportantColor" destination="NcF-Dr-JTL" id="Qlp-BA-KCb"/>
                 <outlet property="howImportantLabel" destination="rJW-wh-mXk" id="oQe-yI-0cT"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-255.07246376811597" y="158.70535714285714"/>
         </tableViewCell>
     </objects>
 </document>
