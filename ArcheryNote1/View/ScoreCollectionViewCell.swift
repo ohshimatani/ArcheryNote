@@ -177,6 +177,10 @@ class ScoreCollectionViewCell: UICollectionViewCell {
                         if sum > 99 {
                             label.font = UIFont.systemFont(ofSize: 15)
                         }
+                        if indexPath.section == sections-2 {
+                            label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+                        }
+
                     }
                 }
             default:

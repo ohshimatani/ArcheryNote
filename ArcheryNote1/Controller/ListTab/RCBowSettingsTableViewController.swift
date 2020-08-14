@@ -11,60 +11,37 @@ import RealmSwift
 
 class RCBowSettingsTableViewController: UITableViewController {
     
-    struct CellData {
-        let name: String
-    }
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
     
-    var tableDataList = [[CellData]]()
     var sections = ["ハンドル", "リム", "矢", "弦", "スタビライザー",
                     "サイト", "プランジャー", "タブ", "その他"]
     
-    var textArray = [String]()
+    var textArray = [[String]]()
     var cellIndex = 0
+    
+    let rowsInSection: [Int] = [2, 2, 6, 4, 4, 1, 1, 1, 1]
+    
+    var year: Int!
+    var month: Int!
+    var day: Int!
+    var weekday: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ---------------------
+        (year, month, day, weekday) = MyFunctions.getTodayInt()
         
-        // riser
-        tableDataList.append([.init(name: "- 名前"),
-                              .init(name: "- サイズ")])
-        // limb
-        tableDataList.append([.init(name: "- 名前"),
-                              .init(name: "- サイズ")])
-        // arrow
-        tableDataList.append([.init(name: "- 名前"),
-                              .init(name: "- スパイン"),
-                              .init(name: "- 長さ"),
-                              .init(name: "- ノック"),
-                              .init(name: "- 羽")])
-        // string
-        tableDataList.append([.init(name: "- 原糸"),
-                              .init(name: "- サービング"),
-                              .init(name: "- 長さ"),
-                              .init(name: "- ストランド数")])
-        // stabilizer
-        tableDataList.append([.init(name: "- センターロッド"),
-                              .init(name: "      - サイズ"),
-                              .init(name: "- センターロッド"),
-                              .init(name: "      - サイズ")])
-        // sight
-        tableDataList.append([.init(name: "- 名前")])
-        // plunger
-        tableDataList.append([.init(name: "- 名前")])
-        // tab
-        tableDataList.append([.init(name: "- 名前")])
-        // others
-        tableDataList.append([.init(name: "- その他")])
-        // ---------------------
-        
-        for _ in 0..<21{
-            textArray.append("")
+        for sectionNum in rowsInSection {
+            var appendedList: [String] = []
+            for _ in 0..<sectionNum {
+                appendedList.append("")
+            }
+            textArray.append(appendedList)
         }
+        
+        
         
         
         tableView.tableFooterView = UIView()
@@ -81,27 +58,29 @@ class RCBowSettingsTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expandSectionSet.contains(section) ? tableDataList[section].count : 0
+        if expandSectionSet.contains(section) {
+            return rowsInSection[section]
+        } else {
+            return 0
+        }
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIndexList = [0, 2, 4, 9, 13, 17, 18, 19, 20]
+//        let cellIndexList = [0, 2, 4, 9, 13, 17, 18, 19, 20]
+       
         if indexPath.section == 8 {
             let nib = UINib(nibName: "OthersInBowSettingsTableViewCell", bundle: .main)
             tableView.register(nib, forCellReuseIdentifier: "bowSettingsOthers")
             let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsOthers") as! OthersInBowSettingsTableViewCell
-            cellIndex = 20
-            textArray[cellIndex] = cell.othersTextView.text
             return cell
         } else {
             let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
             tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
-//            cell.delegate = self
-            cell.label.text = tableDataList[indexPath.section][indexPath.row].name
-            cellIndex = cellIndexList[indexPath.section] + indexPath.row
-            textArray[cellIndex] = cell.textField.text!
+//            textArray[indexPath.section][indexPath.row] = cell.textField.text!
+            cell.setCell(indexPath: indexPath, textArray: textArray)
+//            textArray[indexPath.section][indexPath.row] = cell.textField.text!
             return cell
         }
         
@@ -138,21 +117,44 @@ class RCBowSettingsTableViewController: UITableViewController {
     
     
     @IBAction func save(_ sender: Any) {
-        tableView.reloadData()
         print(textArray)
-        
-        
-//        let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
-//        tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
-        
-//        let realm = try! Realm()
-//        let _bowSettingsRC = BowSettingsRC()
-//        _bowSettingsRC.riser["name"] = tableView.cellForRow(at: [0, 0]).textField.text
-//        try! realm.write {
-//
-//        }
-        
+        tableView.reloadData()
+        let realm = try! Realm()
+        let _bowSettingsRC = BowSettingsRC()
+        _bowSettingsRC.year = year
+        _bowSettingsRC.month = month
+        _bowSettingsRC.day = day
+        _bowSettingsRC.weekday = weekday
+        // riser
+        _bowSettingsRC.riserName = textArray[0][0]
+        _bowSettingsRC.riserSize = textArray[0][1]
+        // limb
+        _bowSettingsRC.limbName = textArray[1][0]
+        _bowSettingsRC.limbSize = textArray[1][1]
+        // arrow
+        _bowSettingsRC.arrowName = textArray[2][0]
+        _bowSettingsRC.arrowSpine = textArray[2][1]
+        _bowSettingsRC.arrowLength = textArray[2][2]
+        _bowSettingsRC.arrowPointWeight = textArray[2][3]
+        _bowSettingsRC.arrowNock = textArray[2][4]
+        _bowSettingsRC.arrowVane = textArray[2][5]
+        // string
+        _bowSettingsRC.stringOrigin = textArray[3][0]
+        _bowSettingsRC.stringSub = textArray[3][1]
+        _bowSettingsRC.stringLength = textArray[3][2]
+        _bowSettingsRC.stringNum = textArray[3][3]
+        // sight
+        _bowSettingsRC.sightName = textArray[4][0]
+        // plunger
+        _bowSettingsRC.plungerName = textArray[5][0]
+        // tab
+        _bowSettingsRC.tabName = textArray[6][0]
+        // others
+        _bowSettingsRC.others = textArray[7][0]
+        try! realm.write {
+            realm.add(_bowSettingsRC)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     

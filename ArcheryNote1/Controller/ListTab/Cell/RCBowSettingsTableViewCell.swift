@@ -18,13 +18,34 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var textField: UITextField!
-    
-//    var delegate: RCBowSettingsTableViewCellDelegate?
-    
+   
+    var titleList = [[String]]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.textField.delegate = self
+        label.text = ""
+        textField.text = ""
+        
+        
+        // riser
+        titleList.append(["- 名前", "- サイズ"])
+        // limb
+        titleList.append(["- 名前", "- サイズ"])
+        // arrow
+        titleList.append(["- 名前", "- スパイン", "- 長さ", "ポイント", "- ノック", "- 羽"])
+        // string
+        titleList.append(["- 原糸", "- サービング",  "- 長さ", "- ストランド数"])
+        // stabilizer
+        titleList.append(["- センターロッド", "      - サイズ", "- センターロッド", "      - サイズ"])
+        // sight
+        titleList.append(["- 名前"])
+        // plunger
+        titleList.append(["- 名前"])
+        // tab
+        titleList.append(["- 名前"])
+        // others
+//        titleList.append(["- その他"])
+        // ---------------------
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,24 +54,24 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        if label.text! != "" {
+            label.text! = ""
+        }
+//        if textField.text != "" {
+//            textField.text = ""
+//        }
+    }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        print("tttttttttt")
-//        let inputText = textField.text!
-//        print("bbb", inputText)
-//        textField.resignFirstResponder()
-//        self.delegate?.getTextFieldInformation(cell: self, inputText: inputText)
-//        return true
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print("tttttttttt")
-//        let inputText = textField.text!
-//        print("aaa", inputText)
-//        textField.resignFirstResponder()
-//        self.delegate?.getTextFieldInformation(cell: self, inputText: inputText)
-//
-//    }
+    
+    func setCell(indexPath: IndexPath, textArray: [[String]]) {
+        label.text = titleList[indexPath.section][indexPath.row]
+        textField.text = textArray[indexPath.section][indexPath.row]
+    }
+    
+    
+        
+    
     
     
     

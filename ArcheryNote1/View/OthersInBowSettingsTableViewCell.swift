@@ -19,6 +19,8 @@ class OthersInBowSettingsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        othersTextView.text = ""
+        
         othersTextView.layer.cornerRadius = 10.0
         
     }
@@ -28,5 +30,13 @@ class OthersInBowSettingsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func prepareForReuse() {
+        if othersTextView.text != "" {
+            othersTextView.text = ""
+        }
+    }
+    
+    
     
 }

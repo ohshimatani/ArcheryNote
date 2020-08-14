@@ -20,6 +20,18 @@ class MyFunctions: NSObject{
         return dateFormatter.string(from: date)
     }
     
+    class func getTodayInt() -> (Int, Int, Int, Int){
+        let date = Date()
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHms", options: 0, locale: Locale(identifier: "ja_JP"))
+        let tmpDate = Calendar(identifier: .gregorian)
+        let year = tmpDate.component(.year, from: date)
+        let month = tmpDate.component(.month, from: date)
+        let day = tmpDate.component(.day, from: date)
+        let weekday = tmpDate.component(.weekday, from: date)
+        return (year, month, day, weekday)
+    }
+    
     class func Alert(alertType: String, viewController: UIViewController){
         switch alertType {
         case "cancel":
@@ -92,11 +104,25 @@ class MyFunctions: NSObject{
     }
     
     
-    class func dateString2Int(dateString: String) {
-        let dateInt = Int(dateString)!
-        
-        
-    }
+//    class func dateString2Int(dateString: String) {
+//        var yearString: String = ""
+//        var mounthString: String = ""
+//        var dayString: String = ""
+//        if dateString.count == 8 {
+//            for i in 0..<dateString.count {
+//                if i < 4 {
+//                    yearString += dateString[i]
+//                } else if i < 6 {
+//                    mounthString += dateString[i]
+//                } else {
+//                    dateString += dateString[i]
+//                }
+//
+//            }
+//        }
+//
+//
+//    }
     
     
     

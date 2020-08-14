@@ -72,26 +72,36 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
             average1.text = String(format: "%.2f", roundAverageList[0])
         } else {
             average1.text = "-"
+            sum10_1.text = "-"
+            sumX_1.text = "-"
         }
         if roundAverageList[1] != 0 {
             average2.text = String(format: "%.2f", roundAverageList[1])
         } else {
             average2.text = "-"
+            sum10_2.text = "-"
+            sumX_2.text = "-"
         }
-        if roundAverageList[2] != 0 {
+        if roundAverageList[2] != 0.0 {
             average3.text = String(format: "%.2f", roundAverageList[2])
         } else {
             average3.text = "-"
+            sum10_3.text = "-"
+            sumX_3.text = "-"
         }
         if roundAverageList[3] != 0 {
             average4.text = String(format: "%.2f", roundAverageList[3])
         } else {
             average4.text = "-"
+            sum10_4.text = "-"
+            sumX_4.text = "-"
         }
         if totalAverage != 0 {
             averageTotal.text = String(format: "%.2f", totalAverage)
         } else {
-            average4.text = "-"
+            averageTotal.text = "-"
+            sum10Total.text = "-"
+            sumXTotal.text = "-"
         }
         
         let sum10s = [sum10_1, sum10_2, sum10_3, sum10_4]
@@ -150,7 +160,7 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
                 }
                 
                 roundSum += endSum
-                grandSum += roundSum
+                grandSum += endSum
             }
             
             if roundCount != 0 {

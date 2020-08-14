@@ -11,6 +11,9 @@ import RealmSwift
 
 class ScoreSheet: Object {
     @objc dynamic var date: String = ""
+    @objc dynamic var year: Int = 9999
+    @objc dynamic var month: Int = 99
+    @objc dynamic var day: Int = 99
     @objc dynamic var weekday: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var distanceKey: String = ""

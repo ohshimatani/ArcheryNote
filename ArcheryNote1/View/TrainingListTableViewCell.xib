@@ -16,32 +16,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3I-RN-0WT">
-                        <rect key="frame" x="30" y="25" width="374" height="65"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3I-RN-0WT">
+                        <rect key="frame" x="20" y="18" width="374" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="トレーニングメニュー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEr-OY-FXl">
-                        <rect key="frame" x="10" y="5" width="100" height="10"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="AwY-E9-9Jx"/>
-                            <constraint firstAttribute="width" constant="100" id="eEg-he-hyE"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="k3I-RN-0WT" secondAttribute="trailing" constant="10" id="5QC-vS-3WI"/>
-                    <constraint firstItem="k3I-RN-0WT" firstAttribute="top" secondItem="pEr-OY-FXl" secondAttribute="bottom" constant="10" id="BWP-f2-PIo"/>
-                    <constraint firstItem="pEr-OY-FXl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Oee-1U-LPT"/>
-                    <constraint firstItem="k3I-RN-0WT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="QBb-6H-KKG"/>
-                    <constraint firstItem="pEr-OY-FXl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="uyJ-E2-6gW"/>
-                    <constraint firstAttribute="bottom" secondItem="k3I-RN-0WT" secondAttribute="bottom" constant="10" id="vhD-me-2nl"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

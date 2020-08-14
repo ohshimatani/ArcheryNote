@@ -13,7 +13,7 @@ protocol ScoreFromTargetDelegate {
     func scoreFromTarget(round: Int, end: Int, pointInt: [Int], pointString: [String], locationX: [Double], locationY: [Double])
 }
 
-class TargetViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TargetViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
 
     
@@ -74,6 +74,13 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        scrollView.delegate = self
+        
+//        scrollView.contentOffset = CGPoint(x: self.view.frame.width/2 - self.view.frame.width/2, y: 0)
+//        scrollView.contentOffset = CGPointMake(320, 0)
+        scrollView.maximumZoomScale = 2.5
+        scrollView.minimumZoomScale = 0.7
+        scrollView.setContentOffset(CGPoint(x: 20, y: 20), animated: true)
         
         // set nib
         let nib = UINib(nibName: "ScoreCollectionViewCell", bundle: .main)
@@ -92,9 +99,15 @@ class TargetViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         initiateDot()
         
-        scrollView.contentOffset = centerOfTarget
+        scrollView.setContentOffset(CGPoint(x: 100, y: 100), animated: true)
         
     }
+    
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.targetView
+    }
+    
     
     
     func initiateDot() {

@@ -64,7 +64,7 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         let addButton = UIButton()
         addButton.frame = CGRect(x: displayWidth/2 - displayWidth/10, y: displayHeight * 0.8, width: displayWidth/5, height: displayWidth/5)
         addButton.setTitle("+", for: .normal)
-        addButton.titleLabel?.font = UIFont.systemFont(ofSize: displayWidth/7.5, weight: .bold)
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: displayWidth/7.5, weight: .light)
         addButton.setTitleColor(.white, for: .normal)
         addButton.backgroundColor = .blue
         addButton.layer.cornerRadius = addButton.bounds.width / 2.0

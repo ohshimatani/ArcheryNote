@@ -86,43 +86,16 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         cardView.layer.borderWidth = 2.0
         
         
-        // delegate settings
-        scoreTableCollectionView.delegate = self
-        scoreTableCollectionView.dataSource = self
-        scoreTableCollectionView.backgroundColor = .white
-
-
-        // set nib
-        let nib = UINib(nibName: "ScoreCollectionViewCell", bundle: .main)
-        scoreTableCollectionView.register(nib, forCellWithReuseIdentifier: "scoreCell")
-        
-        // collection view and its cell layout
-        let layout = UICollectionViewFlowLayout()
-        let cellSize = scoreTableCollectionView.frame.width / 10 - 0.3
-//        let cellSize = 20
-        layout.itemSize = CGSize(width: cellSize, height: cellSize)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
-        
-        
-        
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("iiiinnnnn")
-        weekdayString = weekdayList[weekday-1]
-        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
-        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
-        dateLabel.text = dateLabelText
         if result != nil {
             print("is edit in")
-//            dateLabel.text = result.date
+    //            dateLabel.text = result.date
+            year = result.year
+            month = result.month
+            day = result.day
             titleTextField.text = result.title
             weatherSegmentedControl.selectedSegmentIndex = result.weather
             distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: result.distanceKey)
+            distanceKey = result.distanceKey
             sightTextField1.text = result.sight1
             sightTextField2.text = result.sight2
             sightTextField3.text = result.sight3
@@ -133,10 +106,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                 matchSegmentedControl.selectedSegmentIndex = 0
             }
             
-            
-            print(result.points.count)
             for round_index in 0..<result.points.count {
-                print("for in !!!")
                 let thisRound = result.points[round_index]
                 var roundStr = [[String]]()
                 var roundInt = [[Int]]()
@@ -164,15 +134,45 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                 intScoreSavingList.append(roundInt)
                 pointXScoreSavingList.append(roundX)
                 pointYScoreSavingList.append(roundY)
+                
             }
-            
-            
 
         } else {
             initializeScoreList()
         }
         
         
+        
+        // delegate settings
+        scoreTableCollectionView.delegate = self
+        scoreTableCollectionView.dataSource = self
+        scoreTableCollectionView.backgroundColor = .white
+
+
+        // set nib
+        let nib = UINib(nibName: "ScoreCollectionViewCell", bundle: .main)
+        scoreTableCollectionView.register(nib, forCellWithReuseIdentifier: "scoreCell")
+        
+        // collection view and its cell layout
+        let layout = UICollectionViewFlowLayout()
+        let cellSize = scoreTableCollectionView.frame.width / 10 - 0.3
+//        let cellSize = 20
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
+        
+        
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        weekdayString = weekdayList[weekday-1]
+        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日(" + weekdayString + ")"
+        dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
+        dateLabel.text = dateLabelText
         
         var sum: Int = 0
         var sum10List: [Int] = [0, 0]
@@ -307,9 +307,9 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         if ((indexPath.section % sectionsNum != sectionsNum-1) && (indexPath.section % sectionsNum != 0)) && ((indexPath.row == 8) || (indexPath.row == 9)){
             round = Int(floor(Double(indexPath.section / sectionsNum)))
             end = indexPath.section % sectionsNum - 1
-            print("tap !!! : ", round, end)
-            print(stringScoreSavingList)
-            print(round, end)
+//            print("tap !!! : ", round, end)
+//            print(stringScoreSavingList)
+//            print(round, end)
             thisEndStringPoints = stringScoreSavingList[round][end]
             thisEndIntPoints = intScoreSavingList[round][end]
             thisEndLocation = [pointXScoreSavingList[round][end], pointYScoreSavingList[round][end]]
@@ -358,7 +358,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             VC.memo = memo
         } else if segue.identifier == "toPickDistance" {
             let VC = segue.destination as! PickDistanceViewController
-//            print(roundsNum)
             VC.roundsNum = roundsNum
             VC.distanceKeys = distanceKeys
             VC.delegate = self
@@ -371,6 +370,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         stringScoreSavingList[round][end] = pointString
         pointXScoreSavingList[round][end] = locationX
         pointYScoreSavingList[round][end] = locationY
+        print(round, end, intScoreSavingList)
         scoreTableCollectionView.reloadData()
     }
     
@@ -386,7 +386,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         self.isIndoor60 = isIndoor60
         self.isIndoor30 = isIndoor30
         
-        print(distanceKey)
         generateDistanceKeys()
         distanceLabel.text = distanceText
         scoreTableCollectionView.reloadData()
@@ -394,7 +393,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func pickDistanceForFree(distanceKeys: [String]) {
         self.distanceKeys = distanceKeys
-        print(self.distanceKeys)
         scoreTableCollectionView.reloadData()
     }
     
@@ -418,27 +416,38 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        if isEdit {
+        if false {
+            let total = List<OneRound>()
+            for i in 0..<4 {
+                let scoreOneRound = OneRound()
+                for j in 0..<6 {
+                    let scoreOneEnd = PointsOneEnd()
+                    for k in 0..<6 {
+                        let _point = Point()
+                        _point.pointString = stringScoreSavingList[i][j][k]
+                        _point.pointInt = intScoreSavingList[i][j][k]
+                        _point.dotLocationX = pointXScoreSavingList[i][j][k]
+                        _point.dotLocationY = pointYScoreSavingList[i][j][k]
+                        scoreOneEnd.points.append(_point)
+                    }
+                    scoreOneRound.points.append(scoreOneEnd)
+                }
+                total.append(scoreOneRound)
+            }
+            
+            print(total[0].points[0].points[0].pointInt)
+            print(total[0].points[1].points[0].pointInt)
+            print(total[0].points[2].points[0].pointInt)
+            print(total[0].points[3].points[0].pointInt)
             try! realm.write {
                 print("realm write")
-                for i in 0..<4 {
-                    let scoreOneRound = OneRound()
-                    for j in 0..<6 {
-                        let scoreOneEnd = PointsOneEnd()
-                        for k in 0..<6 {
-                            let _point = Point()
-                            _point.pointString = stringScoreSavingList[i][j][k]
-                            _point.pointInt = intScoreSavingList[i][j][k]
-                            _point.dotLocationX = pointXScoreSavingList[i][j][k]
-                            _point.dotLocationY = pointYScoreSavingList[i][j][k]
-                            scoreOneEnd.points.append(_point)
-                        }
-                        scoreOneRound.points.append(scoreOneEnd)
-                    }
-                    result.points.append(scoreOneRound)
-                }
+                
+                result.points = total
                 
                 result.date = dateText
+                result.year = year
+                result.month = month
+                result.day = day
                 result.weekday = weekdayString
                 result.title = titleTextField.text!
                 result.distanceKey = distanceKey
@@ -458,10 +467,12 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                 result.sight4 = sightTextField4.text!
                 result.memo = memo
                 result.totalScore = totalScore
+                
+                realm.add(result)
             }
             
         } else {
-//            print("else")
+            print("else")
             let _scoreSheet = ScoreSheet()
             for i in 0..<4 {
                 let scoreOneRound = OneRound()
@@ -478,14 +489,14 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                     }
                     scoreOneRound.points.append(scoreOneEnd)
                 }
-//                print("-------------")
-//                print(scoreOneRound)
-//                print(_scoreSheet)
                 _scoreSheet.points.append(scoreOneRound)
                 
             }
             
             _scoreSheet.date = dateText
+            _scoreSheet.year = year
+            _scoreSheet.month = month
+            _scoreSheet.day = day
             _scoreSheet.weekday = weekdayString
             _scoreSheet.title = titleTextField.text!
             _scoreSheet.distanceKey = distanceKey
@@ -508,7 +519,9 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             
             try! realm.write {
                 realm.add(_scoreSheet)
-                
+                if isEdit {
+                    realm.delete(result)
+                }
             }
         }
         self.dismiss(animated: true, completion: nil)
