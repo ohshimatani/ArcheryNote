@@ -66,7 +66,8 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func setCell(indexPath: IndexPath, textArray: [[String]]) {
         label.text = titleList[indexPath.section][indexPath.row]
-        textField.text = textArray[indexPath.section][indexPath.row]
+//        textField.text = textArray[indexPath.section][indexPath.row]
+//        textArray[indexPath.section][indexPath.row] = textField.text!
     }
     
     

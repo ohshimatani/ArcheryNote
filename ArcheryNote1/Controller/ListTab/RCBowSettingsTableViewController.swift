@@ -79,9 +79,13 @@ class RCBowSettingsTableViewController: UITableViewController {
             tableView.register(nib, forCellReuseIdentifier: "RCBowSettingsDetailCell")
             let cell = tableView.dequeueReusableCell(withIdentifier: "RCBowSettingsDetailCell") as! RCBowSettingsTableViewCell
 //            textArray[indexPath.section][indexPath.row] = cell.textField.text!
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                cell.setCell(indexPath: indexPath, textArray: self.textArray)
+//            }
             cell.setCell(indexPath: indexPath, textArray: textArray)
-//            textArray[indexPath.section][indexPath.row] = cell.textField.text!
+            
             return cell
+            
         }
         
     }
