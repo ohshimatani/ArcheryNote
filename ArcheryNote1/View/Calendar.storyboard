@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="Pjc-l6-mSg" customClass="CalenderViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ce8-xC-EPk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-ag-JkI" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="595"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="444"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="yyyy/MM"/>
@@ -1697,8 +1697,8 @@
                                     <constraint firstAttribute="width" constant="140" id="C5a-FJ-aKA"/>
                                     <constraint firstAttribute="height" constant="50" id="CGM-cv-imC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="1440ラウンド（M）"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1440R(M)"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mo1-gK-evB">
                                 <rect key="frame" x="236" y="129" width="119" height="50"/>
@@ -1713,8 +1713,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="w5F-Xw-aJW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="1440ラウンド（W）"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="1440R(W)"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36射" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zph-FP-UoC">
                                 <rect key="frame" x="20" y="303" width="40" height="20"/>

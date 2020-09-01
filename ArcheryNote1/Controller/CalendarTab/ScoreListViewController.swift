@@ -92,6 +92,14 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             year = result.year
             month = result.month
             day = result.day
+            var index = 0
+            for weekdayText in weekdayList {
+                if result.weekday == weekdayText {
+                    weekday = index
+                    break
+                }
+                index += 1
+            }
             titleTextField.text = result.title
             weatherSegmentedControl.selectedSegmentIndex = result.weather
             distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: result.distanceKey)

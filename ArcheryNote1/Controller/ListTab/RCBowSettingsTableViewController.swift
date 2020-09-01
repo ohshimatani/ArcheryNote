@@ -9,7 +9,9 @@
 import UIKit
 import RealmSwift
 
-class RCBowSettingsTableViewController: UITableViewController {
+class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTableViewCellDelegate {
+    
+    
     
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
@@ -116,6 +118,13 @@ class RCBowSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+    func getTextFieldInformation(text: String, indexPath: IndexPath) {
+        textArray[indexPath.section][indexPath.row] = text
+    }
+    
+    
     
     
     

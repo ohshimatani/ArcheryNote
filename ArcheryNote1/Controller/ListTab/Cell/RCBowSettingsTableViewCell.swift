@@ -8,9 +8,9 @@
 
 import UIKit
 
-//protocol RCBowSettingsTableViewCellDelegate: AnyObject {
-//    func getTextFieldInformation(cell: RCBowSettingsTableViewCell, inputText: String)
-//}
+protocol RCBowSettingTableViewCellDelegate {
+    func getTextFieldInformation(text: String, indexPath: IndexPath)
+}
 
 
 class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -20,6 +20,10 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
    
     var titleList = [[String]]()
+    
+    var indexPath: IndexPath!
+    
+    var delegate: RCBowSettingTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,11 +36,11 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         // limb
         titleList.append(["- 名前", "- サイズ"])
         // arrow
-        titleList.append(["- 名前", "- スパイン", "- 長さ", "ポイント", "- ノック", "- 羽"])
+        titleList.append(["- 名前", "- スパイン", "- 長さ", "- ポイント", "- ノック", "- 羽"])
         // string
         titleList.append(["- 原糸", "- サービング",  "- 長さ", "- ストランド数"])
         // stabilizer
-        titleList.append(["- センターロッド", "      - サイズ", "- センターロッド", "      - サイズ"])
+        titleList.append(["- センターロッド", "- サイズ", "- センターロッド", "- サイズ"])
         // sight
         titleList.append(["- 名前"])
         // plunger
@@ -58,17 +62,27 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         if label.text! != "" {
             label.text! = ""
         }
-//        if textField.text != "" {
-//            textField.text = ""
-//        }
+        if textField.text != "" {
+            textField.text = ""
+        }
     }
     
     
     func setCell(indexPath: IndexPath, textArray: [[String]]) {
         label.text = titleList[indexPath.section][indexPath.row]
+        textField.text = textArray[indexPath.section][indexPath.row]
+        self.indexPath = indexPath
 //        textField.text = textArray[indexPath.section][indexPath.row]
 //        textArray[indexPath.section][indexPath.row] = textField.text!
+        
     }
+    
+    
+    @IBAction func textFieldEditing(_ sender: Any) {
+        delegate?.getTextFieldInformation(text: textField.text!, indexPath: indexPath)
+    }
+    
+    
     
     
         
