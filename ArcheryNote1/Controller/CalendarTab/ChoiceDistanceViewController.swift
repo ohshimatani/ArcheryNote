@@ -68,6 +68,15 @@ class ChoiceDistanceViewController: UIViewController {
         for button in buttonList {
             button?.addTarget(self, action: #selector(didTap(sender:)), for: .touchUpInside)
         }
+        
+        switch selectedKey {
+        case "70W", "50W", "SH", "60W", "18W", "free_72":
+            rounds = 2
+        case "1440M", "1440W", "free_144":
+            rounds = 4
+        default:
+            rounds = 1
+        }
     }
     
     @objc func didTap(sender: UIButton) {

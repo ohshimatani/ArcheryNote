@@ -86,7 +86,7 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         VC.isEdit = true
         NC.modalPresentationStyle = .fullScreen
         self.present(NC, animated: true, completion: nil)
-        passResult = ScoreSheet()
+//        passResult = ScoreSheet()
         scoreTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -104,6 +104,11 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+    @IBAction func toBestAndAverageScore(_ sender: Any) {
+        performSegue(withIdentifier: "toBestScores", sender: nil)
+    }
+    
 
     
 }

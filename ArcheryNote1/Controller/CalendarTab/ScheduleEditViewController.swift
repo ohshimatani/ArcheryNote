@@ -80,7 +80,7 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
                 VC.selectedNumber = passCategory
                 VC.titleTextFieldText = passTitle
                 VC.memoTextViewText = passMemo
-                VC.isEdit = true
+                VC.isEdit = false
                 passCategory = 0
                 passTitle = ""
                 passMemo = ""

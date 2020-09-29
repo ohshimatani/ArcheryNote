@@ -109,10 +109,10 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
         var total10s: Int = 0
         var totalXs: Int = 0
         for i in 0..<4 {
-            sum10s[i]?.text = String(sum10Lists[i][0])
-            sumXs[i]?.text = String(sum10Lists[i][1])
-            total10s += sum10Lists[i][0]
-            totalXs += sum10Lists[i][1]
+            sum10s[i]?.text = String(sum10Lists[i][1])
+            sumXs[i]?.text = String(sum10Lists[i][0])
+            total10s += sum10Lists[i][1]
+            totalXs += sum10Lists[i][0]
         }
         if total10s == 0 {
             sum10Total.text = "-"

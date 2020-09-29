@@ -81,6 +81,9 @@
 		2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E624AA48E90065EE7E /* ComentOuts.swift */; };
 		2ADA34E924AA51480065EE7E /* DialySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34E824AA51480065EE7E /* DialySheet.swift */; };
 		2ADA34EB24AA51C10065EE7E /* DialySheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */; };
+		2AE3968824FF3F3A00930D78 /* BestScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3968724FF3F3A00930D78 /* BestScoreViewController.swift */; };
+		2AF5CE0824FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5CE0624FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift */; };
+		2AF5CE0924FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF5CE0724FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib */; };
 		D9513093EFF990B1F8EE5C4F /* Pods_ArcheryNote1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49365B5EC2A179413169065 /* Pods_ArcheryNote1.framework */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +165,9 @@
 		2ADA34E624AA48E90065EE7E /* ComentOuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentOuts.swift; sourceTree = "<group>"; };
 		2ADA34E824AA51480065EE7E /* DialySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheet.swift; sourceTree = "<group>"; };
 		2ADA34EA24AA51C10065EE7E /* DialySheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialySheetViewController.swift; sourceTree = "<group>"; };
+		2AE3968724FF3F3A00930D78 /* BestScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreViewController.swift; sourceTree = "<group>"; };
+		2AF5CE0624FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestAndAverageScoreTableViewCell.swift; sourceTree = "<group>"; };
+		2AF5CE0724FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestAndAverageScoreTableViewCell.xib; sourceTree = "<group>"; };
 		5501466F12B3424F9972865F /* Pods-ArcheryNote1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcheryNote1.debug.xcconfig"; path = "Target Support Files/Pods-ArcheryNote1/Pods-ArcheryNote1.debug.xcconfig"; sourceTree = "<group>"; };
 		A49365B5EC2A179413169065 /* Pods_ArcheryNote1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArcheryNote1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA341064D953CCD2209800BA /* Pods-ArcheryNote1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArcheryNote1.release.xcconfig"; path = "Target Support Files/Pods-ArcheryNote1/Pods-ArcheryNote1.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 				2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */,
 				2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */,
 				2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */,
+				2AF5CE0624FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift */,
+				2AF5CE0724FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 				2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */,
 				2AB93B2224DD9B2F00389A05 /* RCBowSettingsTableViewController.swift */,
 				2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */,
+				2AE3968724FF3F3A00930D78 /* BestScoreViewController.swift */,
 			);
 			path = ListTab;
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 				2A6B16C824AA0172009C497D /* List.storyboard in Resources */,
 				2AB93B2F24DEA0BD00389A05 /* ScoreCollectionViewCell.xib in Resources */,
 				2A6B169924A673BC009C497D /* LaunchScreen.storyboard in Resources */,
+				2AF5CE0924FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib in Resources */,
 				2A36503C24D84F0500DD60B2 /* TuningListTableViewCell.xib in Resources */,
 				2A6B169624A673BC009C497D /* Assets.xcassets in Resources */,
 				2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */,
@@ -515,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */,
+				2AF5CE0824FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift in Sources */,
 				2AA4E47924AA301900A944B2 /* Events.swift in Sources */,
 				2A6B16CE24AA1D19009C497D /* CalendarViewController.swift in Sources */,
 				2AB93B2524DDA92100389A05 /* BowSettingsRC.swift in Sources */,
@@ -541,6 +552,7 @@
 				2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */,
 				2AB93B2E24DEA0BD00389A05 /* ScoreCollectionViewCell.swift in Sources */,
 				2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */,
+				2AE3968824FF3F3A00930D78 /* BestScoreViewController.swift in Sources */,
 				2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */,
 				2A008BAB24E15C310079C347 /* AddScoreInformationMoreViewController.swift in Sources */,
 				2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */,
@@ -708,6 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BLF254Y9B;
 				INFOPLIST_FILE = ArcheryNote1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -726,6 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BLF254Y9B;
 				INFOPLIST_FILE = ArcheryNote1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -85,9 +85,10 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         cardView.layer.borderColor = UIColor.systemGray.cgColor
         cardView.layer.borderWidth = 2.0
         
-        
         if result != nil {
             print("is edit in")
+//            print(result.points.first?.points[1].points)
+//            print(result.totalScore)
     //            dateLabel.text = result.date
             year = result.year
             month = result.month
@@ -95,7 +96,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             var index = 0
             for weekdayText in weekdayList {
                 if result.weekday == weekdayText {
-                    weekday = index
+                    weekday = index + 1
                     break
                 }
                 index += 1
@@ -103,11 +104,21 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             titleTextField.text = result.title
             weatherSegmentedControl.selectedSegmentIndex = result.weather
             distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: result.distanceKey)
+            distanceText = distanceLabel.text!
             distanceKey = result.distanceKey
+            distanceKeys = [result.distance1R, result.distance2R, result.distance3R, result.distance4R]
+            var n = 0
+            for key in distanceKeys {
+                if key != "" {
+                    n += 1
+                }
+            }
+            roundsNum = n
             sightTextField1.text = result.sight1
             sightTextField2.text = result.sight2
             sightTextField3.text = result.sight3
             sightTextField4.text = result.sight4
+            
             if result.isMatch {
                 matchSegmentedControl.selectedSegmentIndex = 1
             } else {
@@ -148,9 +159,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         } else {
             initializeScoreList()
         }
-        
-        
-        
+                
         // delegate settings
         scoreTableCollectionView.delegate = self
         scoreTableCollectionView.dataSource = self
@@ -163,7 +172,8 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // collection view and its cell layout
         let layout = UICollectionViewFlowLayout()
-        let cellSize = scoreTableCollectionView.frame.width / 10 - 0.3
+//        let cellSize = scoreTableCollectionView.frame.width / 10 - 0.3
+        let cellSize = scoreTableCollectionView.frame.width / 10
 //        let cellSize = 20
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
         layout.minimumLineSpacing = 0
@@ -527,7 +537,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             
             try! realm.write {
                 realm.add(_scoreSheet)
-                if isEdit {
+                if result != nil {
                     realm.delete(result)
                 }
             }
