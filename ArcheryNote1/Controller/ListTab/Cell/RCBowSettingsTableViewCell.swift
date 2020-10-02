@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RCBowSettingTableViewCellDelegate {
-    func getTextFieldInformation(text: String, indexPath: IndexPath)
+    func getTextFieldInformation(text: String, section: Int, row: Int)
 }
 
 
@@ -21,6 +21,12 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
    
     var titleList = [[String]]()
     
+    
+    @IBOutlet weak var sectionLabel: UILabel!
+    
+    @IBOutlet weak var rowLabel: UILabel!
+    
+    
     var indexPath: IndexPath!
     
     var delegate: RCBowSettingTableViewCellDelegate?
@@ -28,8 +34,6 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         label.text = ""
-        textField.text = ""
-        
         
         // riser
         titleList.append(["- 名前", "- サイズ"])
@@ -50,6 +54,9 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         // others
 //        titleList.append(["- その他"])
         // ---------------------
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -62,31 +69,44 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         if label.text! != "" {
             label.text! = ""
         }
-        if textField.text != "" {
-            textField.text = ""
-        }
+//        if textField.text != "" {
+//            textField.text = ""
+//        }
     }
     
     
     func setCell(indexPath: IndexPath, textArray: [[String]]) {
         label.text = titleList[indexPath.section][indexPath.row]
         textField.text = textArray[indexPath.section][indexPath.row]
-        self.indexPath = indexPath
+        sectionLabel.text = String(indexPath.section)
+        rowLabel.text = String(indexPath.row)
+        
+//        self.indexPath = indexPath
 //        textField.text = textArray[indexPath.section][indexPath.row]
 //        textArray[indexPath.section][indexPath.row] = textField.text!
-        
-    }
-    
-    
-    @IBAction func textFieldEditing(_ sender: Any) {
-        delegate?.getTextFieldInformation(text: textField.text!, indexPath: indexPath)
+//        delegate?.getTextFieldInformation(text: textField.text!, indexPath: indexPath)
     }
     
     
     
     
-        
     
+    
+    
+    
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        if let _section = Int(sectionLabel.text!) {
+            if let _row = Int(rowLabel.text!) {
+                delegate?.getTextFieldInformation(text: textField.text!, section: _section, row: _row)
+                print("bbbbbbbbbbb")
+            } else {
+                print("else1")
+            }
+        } else {
+            print("else2")
+        }
+
+    }
     
     
     

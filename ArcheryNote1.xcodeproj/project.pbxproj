@@ -12,6 +12,8 @@
 		2A008BAF24E1A11B0079C347 /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */; };
 		2A008BB224E1A9F00079C347 /* ScoreTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008BB024E1A9F00079C347 /* ScoreTableTableViewCell.swift */; };
 		2A008BB324E1A9F00079C347 /* ScoreTableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A008BB124E1A9F00079C347 /* ScoreTableTableViewCell.xib */; };
+		2A24F8A625275B1400B93372 /* BowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A24F8A425275B1400B93372 /* BowSettingsTableViewCell.swift */; };
+		2A24F8A725275B1400B93372 /* BowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A24F8A525275B1400B93372 /* BowSettingsTableViewCell.xib */; };
 		2A2DBF2D24BC5DDC00911546 /* MyFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */; };
 		2A2DBF5D24BC70C300911546 /* CheckPointListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */; };
 		2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */; };
@@ -93,6 +95,8 @@
 		2A008BAE24E1A11B0079C347 /* ScoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewController.swift; sourceTree = "<group>"; };
 		2A008BB024E1A9F00079C347 /* ScoreTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableTableViewCell.swift; sourceTree = "<group>"; };
 		2A008BB124E1A9F00079C347 /* ScoreTableTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableTableViewCell.xib; sourceTree = "<group>"; };
+		2A24F8A425275B1400B93372 /* BowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2A24F8A525275B1400B93372 /* BowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BowSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2A2DBF2C24BC5DDC00911546 /* MyFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFunctions.swift; sourceTree = "<group>"; };
 		2A2DBF5B24BC70C300911546 /* CheckPointListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPointListTableViewCell.swift; sourceTree = "<group>"; };
 		2A2DBF5C24BC70C300911546 /* CheckPointListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckPointListTableViewCell.xib; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				2AB93B1024DBF37D00389A05 /* CPBowSettingsTableViewCell.swift */,
 				2AF5CE0624FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift */,
 				2AF5CE0724FF770B002DBD60 /* BestAndAverageScoreTableViewCell.xib */,
+				2A24F8A425275B1400B93372 /* BowSettingsTableViewCell.swift */,
+				2A24F8A525275B1400B93372 /* BowSettingsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				2A36503C24D84F0500DD60B2 /* TuningListTableViewCell.xib in Resources */,
 				2A6B169624A673BC009C497D /* Assets.xcassets in Resources */,
 				2AB93B2124DD93E100389A05 /* RCBowSettingsTableViewHeaderFooterView.xib in Resources */,
+				2A24F8A725275B1400B93372 /* BowSettingsTableViewCell.xib in Resources */,
 				2A6B16CC24AA018E009C497D /* Settings.storyboard in Resources */,
 				2A2DBF5E24BC70C300911546 /* CheckPointListTableViewCell.xib in Resources */,
 				2A008BB324E1A9F00079C347 /* ScoreTableTableViewCell.xib in Resources */,
@@ -525,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90F79824DEE68B0022FA28 /* TargetCustomView.swift in Sources */,
+				2A24F8A625275B1400B93372 /* BowSettingsTableViewCell.swift in Sources */,
 				2AF5CE0824FF770B002DBD60 /* BestAndAverageScoreTableViewCell.swift in Sources */,
 				2AA4E47924AA301900A944B2 /* Events.swift in Sources */,
 				2A6B16CE24AA1D19009C497D /* CalendarViewController.swift in Sources */,

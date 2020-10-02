@@ -8,13 +8,16 @@
 
 import UIKit
 
-class OthersInBowSettingsTableViewCell: UITableViewCell {
+protocol OthersInBowSettingsTableViewCellDelegate {
+    func getTextViewInformation(text: String)
+}
 
-    
-    
+
+class OthersInBowSettingsTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var othersTextView: UITextView!
     
+    var delegate: OthersInBowSettingsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +26,7 @@ class OthersInBowSettingsTableViewCell: UITableViewCell {
         
         othersTextView.layer.cornerRadius = 10.0
         
+        othersTextView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,6 +39,10 @@ class OthersInBowSettingsTableViewCell: UITableViewCell {
         if othersTextView.text != "" {
             othersTextView.text = ""
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        delegate?.getTextViewInformation(text: textView.text)
     }
     
     

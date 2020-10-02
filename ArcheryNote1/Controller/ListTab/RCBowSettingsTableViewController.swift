@@ -9,13 +9,14 @@
 import UIKit
 import RealmSwift
 
-class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTableViewCellDelegate {
-    
-    
+var global = 1
+
+class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTableViewCellDelegate, OthersInBowSettingsTableViewCellDelegate {
     
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
+    
     
     var sections = ["ハンドル", "リム", "矢", "弦", "スタビライザー",
                     "サイト", "プランジャー", "タブ", "その他"]
@@ -49,8 +50,6 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: headerName, bundle: nil), forHeaderFooterViewReuseIdentifier: "RCHeader")
         
-        
-        
     }
 
 
@@ -70,11 +69,12 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cellIndexList = [0, 2, 4, 9, 13, 17, 18, 19, 20]
-       
+               
         if indexPath.section == 8 {
             let nib = UINib(nibName: "OthersInBowSettingsTableViewCell", bundle: .main)
             tableView.register(nib, forCellReuseIdentifier: "bowSettingsOthers")
             let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsOthers") as! OthersInBowSettingsTableViewCell
+            cell.delegate = self
             return cell
         } else {
             let nib = UINib(nibName: "RCBowSettingsTableViewCell", bundle: .main)
@@ -84,6 +84,7 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 //                cell.setCell(indexPath: indexPath, textArray: self.textArray)
 //            }
+            cell.delegate = self
             cell.setCell(indexPath: indexPath, textArray: textArray)
             
             return cell
@@ -120,8 +121,13 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
     }
     
     
-    func getTextFieldInformation(text: String, indexPath: IndexPath) {
-        textArray[indexPath.section][indexPath.row] = text
+    func getTextFieldInformation(text: String, section: Int, row: Int) {
+        textArray[section][row] = text
+        print("aaaaaaaaa")
+    }
+    
+    func getTextViewInformation(text: String) {
+        textArray[8][0] = text
     }
     
     
@@ -156,17 +162,23 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
         _bowSettingsRC.stringSub = textArray[3][1]
         _bowSettingsRC.stringLength = textArray[3][2]
         _bowSettingsRC.stringNum = textArray[3][3]
+        // stabilizer
+        _bowSettingsRC.centerName = textArray[4][0]
+        _bowSettingsRC.centerSize = textArray[4][1]
+        _bowSettingsRC.sideName = textArray[4][2]
+        _bowSettingsRC.sideSize = textArray[4][3]
         // sight
-        _bowSettingsRC.sightName = textArray[4][0]
+        _bowSettingsRC.sightName = textArray[5][0]
         // plunger
-        _bowSettingsRC.plungerName = textArray[5][0]
+        _bowSettingsRC.plungerName = textArray[6][0]
         // tab
-        _bowSettingsRC.tabName = textArray[6][0]
+        _bowSettingsRC.tabName = textArray[7][0]
         // others
-        _bowSettingsRC.others = textArray[7][0]
+        _bowSettingsRC.others = textArray[8][0]
         try! realm.write {
             realm.add(_bowSettingsRC)
         }
+        print(_bowSettingsRC)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -187,12 +199,7 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
 }
 
 extension RCBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate {
-//    func getTextFieldInformation(cell: RCBowSettingsTableViewCell, inputText: String) {
-//        print("よばれたよ")
-//        print(cell.textField.text!)
-//
-//    }
-    
+
     func RCHeaderFooterView(_ header: RCBowSettingsTableViewHeaderFooterView, section: Int) {
         if expandSectionSet.contains(section) {
             expandSectionSet.remove(section)

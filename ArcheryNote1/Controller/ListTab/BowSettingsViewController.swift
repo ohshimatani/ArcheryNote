@@ -8,22 +8,41 @@
 
 import UIKit
 
-class BowSettingsViewController: UIViewController {
+class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
+    @IBOutlet weak var tableView: UITableView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         
         
         
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
+    
+    
     
     @IBAction func addBowSettings(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
