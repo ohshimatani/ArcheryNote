@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class CPBowSettingsTableViewController: UITableViewController {
+class CPBowSettingsTableViewController: UITableViewController, CPBowSettingTableViewCellDelegate, OthersInBowSettingsTableViewCellDelegate {
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
@@ -20,14 +21,14 @@ class CPBowSettingsTableViewController: UITableViewController {
     let rowsInSection: [Int] = [4, 6, 3, 6, 1, 1]
     
     var year: Int!
-    var mounth: Int!
+    var month: Int!
     var day: Int!
     var weekday: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        (year, mounth, day, weekday) = MyFunctions.getTodayInt()
+        (year, month, day, weekday) = MyFunctions.getTodayInt()
         
         for sectionNum in rowsInSection {
             var appendList: [String] = []
@@ -38,7 +39,7 @@ class CPBowSettingsTableViewController: UITableViewController {
         }
         
         tableView.tableFooterView = UIView()
-        tableView.register(UINib(nibName: headerName, bundle: nil), forCellReuseIdentifier: "RCHeader")
+        tableView.register(UINib(nibName: headerName, bundle: nil), forHeaderFooterViewReuseIdentifier: "RCHeader")
         
         
         
@@ -46,13 +47,132 @@ class CPBowSettingsTableViewController: UITableViewController {
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if expandSectionSet.contains(section) {
+            return rowsInSection[section]
+        }
         return 0
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 5 {
+            let nib = UINib(nibName: "OthersInBowSettingsTableViewCell", bundle: .main)
+            tableView.register(nib, forCellReuseIdentifier: "bowSettingsOthers")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsOthers") as! OthersInBowSettingsTableViewCell
+            cell.delegate = self
+            return cell
+        } else {
+            let nib = UINib(nibName: "CPBowSettingsTableViewCell", bundle: .main)
+            tableView.register(nib, forCellReuseIdentifier: "CPBowSettingsDetailCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CPBowSettingsDetailCell") as! CPBowSettingsTableViewCell
+            cell.delegate = self
+            cell.setCell(indexPath: indexPath, textArray: textArray)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RCHeader") as! RCBowSettingsTableViewHeaderFooterView
+        header.section = section
+        header.sectionLabel.text = sections[section]
+        header.sectionLabel.font = .systemFont(ofSize: 18.0, weight: .bold)
+        header.delegate = self
+        return header
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 5 {
+            return 130
+        } else {
+            return 44
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func getTextFieldInformation(text: String, section: Int, row: Int) {
+        textArray[section][row] = text
+    }
+    
+    func getTextViewInformation(text: String) {
+        textArray[5][0] = text
+    }
+    
+    
+    @IBAction func save(_ sender: Any) {
+        print(textArray)
+        tableView.reloadData()
+        let realm = try! Realm()
+        let _bowSettingsCP = BowSettingsCP()
+        _bowSettingsCP.year = year
+        _bowSettingsCP.month = month
+        _bowSettingsCP.day = day
+        _bowSettingsCP.weekday = weekday
+        // riser
+        _bowSettingsCP.riserName = textArray[0][0]
+        _bowSettingsCP.riserLength = textArray[0][1]
+        _bowSettingsCP.riserAxcel = textArray[0][2]
+        _bowSettingsCP.riserPound = textArray[0][3]
+        // sight
+        _bowSettingsCP.sightName = textArray[1][0]
+        _bowSettingsCP.sightMagnification = textArray[1][1]
+        _bowSettingsCP.sightRadius = textArray[1][2]
+        _bowSettingsCP.sightDot = textArray[1][3]
+        _bowSettingsCP.sightRing = textArray[1][4]
+        _bowSettingsCP.sightFiber = textArray[1][5]
+        // stabilizer
+        _bowSettingsCP.stabilizerName = textArray[2][0]
+        _bowSettingsCP.stabilizerLength = textArray[2][1]
+        _bowSettingsCP.stabilizerWeight = textArray[2][2]
+        // arrow
+        _bowSettingsCP.arrowName = textArray[3][0]
+        _bowSettingsCP.arrowSpine = textArray[3][1]
+        _bowSettingsCP.arrowLength = textArray[3][2]
+        _bowSettingsCP.arrowPointWeight = textArray[3][3]
+        _bowSettingsCP.arrowNock = textArray[3][4]
+        _bowSettingsCP.arrowVane = textArray[3][5]
+        // releaser
+        _bowSettingsCP.releaserName = textArray[4][0]
+        // others
+        _bowSettingsCP.others = textArray[5][0]
+        try! realm.write {
+            realm.add(_bowSettingsCP)
+        }
+        print(_bowSettingsCP)
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    @IBAction func cansel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+}
 
+extension CPBowSettingsTableViewController: RCBowSettingsTableViewHeaderFooterViewDelegate {
+    func RCHeaderFooterView(_ header: RCBowSettingsTableViewHeaderFooterView, section: Int) {
+        if expandSectionSet.contains(section) {
+            expandSectionSet.remove(section)
+        } else {
+            expandSectionSet.insert(section)
+        }
+        tableView.reloadSections([section], with: .automatic)
+    }
 }

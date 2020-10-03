@@ -1,21 +1,89 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CPBowSettingsTableViewCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPBowSettingsDetailCell" id="KGk-i7-Jjw" customClass="CPBowSettingsTableViewCell" customModule="ArcheryNote1" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yim-rt-pnT">
+                        <rect key="frame" x="45" y="0.0" width="1" height="44"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="KCI-bi-Szz"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbV-Xb-Opt">
+                        <rect key="frame" x="54" y="12" width="95" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="5Tm-2L-vdL"/>
+                            <constraint firstAttribute="width" constant="95" id="dvB-if-5P2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4V-ka-9h5">
+                        <rect key="frame" x="154" y="5" width="240" height="34"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="textFieldDidChange:" destination="KGk-i7-Jjw" eventType="editingChanged" id="a0t-an-S6o"/>
+                        </connections>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="section" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CP-DP-tCK">
+                        <rect key="frame" x="5" y="5" width="36" height="10"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="row" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3z-dl-4rK">
+                        <rect key="frame" x="5" y="29" width="36" height="10"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="5"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="O4V-ka-9h5" secondAttribute="trailing" constant="20" id="1xL-5f-GXV"/>
+                    <constraint firstItem="O4V-ka-9h5" firstAttribute="leading" secondItem="LbV-Xb-Opt" secondAttribute="trailing" constant="5" id="4yg-21-GTB"/>
+                    <constraint firstItem="LbV-Xb-Opt" firstAttribute="leading" secondItem="Yim-rt-pnT" secondAttribute="trailing" constant="8" symbolic="YES" id="BZz-0o-yjd"/>
+                    <constraint firstAttribute="bottom" secondItem="O4V-ka-9h5" secondAttribute="bottom" constant="5" id="IEd-Ce-Rag"/>
+                    <constraint firstItem="Yim-rt-pnT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="Vb5-gT-9zp"/>
+                    <constraint firstItem="LbV-Xb-Opt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="b1v-s1-Smr"/>
+                    <constraint firstItem="Yim-rt-pnT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bpe-r5-w41"/>
+                    <constraint firstAttribute="bottom" secondItem="LbV-Xb-Opt" secondAttribute="bottom" constant="11" id="eJG-8Z-8kt"/>
+                    <constraint firstAttribute="bottom" secondItem="Yim-rt-pnT" secondAttribute="bottom" id="nBx-3u-CCu"/>
+                    <constraint firstItem="O4V-ka-9h5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="rLf-od-3yJ"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="LbV-Xb-Opt" id="ciU-cI-bev"/>
+                <outlet property="rowLabel" destination="w3z-dl-4rK" id="n9E-b1-aFa"/>
+                <outlet property="sectionLabel" destination="5CP-DP-tCK" id="pHH-N0-G26"/>
+                <outlet property="textField" destination="O4V-ka-9h5" id="24T-bt-znU"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="100.44642857142857"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

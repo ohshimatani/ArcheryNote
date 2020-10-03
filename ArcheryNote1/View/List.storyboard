@@ -1300,7 +1300,7 @@
                         <outlet property="segmentedControl" destination="9OY-73-GtV" id="hkc-ax-200"/>
                         <outlet property="tableView" destination="Wnb-Pg-EaJ" id="LdG-ZM-91d"/>
                         <segue destination="9qS-0U-hi3" kind="presentation" identifier="toRCBowSettings" modalPresentationStyle="fullScreen" id="4xj-79-ulj"/>
-                        <segue destination="emT-Sr-S2i" kind="presentation" modalPresentationStyle="fullScreen" id="6Ml-7t-fsj"/>
+                        <segue destination="emT-Sr-S2i" kind="presentation" identifier="toCPBowSettings" modalPresentationStyle="fullScreen" id="6Ml-7t-fsj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwj-N5-l8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1331,8 +1331,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="CP" id="qOh-nG-wdb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="2Z2-Cz-Uw3"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="k4b-sH-UAP"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2Z2-Cz-Uw3">
+                            <connections>
+                                <action selector="cansel:" destination="Hfg-fR-BWR" id="9tF-ZX-LC0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="k4b-sH-UAP">
+                            <connections>
+                                <action selector="save:" destination="Hfg-fR-BWR" id="pAg-7H-2oP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idC-qC-DaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
