@@ -38,7 +38,7 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
         // riser
         titleList.append(["- 名前", "- サイズ"])
         // limb
-        titleList.append(["- 名前", "- サイズ"])
+        titleList.append(["- 名前", "- ポンド", "- サイズ"])
         // arrow
         titleList.append(["- 名前", "- スパイン", "- 長さ", "- ポイント", "- ノック", "- 羽"])
         // string

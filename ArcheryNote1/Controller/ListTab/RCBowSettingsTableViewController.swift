@@ -9,14 +9,11 @@
 import UIKit
 import RealmSwift
 
-var global = 1
-
 class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTableViewCellDelegate, OthersInBowSettingsTableViewCellDelegate {
     
     
     let headerName = "RCBowSettingsTableViewHeaderFooterView"
     var expandSectionSet = Set<Int>()
-    
     
     var sections = ["ハンドル", "リム", "矢", "弦", "スタビライザー",
                     "サイト", "プランジャー", "タブ", "その他"]
@@ -24,7 +21,7 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
     var textArray = [[String]]()
     var cellIndex = 0
     
-    let rowsInSection: [Int] = [2, 2, 6, 4, 4, 1, 1, 1, 1]
+    let rowsInSection: [Int] = [2, 3, 6, 4, 4, 1, 1, 1, 1]
     
     var year: Int!
     var month: Int!
@@ -149,7 +146,8 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
         _bowSettingsRC.riserSize = textArray[0][1]
         // limb
         _bowSettingsRC.limbName = textArray[1][0]
-        _bowSettingsRC.limbSize = textArray[1][1]
+        _bowSettingsRC.limbPound = textArray[1][1]
+        _bowSettingsRC.limbSize = textArray[1][2]
         // arrow
         _bowSettingsRC.arrowName = textArray[2][0]
         _bowSettingsRC.arrowSpine = textArray[2][1]
