@@ -1289,6 +1289,9 @@
                                 <segment title="RC"/>
                                 <segment title="CP"/>
                             </segments>
+                            <connections>
+                                <action selector="tapSegmentedControl:" destination="fh9-dT-xre" eventType="valueChanged" id="kAX-eF-cnA"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="i01-oO-Ao2">
                             <connections>

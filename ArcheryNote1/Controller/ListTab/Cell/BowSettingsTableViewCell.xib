@@ -147,9 +147,10 @@
             <connections>
                 <outlet property="arrowLabel" destination="LKK-Vx-A0r" id="ltT-3F-buY"/>
                 <outlet property="dateLabel" destination="7wL-dT-LZN" id="9cL-r5-1hR"/>
-                <outlet property="limbLabel" destination="NYA-pS-78e" id="WuC-Fy-YhP"/>
+                <outlet property="limbOrSightLabel" destination="NYA-pS-78e" id="bTr-AY-RIk"/>
                 <outlet property="othersTextView" destination="aaR-d1-XT6" id="6oo-ux-0Gm"/>
                 <outlet property="riserLabel" destination="JjN-4G-6gg" id="WYo-FD-edv"/>
+                <outlet property="secondNameLabel" destination="RFS-os-sbc" id="SV8-Yx-Fy7"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="148.66071428571428"/>
         </tableViewCell>

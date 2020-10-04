@@ -19,6 +19,9 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    var bowSettingsRC: Results<BowSettingsRC>!
+    var bowSettingsCP: Results<BowSettingsCP>!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +34,58 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.tableFooterView = UIView()
         
         let realm = try! Realm()
-        let bowSettingsRC = realm.objects(BowSettingsRC.self)
-//        let bowSettingsCP = realm.objects(BowSettingsCP.self)
+        bowSettingsRC = realm.objects(BowSettingsRC.self)
+        bowSettingsCP = realm.objects(BowSettingsCP.self)
+        print(bowSettingsRC.count)
         
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let realm = try! Realm()
+        bowSettingsRC = realm.objects(BowSettingsRC.self)
+        bowSettingsCP = realm.objects(BowSettingsCP.self)
+        tableView.reloadData()
     }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        switch segmentedControl.numberOfSegments {
+        case 0:
+            return bowSettingsRC.count
+        case 1:
+            return bowSettingsCP.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsCell") as! BowSettingsTableViewCell
         
-        return cell
+        switch segmentedControl.numberOfSegments {
+        // RC
+        case 0:
+            let bowSetting = bowSettingsRC[indexPath.row]
+            let riserList: [String] = [bowSetting.riserName, bowSetting.riserSize]
+            let limbList: [String] = [bowSetting.limbName, bowSetting.limbSize, bowSetting.limbPound]
+            let arrowList: [String] = [bowSetting.arrowName, bowSetting.arrowSpine, bowSetting.arrowLength]
+            cell.setCellRC(year: bowSetting.year, month: bowSetting.month, day: bowSetting.day, weekday: bowSetting.weekday, riserList: riserList, limbList: limbList, arrowList: arrowList, other: bowSetting.others)
+            return cell
+        // CP
+        case 1:
+            let bowSetting = bowSettingsCP[indexPath.row]
+            let riserList: [String] = [bowSetting.riserName, bowSetting.riserLength, bowSetting.riserAxcel, bowSetting.riserPound]
+            let sightList: [String] = [bowSetting.sightName, bowSetting.sightMagnification, bowSetting.sightRadius]
+            let arrowList: [String] = [bowSetting.arrowName, bowSetting.arrowSpine, bowSetting.arrowLength]
+            cell.setCellCP(year: bowSetting.year, month: bowSetting.month, day: bowSetting.day, weekday: bowSetting.weekday, riserList: riserList, sightList: sightList, arrowList: arrowList, other: bowSetting.others)
+            return cell
+        // default
+        default:
+            return cell
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,6 +119,9 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
    
+    @IBAction func tapSegmentedControl(_ sender: Any) {
+        tableView.reloadData()
+    }
     
     
     
