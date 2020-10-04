@@ -32,13 +32,6 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
         let nib = UINib(nibName: "BowSettingsTableViewCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "bowSettingsCell")
         tableView.tableFooterView = UIView()
-        
-        let realm = try! Realm()
-        bowSettingsRC = realm.objects(BowSettingsRC.self)
-        bowSettingsCP = realm.objects(BowSettingsCP.self)
-        print(bowSettingsRC.count)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +44,19 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch segmentedControl.numberOfSegments {
+        switch segmentedControl.selectedSegmentIndex {
         case 0:
-            return bowSettingsRC.count
+            if bowSettingsRC != nil {
+                return bowSettingsRC.count
+            } else {
+                return 0
+            }
         case 1:
-            return bowSettingsCP.count
+            if bowSettingsCP != nil {
+                return bowSettingsCP.count
+            } else {
+                return 0
+            }
         default:
             return 0
         }
@@ -64,7 +65,7 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bowSettingsCell") as! BowSettingsTableViewCell
         
-        switch segmentedControl.numberOfSegments {
+        switch segmentedControl.selectedSegmentIndex {
         // RC
         case 0:
             let bowSetting = bowSettingsRC[indexPath.row]
@@ -95,9 +96,9 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if segmentedControl.numberOfSegments == 0 {
+        if segmentedControl.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: "toRCBowSettings", sender: nil)
-        } else if segmentedControl.numberOfSegments == 1 {
+        } else if segmentedControl.selectedSegmentIndex == 1 {
             performSegue(withIdentifier: "toCPBowSettings", sender: nil)
         }
     }
