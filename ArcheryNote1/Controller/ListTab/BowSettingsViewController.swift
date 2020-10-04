@@ -21,6 +21,10 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var bowSettingsRC: Results<BowSettingsRC>!
     var bowSettingsCP: Results<BowSettingsCP>!
+    var passResultRC = BowSettingsRC()
+    var passResultCP = BowSettingsCP()
+    
+    var isEdit: Bool = false
     
 
     override func viewDidLoad() {
@@ -93,20 +97,58 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
         return 190
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "削除") { [self] (_, _, completionHandler) in
+            
+            let realm = try! Realm()
+            try! realm.write{
+                if segmentedControl.selectedSegmentIndex == 0{
+                    realm.delete(self.bowSettingsRC[indexPath.row])
+                }else{
+                    realm.delete(self.bowSettingsCP[indexPath.row])
+                }
+                print("deleted")
+            }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        isEdit = true
         if segmentedControl.selectedSegmentIndex == 0 {
+            passResultRC = bowSettingsRC[indexPath.row]
             performSegue(withIdentifier: "toRCBowSettings", sender: nil)
         } else if segmentedControl.selectedSegmentIndex == 1 {
+            passResultCP = bowSettingsCP[indexPath.row]
             performSegue(withIdentifier: "toCPBowSettings", sender: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if isEdit {
+            if segue.identifier == "toRCBowSettings" {
+                let NC = segue.destination as! UINavigationController
+                let VC = NC.topViewController as! RCBowSettingsTableViewController
+                VC.isEdit = true
+                VC.result = passResultRC
+            }
+            if segue.identifier == "toCPBowSettings" {
+                let NC = segue.destination as! UINavigationController
+                let VC = NC.topViewController as! CPBowSettingsTableViewController
+                VC.isEdit = true
+                VC.result = passResultCP
+            }
+        }
+        isEdit = false
+        
+    }
 
-    
-    
-    
-    
+
     
     @IBAction func addBowSettings(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {

@@ -24,12 +24,15 @@ class CPBowSettingsTableViewController: UITableViewController, CPBowSettingTable
     var month: Int!
     var day: Int!
     var weekday: Int!
+    
+    var isEdit: Bool = false
+    var result: BowSettingsCP!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        (year, month, day, weekday) = MyFunctions.getTodayInt()
         
+        // initialize textArray
         for sectionNum in rowsInSection {
             var appendList: [String] = []
             for _ in 0..<sectionNum {
@@ -37,6 +40,30 @@ class CPBowSettingsTableViewController: UITableViewController, CPBowSettingTable
             }
             textArray.append(appendList)
         }
+        
+        if result != nil {
+            year = result.year
+            month = result.month
+            day = result.day
+            weekday = result.weekday
+            // riser
+            textArray[0][0] = result.riserName
+            // sight
+            
+            // stabilizer
+            
+            // arrow
+            
+            // releaser
+            
+            // other
+            
+            
+        } else {
+            (year, month, day, weekday) = MyFunctions.getTodayInt()
+        }
+        
+        
         
         tableView.tableFooterView = UIView()
         tableView.register(UINib(nibName: headerName, bundle: nil), forHeaderFooterViewReuseIdentifier: "RCHeader")
@@ -146,12 +173,14 @@ class CPBowSettingsTableViewController: UITableViewController, CPBowSettingTable
         _bowSettingsCP.others = textArray[5][0]
         try! realm.write {
             realm.add(_bowSettingsCP)
+            if isEdit == true {
+                realm.delete(result)
+            }
         }
         print(_bowSettingsCP)
         self.dismiss(animated: true, completion: nil)
         
     }
-    
     
     
     @IBAction func cansel(_ sender: Any) {

@@ -10,6 +10,9 @@ import UIKit
 
 class BowSettingsTableViewCell: UITableViewCell {
     
+    
+    @IBOutlet weak var mainLabel: UILabel!
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var riserLabel: UILabel!
@@ -32,7 +35,8 @@ class BowSettingsTableViewCell: UITableViewCell {
         
         othersTextView.layer.cornerRadius = 10.0
         
-        
+//        mainLabel.backgroundColor = UIColor(hex: "29B6F6")
+//        mainLabel.layer.cornerRadius = 10.0
         
     }
 
@@ -70,6 +74,7 @@ class BowSettingsTableViewCell: UITableViewCell {
         let dateText = String(year) + "/" + String(month) + "/" + String(day) + "（" + weekdayText + "）"
         dateLabel.text = dateText
     }
+    
     
     
     

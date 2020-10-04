@@ -28,17 +28,50 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
     var day: Int!
     var weekday: Int!
     
+    var isEdit: Bool = false
+    var result: BowSettingsRC!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        (year, month, day, weekday) = MyFunctions.getTodayInt()
-        
+        // initialize textArray
         for sectionNum in rowsInSection {
             var appendedList: [String] = []
             for _ in 0..<sectionNum {
                 appendedList.append("")
             }
             textArray.append(appendedList)
+        }
+
+        
+        if result != nil {
+            year = result.year
+            month = result.month
+            day = result.day
+            weekday = result.weekday
+            // riser
+            textArray[0][0] = result.riserName
+            textArray[0][1] = result.riserSize
+            // limb
+            textArray[1][1] = result.limbName
+            
+            // arrow
+            
+            // string
+            
+            // stabilizer
+            
+            // sight
+            
+            // plunger
+            
+            // tab
+            
+            // others
+            
+            
+        }else {
+            (year, month, day, weekday) = MyFunctions.getTodayInt()
         }
         
         
@@ -123,11 +156,6 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
         textArray[8][0] = text
     }
     
-    
-    
-    
-    
-    
     @IBAction func save(_ sender: Any) {
         print(textArray)
         tableView.reloadData()
@@ -171,7 +199,11 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
         _bowSettingsRC.others = textArray[8][0]
         try! realm.write {
             realm.add(_bowSettingsRC)
+            if isEdit == true {
+                realm.delete(result)
+            }
         }
+        
         print(_bowSettingsRC)
         self.dismiss(animated: true, completion: nil)
     }
