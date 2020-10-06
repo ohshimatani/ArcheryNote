@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddScoreInformationMoreViewControllerDelegate {
+    func getMemoText(memo: String)
+}
+
 
 class AddScoreInformationMoreViewController: UIViewController, UINavigationControllerDelegate {
 
@@ -52,11 +56,12 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
     var roundAverageList: [Double] = [0.0, 0.0, 0.0, 0.0]
     var totalAverage: Double = 0
     
+    var delegate: AddScoreInformationMoreViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        print(intScoreSavingList)
+        memoTextView.layer.cornerRadius = 20.0
         
         averageOfThisMounthLabelText.text = ""
         averageOfaverageLabel.text = ""
@@ -130,6 +135,8 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
         totalScore.text = total
         memoTextView.text = memo
         
+        self.navigationItem.hidesBackButton = true
+        
         navigationController?.delegate = self
         
     }
@@ -181,17 +188,18 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
 
     @IBAction func saveMemo(_ sender: Any) {
 //        delegate?.fromDetail(memo: memo)
+        delegate?.getMemoText(memo: memoTextView.text)
         self.navigationController?.popViewController(animated: true)
     }
     
     
     
 
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if let controller = viewController as? ScoreListViewController {
-            controller.memo = memoTextView.text
-        }
-    }
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        if let controller = viewController as? ScoreListViewController {
+//            controller.memo = memoTextView.text
+//        }
+//    }
 
     
     

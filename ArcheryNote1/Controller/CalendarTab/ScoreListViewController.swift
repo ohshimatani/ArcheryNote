@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate, PickDistanceDelegate {
+class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate, PickDistanceDelegate, AddScoreInformationMoreViewControllerDelegate {
     
     
     
@@ -113,11 +113,19 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                     n += 1
                 }
             }
+            if distanceKey == "free_36" {
+                n = 1
+            } else if distanceKey == "free_72" {
+                n = 2
+            } else if distanceKey == "free_144" {
+                n = 4
+            }
             roundsNum = n
             sightTextField1.text = result.sight1
             sightTextField2.text = result.sight2
             sightTextField3.text = result.sight3
             sightTextField4.text = result.sight4
+            memo = result.memo
             
             if result.isMatch {
                 matchSegmentedControl.selectedSegmentIndex = 1
@@ -223,7 +231,16 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         distanceLabel.text = distanceText
         
+        print("llllllllllllllllllllllllllllllll")
+//        (scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList, isIndoor60: isIndoor60, isIndoor30: isIndoor30, sum10Lists: sum10Lists, distanceKeys: distanceKeys)
+        print(roundsNum, stringScoreSavingList, intScoreSavingList, isIndoor60, isIndoor30, sum10Lists, distanceKeys)
+        print("llllllllllllllllllllllllllllllll")
+        
         scoreTableCollectionView.reloadData()
+        
+        getMemoText(memo: memo)
+        
+        
     }
     
     
@@ -368,6 +385,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
             VC.delegate = self
         } else if segue.identifier == "toScoreDetail" {
             let VC = segue.destination as! AddScoreInformationMoreViewController
+            VC.delegate = self
             VC.distanceText = distanceText
             VC.intScoreSavingList = intScoreSavingList
             VC.stringScoreSavingList = stringScoreSavingList
@@ -414,6 +432,10 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         scoreTableCollectionView.reloadData()
     }
     
+    func getMemoText(memo: String) {
+        self.memo = memo
+    }
+    
 
     
     @IBAction func changeDistance(_ sender: Any) {
@@ -434,114 +456,59 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        if false {
-            let total = List<OneRound>()
-            for i in 0..<4 {
-                let scoreOneRound = OneRound()
-                for j in 0..<6 {
-                    let scoreOneEnd = PointsOneEnd()
-                    for k in 0..<6 {
-                        let _point = Point()
-                        _point.pointString = stringScoreSavingList[i][j][k]
-                        _point.pointInt = intScoreSavingList[i][j][k]
-                        _point.dotLocationX = pointXScoreSavingList[i][j][k]
-                        _point.dotLocationY = pointYScoreSavingList[i][j][k]
-                        scoreOneEnd.points.append(_point)
-                    }
-                    scoreOneRound.points.append(scoreOneEnd)
+        print("else")
+        let _scoreSheet = ScoreSheet()
+        for i in 0..<4 {
+            let scoreOneRound = OneRound()
+            print(scoreOneRound)
+            for j in 0..<6 {
+                let scoreOneEnd = PointsOneEnd()
+                for k in 0..<6 {
+                    let _point = Point()
+                    _point.pointString = stringScoreSavingList[i][j][k]
+                    _point.pointInt = intScoreSavingList[i][j][k]
+                    _point.dotLocationX = pointXScoreSavingList[i][j][k]
+                    _point.dotLocationY = pointYScoreSavingList[i][j][k]
+                    scoreOneEnd.points.append(_point)
                 }
-                total.append(scoreOneRound)
+                scoreOneRound.points.append(scoreOneEnd)
             }
+            _scoreSheet.points.append(scoreOneRound)
             
-            print(total[0].points[0].points[0].pointInt)
-            print(total[0].points[1].points[0].pointInt)
-            print(total[0].points[2].points[0].pointInt)
-            print(total[0].points[3].points[0].pointInt)
-            try! realm.write {
-                print("realm write")
-                
-                result.points = total
-                
-                result.date = dateText
-                result.year = year
-                result.month = month
-                result.day = day
-                result.weekday = weekdayString
-                result.title = titleTextField.text!
-                result.distanceKey = distanceKey
-                result.distance1R = distanceKeys[0]
-                result.distance2R = distanceKeys[1]
-                result.distance3R = distanceKeys[2]
-                result.distance4R = distanceKeys[3]
-                if matchSegmentedControl.selectedSegmentIndex == 0 {
-                    result.isMatch = false
-                } else {
-                    result.isMatch = true
-                }
-                result.weather = weatherSegmentedControl.selectedSegmentIndex
-                result.sight1 = sightTextField1.text!
-                result.sight2 = sightTextField2.text!
-                result.sight3 = sightTextField3.text!
-                result.sight4 = sightTextField4.text!
-                result.memo = memo
-                result.totalScore = totalScore
-                
-                realm.add(result)
-            }
-            
+        }
+        
+        _scoreSheet.date = dateText
+        _scoreSheet.year = year
+        _scoreSheet.month = month
+        _scoreSheet.day = day
+        _scoreSheet.weekday = weekdayString
+        _scoreSheet.title = titleTextField.text!
+        _scoreSheet.distanceKey = distanceKey
+        _scoreSheet.distance1R = distanceKeys[0]
+        _scoreSheet.distance2R = distanceKeys[1]
+        _scoreSheet.distance3R = distanceKeys[2]
+        _scoreSheet.distance4R = distanceKeys[3]
+        if matchSegmentedControl.selectedSegmentIndex == 0 {
+            _scoreSheet.isMatch = false
         } else {
-            print("else")
-            let _scoreSheet = ScoreSheet()
-            for i in 0..<4 {
-                let scoreOneRound = OneRound()
-                print(scoreOneRound)
-                for j in 0..<6 {
-                    let scoreOneEnd = PointsOneEnd()
-                    for k in 0..<6 {
-                        let _point = Point()
-                        _point.pointString = stringScoreSavingList[i][j][k]
-                        _point.pointInt = intScoreSavingList[i][j][k]
-                        _point.dotLocationX = pointXScoreSavingList[i][j][k]
-                        _point.dotLocationY = pointYScoreSavingList[i][j][k]
-                        scoreOneEnd.points.append(_point)
-                    }
-                    scoreOneRound.points.append(scoreOneEnd)
-                }
-                _scoreSheet.points.append(scoreOneRound)
-                
-            }
-            
-            _scoreSheet.date = dateText
-            _scoreSheet.year = year
-            _scoreSheet.month = month
-            _scoreSheet.day = day
-            _scoreSheet.weekday = weekdayString
-            _scoreSheet.title = titleTextField.text!
-            _scoreSheet.distanceKey = distanceKey
-            _scoreSheet.distance1R = distanceKeys[0]
-            _scoreSheet.distance2R = distanceKeys[1]
-            _scoreSheet.distance3R = distanceKeys[2]
-            _scoreSheet.distance4R = distanceKeys[3]
-            if matchSegmentedControl.selectedSegmentIndex == 0 {
-                _scoreSheet.isMatch = false
-            } else {
-                _scoreSheet.isMatch = true
-            }
-            _scoreSheet.weather = weatherSegmentedControl.selectedSegmentIndex
-            _scoreSheet.sight1 = sightTextField1.text!
-            _scoreSheet.sight2 = sightTextField2.text!
-            _scoreSheet.sight3 = sightTextField3.text!
-            _scoreSheet.sight4 = sightTextField4.text!
-            _scoreSheet.memo = memo
-            _scoreSheet.totalScore = totalScore
-            
-            try! realm.write {
-                realm.add(_scoreSheet)
-                if result != nil {
-                    realm.delete(result)
-                }
+            _scoreSheet.isMatch = true
+        }
+        _scoreSheet.weather = weatherSegmentedControl.selectedSegmentIndex
+        _scoreSheet.sight1 = sightTextField1.text!
+        _scoreSheet.sight2 = sightTextField2.text!
+        _scoreSheet.sight3 = sightTextField3.text!
+        _scoreSheet.sight4 = sightTextField4.text!
+        print(memo)
+        _scoreSheet.memo = memo
+        _scoreSheet.totalScore = totalScore
+        
+        try! realm.write {
+            realm.add(_scoreSheet)
+            if result != nil {
+                realm.delete(result)
             }
         }
+        
         self.dismiss(animated: true, completion: nil)
     }
     

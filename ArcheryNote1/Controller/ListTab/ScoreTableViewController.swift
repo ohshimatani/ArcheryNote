@@ -81,7 +81,7 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
 //            }
 //
 //        }
-        
+//        print(passResult)
         VC.result = passResult
         VC.isEdit = true
         NC.modalPresentationStyle = .fullScreen

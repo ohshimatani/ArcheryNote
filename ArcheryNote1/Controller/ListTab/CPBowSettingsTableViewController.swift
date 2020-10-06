@@ -48,15 +48,31 @@ class CPBowSettingsTableViewController: UITableViewController, CPBowSettingTable
             weekday = result.weekday
             // riser
             textArray[0][0] = result.riserName
+            textArray[0][1] = result.riserLength
+            textArray[0][2] = result.riserAxcel
+            textArray[0][3] = result.riserPound
             // sight
-            
+            textArray[1][0] = result.sightName
+            textArray[1][1] = result.sightMagnification
+            textArray[1][2] = result.sightRadius
+            textArray[1][3] = result.sightDot
+            textArray[1][4] = result.sightRing
+            textArray[1][5] = result.sightFiber
             // stabilizer
-            
+            textArray[2][0] = result.stabilizerName
+            textArray[2][1] = result.stabilizerLength
+            textArray[2][2] = result.stabilizerWeight
             // arrow
-            
+            textArray[3][0] = result.arrowName
+            textArray[3][1] = result.arrowSpine
+            textArray[3][2] = result.arrowLength
+            textArray[3][3] = result.arrowPointWeight
+            textArray[3][4] = result.arrowNock
+            textArray[3][5] = result.arrowVane
             // releaser
-            
+            textArray[4][0] = result.releaserName
             // other
+            textArray[5][0] = result.others
             
             
         } else {

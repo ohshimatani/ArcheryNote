@@ -99,6 +99,7 @@ class ScoreCollectionViewCell: UICollectionViewCell {
             case 0:
                 let str = distanceKeys[Int(floor(Double(indexPath.section / sections)))]
                 if str == "" {
+                    print("--------in---------")
                     label.text = "+"
                     label.textColor = .systemBlue
                     label.font = UIFont.systemFont(ofSize: 25, weight: .regular)

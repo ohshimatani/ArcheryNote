@@ -102,6 +102,40 @@ class MyFunctions: NSObject{
         }
     }
     
+    class func labelTexttoDistanceKey(text: String) -> String {
+        switch text {
+        case "70mW":
+            return "70W"
+        case "50mW":
+            return "50W"
+        case "ショートハーフ（5030）":
+            return "SH"
+        case "1440ラウンド(M)":
+            return "1440M"
+        case "1440ラウンド(W)":
+            return "1440W"
+        case "60mW":
+            return "60W"
+        case "インドアラウンド（18m×60射）":
+            return "18W"
+        case "30mW":
+            return "30W"
+        case "フリー（36射）":
+            return "free_36"
+        case "フリー（72射）":
+            return "free_72"
+        case "フリー（144射）":
+            return "free_144"
+        case "18m（30射）":
+            return "18_30"
+        case "18m（36射）":
+            return "18_36"
+        default:
+            let result = text.prefix(text.count-1)
+            return String(result)
+        }
+    }
+    
     
 //    class func dateString2Int(dateString: String) {
 //        var yearString: String = ""
@@ -137,3 +171,4 @@ extension UIColor {
         self.init(red: r, green: g, blue: b, alpha: min(max(alpha, 0), 1))
     }
 }
+

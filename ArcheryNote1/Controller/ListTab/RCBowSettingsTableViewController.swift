@@ -53,22 +53,34 @@ class RCBowSettingsTableViewController: UITableViewController, RCBowSettingTable
             textArray[0][0] = result.riserName
             textArray[0][1] = result.riserSize
             // limb
-            textArray[1][1] = result.limbName
-            
+            textArray[1][0] = result.limbName
+            textArray[1][1] = result.limbPound
+            textArray[1][2] = result.limbSize
             // arrow
-            
+            textArray[2][0] = result.arrowName
+            textArray[2][1] = result.arrowSpine
+            textArray[2][2] = result.arrowLength
+            textArray[2][3] = result.arrowPointWeight
+            textArray[2][4] = result.arrowNock
+            textArray[2][5] = result.arrowVane
             // string
-            
+            textArray[3][0] = result.stringOrigin
+            textArray[3][1] = result.stringSub
+            textArray[3][2] = result.stringLength
+            textArray[3][3] = result.stringNum
             // stabilizer
-            
+            textArray[4][0] = result.centerName
+            textArray[4][1] = result.centerSize
+            textArray[4][2] = result.sideName
+            textArray[4][3] = result.sideSize
             // sight
-            
+            textArray[5][0] = result.sightName
             // plunger
-            
+            textArray[6][0] = result.plungerName
             // tab
-            
+            textArray[7][0] = result.tabName
             // others
-            
+            textArray[8][0] = result.others
             
         }else {
             (year, month, day, weekday) = MyFunctions.getTodayInt()

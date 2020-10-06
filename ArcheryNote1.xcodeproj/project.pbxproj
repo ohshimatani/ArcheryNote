@@ -68,6 +68,7 @@
 		2AA4E47724AA2B5400A944B2 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */; };
 		2AA4E47924AA301900A944B2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47824AA301900A944B2 /* Events.swift */; };
 		2AA4E47B24AA3D2500A944B2 /* AddSomethingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */; };
+		2AAFC27B252C96A900C6A231 /* PickerViewKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAFC27A252C96A900C6A231 /* PickerViewKeyboard.swift */; };
 		2AB93B0524DBBCE400389A05 /* ScheduleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */; };
 		2AB93B0C24DBF35300389A05 /* RCBowSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */; };
 		2AB93B0D24DBF35300389A05 /* RCBowSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */; };
@@ -156,6 +157,7 @@
 		2AA4E47624AA2B5400A944B2 /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
 		2AA4E47824AA301900A944B2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		2AA4E47A24AA3D2500A944B2 /* AddSomethingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSomethingViewController.swift; sourceTree = "<group>"; };
+		2AAFC27A252C96A900C6A231 /* PickerViewKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewKeyboard.swift; sourceTree = "<group>"; };
 		2AB93B0424DBBCE400389A05 /* ScheduleEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditViewController.swift; sourceTree = "<group>"; };
 		2AB93B0A24DBF35300389A05 /* RCBowSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCBowSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AB93B0B24DBF35300389A05 /* RCBowSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCBowSettingsTableViewCell.xib; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				2A90F7B524E085230022FA28 /* ScoreSheet.swift */,
 				2AB93B2424DDA92100389A05 /* BowSettingsRC.swift */,
 				2A24F8A9252854A300B93372 /* BowSettingsCP.swift */,
+				2AAFC27A252C96A900C6A231 /* PickerViewKeyboard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				2A36502A24D6D29500DD60B2 /* AddCPTuningViewController.swift in Sources */,
 				2A6B16D024AA1D26009C497D /* ListViewController.swift in Sources */,
 				2A36503B24D84F0500DD60B2 /* TuningListTableViewCell.swift in Sources */,
+				2AAFC27B252C96A900C6A231 /* PickerViewKeyboard.swift in Sources */,
 				2A90F7B424E084B10022FA28 /* OneRound.swift in Sources */,
 				2A36502C24D7DCE400DD60B2 /* TuningRC.swift in Sources */,
 				2A90F7B624E085230022FA28 /* ScoreSheet.swift in Sources */,

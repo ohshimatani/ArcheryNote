@@ -46,7 +46,9 @@ class ScoreTableTableViewCell: UITableViewCell {
         dateLabel.font = UIFont.systemFont(ofSize: 11, weight: .light)
         scoreLabel.text = String(totalScore)
         if isMatch == true {
-            colorView.backgroundColor = .systemRed
+            colorView.backgroundColor = UIColor(hex: "F06292")
+        } else {
+            colorView.backgroundColor = .white
         }
         distanceLabel.text = MyFunctions.distanceKeytoLabelText(key: distance)
         titleLabel.text = title
