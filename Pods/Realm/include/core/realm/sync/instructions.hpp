@@ -35,6 +35,7 @@
 #include <realm/sync/object_id.hpp>
 #include <realm/impl/input_stream.hpp>
 #include <realm/table_ref.hpp>
+#include <realm/link_view_fwd.hpp>
 
 namespace realm {
 namespace sync {
@@ -137,19 +138,17 @@ struct StringBufferRange {
 
 struct InternString {
     static const InternString npos;
-    explicit constexpr InternString(uint32_t v = uint32_t(-1)) noexcept : value(v) {}
+    explicit constexpr InternString(uint32_t v = uint32_t(-1)): value(v) {}
 
     uint32_t value;
 
     bool operator==(const InternString& other) const noexcept { return value == other.value; }
     bool operator<(const InternString& other) const noexcept { return value < other.value; }
-
-    explicit operator bool() const noexcept { return (value != npos.value); }
 };
 
 struct Instruction::Payload {
     struct Link {
-        GlobalKey target; // can be nothing = null
+        sync::ObjectID target; // can be nothing = null
         InternString target_table;
     };
 
@@ -192,7 +191,7 @@ struct Instruction::Payload {
 };
 
 struct Instruction::ObjectInstructionBase {
-    GlobalKey object;
+    sync::ObjectID object;
 };
 
 struct Instruction::FieldInstructionBase

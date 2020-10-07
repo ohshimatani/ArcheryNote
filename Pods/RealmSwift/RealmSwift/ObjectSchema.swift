@@ -18,7 +18,6 @@
 
 import Foundation
 import Realm
-import Realm.Private
 
 /**
  This class represents Realm model object schemas.
@@ -44,9 +43,6 @@ public struct ObjectSchema: CustomStringConvertible {
 
     /// The name of the class the schema describes.
     public var className: String { return rlmObjectSchema.className }
-
-    /// The object class the schema describes.
-    public var objectClass: AnyClass { return rlmObjectSchema.objectClass }
 
     /// The property which serves as the primary key for the class the schema describes, if any.
     public var primaryKeyProperty: Property? {

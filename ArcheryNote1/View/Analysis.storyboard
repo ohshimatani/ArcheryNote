@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lmk-ya-wN4">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -9,33 +9,122 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Analysis-->
+        <!--統計-->
         <scene sceneID="nc1-ag-M6S">
             <objects>
                 <viewController id="Krh-H3-ZrK" customClass="AnalysisViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aJc-D0-dQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxa-Ig-ZmO">
+                                <rect key="frame" x="75" y="94" width="225" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3KY-39-QrM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="本数の推移（直近3ヶ月）">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd9-sN-dLT">
+                                <rect key="frame" x="75" y="204" width="225" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vf0-Uc-08c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <state key="normal" title="点数の推移（直近3ヶ月）">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-Pt-6v6">
+                                <rect key="frame" x="75" y="314" width="225" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Wx7-Vi-28A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <state key="normal" title="ベストスコア一覧">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gr5-dI-394"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gr5-dI-394" firstAttribute="trailing" secondItem="Zxa-Ig-ZmO" secondAttribute="trailing" constant="75" id="1p6-0H-JOS"/>
+                            <constraint firstItem="Zxa-Ig-ZmO" firstAttribute="leading" secondItem="gr5-dI-394" secondAttribute="leading" constant="75" id="21P-ko-3EP"/>
+                            <constraint firstItem="s7X-Pt-6v6" firstAttribute="top" secondItem="Dd9-sN-dLT" secondAttribute="bottom" constant="50" id="6NA-63-8cO"/>
+                            <constraint firstItem="s7X-Pt-6v6" firstAttribute="leading" secondItem="gr5-dI-394" secondAttribute="leading" constant="75" id="HKo-Tw-srh"/>
+                            <constraint firstItem="gr5-dI-394" firstAttribute="trailing" secondItem="Dd9-sN-dLT" secondAttribute="trailing" constant="75" id="KYW-lf-iRF"/>
+                            <constraint firstItem="Zxa-Ig-ZmO" firstAttribute="top" secondItem="gr5-dI-394" secondAttribute="top" constant="50" id="cFi-T5-0PV"/>
+                            <constraint firstItem="Dd9-sN-dLT" firstAttribute="top" secondItem="Zxa-Ig-ZmO" secondAttribute="bottom" constant="50" id="cRn-1Z-vv9"/>
+                            <constraint firstItem="gr5-dI-394" firstAttribute="trailing" secondItem="s7X-Pt-6v6" secondAttribute="trailing" constant="75" id="r77-oi-YZd"/>
+                            <constraint firstItem="Dd9-sN-dLT" firstAttribute="leading" secondItem="gr5-dI-394" secondAttribute="leading" constant="75" id="x7U-qb-4Rx"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="uQd-JK-flt"/>
-                    <navigationItem key="navigationItem" id="4G6-Oo-rZJ">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="TXZ-m9-k3s">
-                            <rect key="frame" x="71" y="6" width="271" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="点数"/>
-                                <segment title="本数"/>
-                            </segments>
-                        </segmentedControl>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="統計" id="4G6-Oo-rZJ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="TLa-AV-N4n" kind="show" id="ccw-Dy-aeD"/>
+                        <segue destination="DEo-zq-kew" kind="show" id="YES-r8-P4r"/>
+                        <segue destination="bAu-bA-VAb" kind="show" id="lav-09-TYG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNf-sX-b9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949.2753623188407" y="93.75"/>
+        </scene>
+        <!--点数（直近3ヶ月）-->
+        <scene sceneID="bVf-lV-wrI">
+            <objects>
+                <viewController id="TLa-AV-N4n" customClass="ScoreTransitionViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXO-Ja-K2h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3JG-jX-WLF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="点数（直近3ヶ月）" id="C5q-ee-or8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="niE-Rv-H8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="997"/>
+        </scene>
+        <!--本数（直近3ヶ月）-->
+        <scene sceneID="ntG-YU-8PC">
+            <objects>
+                <viewController id="DEo-zq-kew" customClass="ShotNumberTransitionViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ty9-7C-OS9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qLy-xX-Qsc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="本数（直近3ヶ月）" id="8ju-XV-S7F"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EOF-5f-09d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026" y="996"/>
+        </scene>
+        <!--ベストスコア一覧-->
+        <scene sceneID="oWS-dj-b9z">
+            <objects>
+                <viewController id="bAu-bA-VAb" customClass="BestScoreListViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4gX-nf-fGA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iuV-tY-42K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ベストスコア一覧" id="6Bu-Wx-Q3I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIz-YP-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3091" y="996"/>
         </scene>
         <!--Analysis-->
         <scene sceneID="Tgh-Br-aMp">
@@ -44,7 +133,7 @@
                     <tabBarItem key="tabBarItem" title="Analysis" image="analysis" id="UTC-3p-6gj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QmZ-bK-wzd">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

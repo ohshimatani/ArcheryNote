@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--calendar-->
+        <!--Calendar-->
         <scene sceneID="bat-nv-t2m">
             <objects>
                 <viewController id="Pjc-l6-mSg" customClass="CalenderViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="imS-vJ-xz6"/>
-                    <navigationItem key="navigationItem" title="calendar" id="nCW-tF-CEv"/>
+                    <navigationItem key="navigationItem" id="nCW-tF-CEv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendar" destination="ofX-ag-JkI" id="9LN-vR-OcY"/>

@@ -9,6 +9,8 @@ target 'ArcheryNote1' do
   pod 'RealmSwift'
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
+  pod 'Charts'
+  pod 'ChartsRealm'
 
 
   # Pods for ArcheryNote1

@@ -80,6 +80,3 @@ extension RealmOptional: Codable where Value: Codable {
     }
 }
 #endif
-
-internal protocol RealmOptionalProtocol { }
-extension RealmOptional: RealmOptionalProtocol { }

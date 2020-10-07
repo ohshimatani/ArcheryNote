@@ -33,6 +33,9 @@
 		2A36504224D867D400DD60B2 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504124D867D400DD60B2 /* ScoreViewController.swift */; };
 		2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */; };
 		2A36504B24D9488000DD60B2 /* BowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */; };
+		2A602DFA252DFBE000007CE9 /* BestScoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602DF9252DFBE000007CE9 /* BestScoreListViewController.swift */; };
+		2A602DFD252DFBFC00007CE9 /* ScoreTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602DFC252DFBFC00007CE9 /* ScoreTransitionViewController.swift */; };
+		2A602E00252DFC1A00007CE9 /* ShotNumberTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A602DFF252DFC1A00007CE9 /* ShotNumberTransitionViewController.swift */; };
 		2A6A0AA524E40904008FB8E3 /* CallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A0AA424E40904008FB8E3 /* CallData.swift */; };
 		2A6B168D24A673B9009C497D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6B168C24A673B9009C497D /* AppDelegate.swift */; };
 		2A6B168F24A673B9009C497D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6B168E24A673B9009C497D /* SceneDelegate.swift */; };
@@ -119,6 +122,9 @@
 		2A36504124D867D400DD60B2 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		2A36504324D86A9400DD60B2 /* AddListDialyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListDialyViewController.swift; sourceTree = "<group>"; };
 		2A36504A24D9488000DD60B2 /* BowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowSettingsViewController.swift; sourceTree = "<group>"; };
+		2A602DF9252DFBE000007CE9 /* BestScoreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreListViewController.swift; sourceTree = "<group>"; };
+		2A602DFC252DFBFC00007CE9 /* ScoreTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTransitionViewController.swift; sourceTree = "<group>"; };
+		2A602DFF252DFC1A00007CE9 /* ShotNumberTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotNumberTransitionViewController.swift; sourceTree = "<group>"; };
 		2A6A0AA424E40904008FB8E3 /* CallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallData.swift; sourceTree = "<group>"; };
 		2A6B168924A673B9009C497D /* ArcheryNote1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcheryNote1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6B168C24A673B9009C497D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +354,9 @@
 			isa = PBXGroup;
 			children = (
 				2A6B16D124AA1D31009C497D /* AnalysisViewController.swift */,
+				2A602DF9252DFBE000007CE9 /* BestScoreListViewController.swift */,
+				2A602DFC252DFBFC00007CE9 /* ScoreTransitionViewController.swift */,
+				2A602DFF252DFC1A00007CE9 /* ShotNumberTransitionViewController.swift */,
 			);
 			path = AnalysisTab;
 			sourceTree = "<group>";
@@ -550,6 +559,7 @@
 				2A6B169124A673B9009C497D /* ViewController.swift in Sources */,
 				2A36502E24D7E8DD00DD60B2 /* TuningCP.swift in Sources */,
 				2A36504424D86A9400DD60B2 /* AddListDialyViewController.swift in Sources */,
+				2A602E00252DFC1A00007CE9 /* ShotNumberTransitionViewController.swift in Sources */,
 				2A008BB224E1A9F00079C347 /* ScoreTableTableViewCell.swift in Sources */,
 				2A90F79324DEE26D0022FA28 /* SampleTargetViewController.swift in Sources */,
 				2A008BAD24E17FF90079C347 /* PickDistanceViewController.swift in Sources */,
@@ -567,6 +577,7 @@
 				2AA4E47524AA2B2F00A944B2 /* TuningListViewController.swift in Sources */,
 				2A802D8724B8A7BE00B366DF /* AddTrainingViewController.swift in Sources */,
 				2A90F79C24DF09150022FA28 /* ScoreList4ViewController.swift in Sources */,
+				2A602DFD252DFBFC00007CE9 /* ScoreTransitionViewController.swift in Sources */,
 				2A802D8924B8A7FF00B366DF /* TrainingMenu.swift in Sources */,
 				2AB93B2E24DEA0BD00389A05 /* ScoreCollectionViewCell.swift in Sources */,
 				2ADA34E724AA48E90065EE7E /* ComentOuts.swift in Sources */,
@@ -575,6 +586,7 @@
 				2A24F8AA252854A300B93372 /* BowSettingsCP.swift in Sources */,
 				2A008BAB24E15C310079C347 /* AddScoreInformationMoreViewController.swift in Sources */,
 				2AB93B1224DBF37D00389A05 /* CPBowSettingsTableViewCell.swift in Sources */,
+				2A602DFA252DFBE000007CE9 /* BestScoreListViewController.swift in Sources */,
 				2AB93B1D24DD924800389A05 /* RCBowSettingsTableViewHeaderFooterView.swift in Sources */,
 				2A6B168D24A673B9009C497D /* AppDelegate.swift in Sources */,
 				2A36504B24D9488000DD60B2 /* BowSettingsViewController.swift in Sources */,

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List-->
+        <!--リスト-->
         <scene sceneID="VSb-Ef-MkM">
             <objects>
                 <viewController id="IXF-JP-pOl" customClass="ListViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet" catalog="system" id="6Ig-6J-1hS"/>
-                    <navigationItem key="navigationItem" id="k5x-RK-eMG"/>
+                    <navigationItem key="navigationItem" title="リスト" id="k5x-RK-eMG"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="pointsButton" destination="XsS-sI-8DF" id="B6D-c8-gEz"/>
