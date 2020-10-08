@@ -12,7 +12,7 @@ import RealmSwift
 class ScoreListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ScoreFromTargetDelegate, FromDistancePageDelegate, PickDistanceDelegate, AddScoreInformationMoreViewControllerDelegate {
     
     
-    
+    @IBOutlet weak var RCorCPSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var cardView: UIView!
     
@@ -33,6 +33,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var weatherSegmentedControl: UISegmentedControl!
     
     @IBOutlet weak var matchSegmentedControl: UISegmentedControl!
+    
     
     
     
@@ -77,6 +78,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     var isEdit = false
     var result: ScoreSheet!
     
+    var defaultDistance: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,11 +87,22 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         cardView.layer.borderColor = UIColor.systemGray.cgColor
         cardView.layer.borderWidth = 2.0
         
+        if UserDefaults.standard.bool(forKey: "isCPPlayer") == false{
+            RCorCPSegmentedControl.selectedSegmentIndex = 0
+        } else {
+            RCorCPSegmentedControl.selectedSegmentIndex = 1
+        }
+        defaultDistance = UserDefaults.standard.string(forKey: "defaultDistance") ?? "フリー（72射）"
+        distanceText = defaultDistance
+        distanceKey = MyFunctions.labelTexttoDistanceKey(text: defaultDistance)
+        if distanceKey == "18_30" {
+            isIndoor30 = true
+        } else if distanceKey == "18W" {
+            isIndoor60 = true
+        }
+        
+        
         if result != nil {
-            print("is edit in")
-//            print(result.points.first?.points[1].points)
-//            print(result.totalScore)
-    //            dateLabel.text = result.date
             year = result.year
             month = result.month
             day = result.day
@@ -163,9 +176,20 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
                 pointYScoreSavingList.append(roundY)
                 
             }
-
+            if result.isCP == false {
+                print("0")
+                RCorCPSegmentedControl.selectedSegmentIndex = 0
+            } else {
+                print("1")
+                RCorCPSegmentedControl.selectedSegmentIndex = 1
+            }
+            
+        // ----------- end if result != nil -----------
         } else {
             initializeScoreList()
+            distanceLabel.text = defaultDistance
+            distanceText = distanceLabel.text!
+            generateDistanceKeys()
         }
                 
         // delegate settings
@@ -230,12 +254,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         totalScore = sum
         
         distanceLabel.text = distanceText
-        
-        print("llllllllllllllllllllllllllllllll")
-//        (scoreTableNum: roundsNum, indexPath: indexPath, stringScoreList: stringScoreSavingList, intScoreList: intScoreSavingList, isIndoor60: isIndoor60, isIndoor30: isIndoor30, sum10Lists: sum10Lists, distanceKeys: distanceKeys)
-        print(roundsNum, stringScoreSavingList, intScoreSavingList, isIndoor60, isIndoor30, sum10Lists, distanceKeys)
-        print("llllllllllllllllllllllllllllllll")
-        
+                
         scoreTableCollectionView.reloadData()
         
         getMemoText(memo: memo)
@@ -276,26 +295,43 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         switch distanceKey {
         case "70W":
             distanceKeys = ["70m", "70m", "", ""]
+            roundsNum = 2
         case "50W":
             distanceKeys = ["50m", "50m", "", ""]
+            roundsNum = 2
         case "SH":
             distanceKeys = ["50m", "30m", "", ""]
+            roundsNum = 2
         case "1440M":
             distanceKeys = ["90m", "70m", "50m", "30m"]
+            roundsNum = 4
         case "1440W":
             distanceKeys = ["70m", "60m", "50m", "30m"]
+            roundsNum = 4
         case "60W":
             distanceKeys = ["60m", "60m", "", ""]
+            roundsNum = 2
         case "18W":
             distanceKeys = ["18m", "18m", "", ""]
+            roundsNum = 2
         case "30W":
             distanceKeys = ["30m", "30m", "", ""]
-        case "free_36", "free_72", "free_144":
+            roundsNum = 2
+        case "free_36":
             distanceKeys = ["", "", "", ""]
+            roundsNum = 1
+        case "free_72":
+            distanceKeys = ["", "", "", ""]
+            roundsNum = 2
+        case "free_144":
+            distanceKeys = ["", "", "", ""]
+            roundsNum = 4
         case "18_30", "18_36":
             distanceKeys = ["18m", "", "", ""]
+            roundsNum = 1
         default:
             distanceKeys = [distanceKey + "m", "", "", ""]
+            roundsNum = 1
         }
     }
     
@@ -406,7 +442,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         stringScoreSavingList[round][end] = pointString
         pointXScoreSavingList[round][end] = locationX
         pointYScoreSavingList[round][end] = locationY
-        print(round, end, intScoreSavingList)
+//        print(round, end, intScoreSavingList)
         scoreTableCollectionView.reloadData()
     }
     
@@ -456,7 +492,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func save(_ sender: Any) {
         let realm = try! Realm()
-        print("else")
         let _scoreSheet = ScoreSheet()
         for i in 0..<4 {
             let scoreOneRound = OneRound()
@@ -501,6 +536,11 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         print(memo)
         _scoreSheet.memo = memo
         _scoreSheet.totalScore = totalScore
+        if RCorCPSegmentedControl.selectedSegmentIndex == 0 {
+            _scoreSheet.isCP = false
+        } else {
+            _scoreSheet.isCP = true
+        }
         
         try! realm.write {
             realm.add(_scoreSheet)
@@ -511,7 +551,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     
     

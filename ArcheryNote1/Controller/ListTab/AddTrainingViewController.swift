@@ -40,7 +40,6 @@ class AddTrainingViewController: UIViewController {
             memoTextView.text = result.memo
         }
         
-
                 
         
     }

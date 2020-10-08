@@ -11,15 +11,20 @@ import UIKit
 class AnalysisViewController: UIViewController {
     
     
+    @IBOutlet weak var shotNumButton: UIButton!
     
+    @IBOutlet weak var scoreButton: UIButton!
     
+    @IBOutlet weak var bestButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        shotNumButton.layer.cornerRadius = 20.0
+        scoreButton.layer.cornerRadius = 20.0
+        bestButton.layer.cornerRadius = 20.0
         
         
         
@@ -28,6 +33,20 @@ class AnalysisViewController: UIViewController {
     }
     
     
+    
+    @IBAction func toShotNum(_ sender: Any) {
+        performSegue(withIdentifier: "toShotNum3month", sender: nil)
+    }
+    
+    
+    @IBAction func toScore(_ sender: Any) {
+        performSegue(withIdentifier: "toScore3month", sender: nil)
+    }
+    
+    
+    @IBAction func toBestScore(_ sender: Any) {
+        performSegue(withIdentifier: "toBestScore", sender: nil)
+    }
     
     
     

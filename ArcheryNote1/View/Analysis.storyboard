@@ -27,6 +27,9 @@
                                 <state key="normal" title="本数の推移（直近3ヶ月）">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="toShotNum:" destination="Krh-H3-ZrK" eventType="touchUpInside" id="Oj9-4Z-pEs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd9-sN-dLT">
                                 <rect key="frame" x="75" y="204" width="225" height="60"/>
@@ -38,6 +41,9 @@
                                 <state key="normal" title="点数の推移（直近3ヶ月）">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="toScore:" destination="Krh-H3-ZrK" eventType="touchUpInside" id="4OH-QB-QGo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-Pt-6v6">
                                 <rect key="frame" x="75" y="314" width="225" height="60"/>
@@ -49,6 +55,9 @@
                                 <state key="normal" title="ベストスコア一覧">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="toBestScore:" destination="Krh-H3-ZrK" eventType="touchUpInside" id="eG0-y1-dQZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gr5-dI-394"/>
@@ -69,16 +78,19 @@
                     <navigationItem key="navigationItem" title="統計" id="4G6-Oo-rZJ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="TLa-AV-N4n" kind="show" id="ccw-Dy-aeD"/>
-                        <segue destination="DEo-zq-kew" kind="show" id="YES-r8-P4r"/>
-                        <segue destination="bAu-bA-VAb" kind="show" id="lav-09-TYG"/>
+                        <outlet property="bestButton" destination="s7X-Pt-6v6" id="Q0T-FC-jCS"/>
+                        <outlet property="scoreButton" destination="Dd9-sN-dLT" id="lR6-yM-iyt"/>
+                        <outlet property="shotNumButton" destination="Zxa-Ig-ZmO" id="4q3-jk-IhV"/>
+                        <segue destination="TLa-AV-N4n" kind="show" identifier="toShotNum3month" id="ccw-Dy-aeD"/>
+                        <segue destination="DEo-zq-kew" kind="show" identifier="toScore3month" id="YES-r8-P4r"/>
+                        <segue destination="bAu-bA-VAb" kind="show" identifier="toBestScore" id="lav-09-TYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNf-sX-b9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1949.2753623188407" y="93.75"/>
         </scene>
-        <!--点数（直近3ヶ月）-->
+        <!--本数（直近3ヶ月）-->
         <scene sceneID="bVf-lV-wrI">
             <objects>
                 <viewController id="TLa-AV-N4n" customClass="ScoreTransitionViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,13 +100,13 @@
                         <viewLayoutGuide key="safeArea" id="3JG-jX-WLF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="点数（直近3ヶ月）" id="C5q-ee-or8"/>
+                    <navigationItem key="navigationItem" title="本数（直近3ヶ月）" id="C5q-ee-or8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="niE-Rv-H8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="978" y="997"/>
         </scene>
-        <!--本数（直近3ヶ月）-->
+        <!--点数（直近3ヶ月）-->
         <scene sceneID="ntG-YU-8PC">
             <objects>
                 <viewController id="DEo-zq-kew" customClass="ShotNumberTransitionViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,7 +116,7 @@
                         <viewLayoutGuide key="safeArea" id="qLy-xX-Qsc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="本数（直近3ヶ月）" id="8ju-XV-S7F"/>
+                    <navigationItem key="navigationItem" title="点数（直近3ヶ月）" id="8ju-XV-S7F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOF-5f-09d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,6 +155,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ベストスコア一覧" id="6Bu-Wx-Q3I"/>
+                    <connections>
+                        <outlet property="bestScoreTableView" destination="zIk-oO-MWi" id="3Gg-3c-nPv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIz-YP-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

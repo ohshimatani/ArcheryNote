@@ -1026,11 +1026,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s7S-Ed-muU">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QRp-70-ARQ">
                             <connections>
                                 <action selector="cancel:" destination="KBJ-pk-Mgw" id="G6s-ja-Knr"/>
                             </connections>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6Ii-XV-orh">
+                            <rect key="frame" x="122" y="5.5" width="131" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="RC"/>
+                                <segment title="CP"/>
+                            </segments>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="j8K-PL-ReS">
                             <connections>
                                 <action selector="save:" destination="KBJ-pk-Mgw" id="BTG-5J-P2h"/>
@@ -1038,6 +1047,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="RCorCPSegmentedControl" destination="6Ii-XV-orh" id="icj-K0-jQm"/>
                         <outlet property="cardView" destination="QHC-Sl-4rR" id="CRn-Os-yvE"/>
                         <outlet property="dateLabel" destination="ihk-Fg-6AV" id="qkd-AY-haZ"/>
                         <outlet property="distanceLabel" destination="VfB-Hi-nUP" id="1he-l7-2en"/>

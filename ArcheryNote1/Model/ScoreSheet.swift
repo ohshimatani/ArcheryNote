@@ -29,6 +29,7 @@ class ScoreSheet: Object {
     @objc dynamic var sight4: String = ""
     @objc dynamic var memo: String = ""
     @objc dynamic var totalScore: Int = 0
+    @objc dynamic var isCP: Bool = false
     
     var points = List<OneRound>()
     

@@ -1156,7 +1156,7 @@
             </objects>
             <point key="canvasLocation" x="5088.8000000000002" y="1033.1334332833585"/>
         </scene>
-        <!--点数リスト-->
+        <!--Score Table View Controller-->
         <scene sceneID="pEh-Zc-lDS">
             <objects>
                 <viewController id="Boy-dn-IgG" customClass="ScoreTableViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -1188,7 +1188,19 @@
                             <constraint firstItem="ws3-i0-Zf7" firstAttribute="bottom" secondItem="b9N-y6-3p5" secondAttribute="bottom" id="e84-0w-VVo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="点数リスト" id="MH0-yU-ws8">
+                    <navigationItem key="navigationItem" id="MH0-yU-ws8">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="8Cf-rq-YEE">
+                            <rect key="frame" x="122" y="5.5" width="131" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="RC"/>
+                                <segment title="CP"/>
+                            </segments>
+                            <connections>
+                                <action selector="RCCPSegmentedControlDidChange:" destination="Boy-dn-IgG" eventType="valueChanged" id="mnI-GW-p2i"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="analysis" id="znf-xx-73z">
                             <connections>
                                 <action selector="toBestAndAverageScore:" destination="Boy-dn-IgG" id="iMV-N9-OAw"/>
@@ -1196,6 +1208,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="RCorCPSegmentedControl" destination="8Cf-rq-YEE" id="Tto-XD-5F5"/>
                         <outlet property="scoreTableView" destination="ws3-i0-Zf7" id="QpP-xp-Xxx"/>
                         <segue destination="0AN-mK-Kok" kind="show" identifier="toBestScores" id="RMc-tf-wRb"/>
                     </connections>
@@ -1238,6 +1251,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="xwl-Hl-aHa">
                         <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="f4u-eu-8tg">
+                            <rect key="frame" x="122" y="6" width="131" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="RC"/>
+                                <segment title="CP"/>
+                            </segments>
+                        </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="bestScoreTableView" destination="7mj-pR-asW" id="2W7-x9-73m"/>

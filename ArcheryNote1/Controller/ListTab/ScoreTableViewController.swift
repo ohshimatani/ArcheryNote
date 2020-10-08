@@ -13,9 +13,12 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
+    @IBOutlet weak var RCorCPSegmentedControl: UISegmentedControl!
+    
     @IBOutlet weak var scoreTableView: UITableView!
     
-    var scoreSheets: Results<ScoreSheet>!
+    var RCScoreSheets: Results<ScoreSheet>!
+    var CPScoreSheets: Results<ScoreSheet>!
     
     
     var passResult = ScoreSheet()
@@ -36,11 +39,17 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
-        let obj = realm.objects(ScoreSheet.self)
-        if obj.count != 0 {
-            scoreSheets = obj.sorted(byKeyPath: "date", ascending: true)
+        let objRC = realm.objects(ScoreSheet.self).filter("isCP == false")
+        if objRC.count != 0 {
+            RCScoreSheets = objRC.sorted(byKeyPath: "date", ascending: true)
         } else {
-            scoreSheets = obj
+            RCScoreSheets = objRC
+        }
+        let objCP = realm.objects(ScoreSheet.self).filter("isCP == true")
+        if objCP.count != 0 {
+            CPScoreSheets = objCP.sorted(byKeyPath: "date", ascending: true)
+        } else {
+            CPScoreSheets = objCP
         }
         scoreTableView.reloadData()
         
@@ -48,16 +57,29 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if scoreSheets != nil {
-            return scoreSheets.count
+        if RCorCPSegmentedControl.selectedSegmentIndex == 0 {
+            if RCScoreSheets != nil {
+                return RCScoreSheets.count
+            }
+            return 0
+        } else {
+            if CPScoreSheets != nil {
+                return CPScoreSheets.count
+            }
+            return 0
         }
-        return 0
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreTableCell") as! ScoreTableTableViewCell
-        let scoreSheet = scoreSheets[indexPath.row]
+        var scoreSheet: ScoreSheet!
+        if RCorCPSegmentedControl.selectedSegmentIndex == 0 {
+            scoreSheet = RCScoreSheets[indexPath.row]
+        } else {
+            scoreSheet = CPScoreSheets[indexPath.row]
+        }
         cell.setCell(date: scoreSheet.date, weekday: scoreSheet.weekday, distance: scoreSheet.distanceKey, totalScore: scoreSheet.totalScore, isMatch: scoreSheet.isMatch, title: scoreSheet.title)
         return cell
     }
@@ -72,21 +94,15 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let storyboard: UIStoryboard = UIStoryboard(name: "Calendar", bundle: nil)
         let NC: UINavigationController = storyboard.instantiateViewController(identifier: "scoreSheetNC") as! UINavigationController
         let VC = NC.viewControllers[0] as! ScoreListViewController
-        passResult = scoreSheets[indexPath.row]
-//        if let year = passResult.date[0..<4] as Int {
-//            if let month = passResult.date[4..<6] as Int {
-//                if let day = passResult.date[6..<8] as Int {
-//
-//                }
-//            }
-//
-//        }
-//        print(passResult)
+        if RCorCPSegmentedControl.selectedSegmentIndex == 0 {
+            passResult = RCScoreSheets[indexPath.row]
+        } else {
+            passResult = CPScoreSheets[indexPath.row]
+        }
         VC.result = passResult
         VC.isEdit = true
         NC.modalPresentationStyle = .fullScreen
         self.present(NC, animated: true, completion: nil)
-//        passResult = ScoreSheet()
         scoreTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -96,7 +112,7 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let realm = try! Realm()
             try! realm.write{
-                realm.delete(self.scoreSheets[indexPath.row])
+                realm.delete(self.RCScoreSheets[indexPath.row])
                 print("deleted")
             }
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -108,6 +124,12 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func toBestAndAverageScore(_ sender: Any) {
         performSegue(withIdentifier: "toBestScores", sender: nil)
     }
+    
+    @IBAction func RCCPSegmentedControlDidChange(_ sender: Any) {
+        scoreTableView.reloadData()
+    }
+    
+    
     
 
     

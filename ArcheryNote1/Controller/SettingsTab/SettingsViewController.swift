@@ -88,7 +88,6 @@ class SettingsViewController: UIViewController{
         if RCCPSegmentedControl.selectedSegmentIndex == 0 {
             UserDefaults.standard.set(false, forKey: "isCPPlayer")
         } else {
-            print("jioaneiorn")
             UserDefaults.standard.set(true, forKey: "isCPPlayer")
         }
     }
