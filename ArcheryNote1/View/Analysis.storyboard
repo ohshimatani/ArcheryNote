@@ -117,14 +117,36 @@
                     <view key="view" contentMode="scaleToFill" id="4gX-nf-fGA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zIk-oO-MWi">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="175" id="IQ5-A0-Utx">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="175"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IQ5-A0-Utx" id="Igf-8t-xcF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iuV-tY-42K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zIk-oO-MWi" firstAttribute="top" secondItem="iuV-tY-42K" secondAttribute="top" id="PgB-7f-Qq9"/>
+                            <constraint firstItem="zIk-oO-MWi" firstAttribute="leading" secondItem="iuV-tY-42K" secondAttribute="leading" id="RlA-pQ-srz"/>
+                            <constraint firstItem="zIk-oO-MWi" firstAttribute="bottom" secondItem="iuV-tY-42K" secondAttribute="bottom" id="Xr0-O9-go0"/>
+                            <constraint firstItem="zIk-oO-MWi" firstAttribute="trailing" secondItem="iuV-tY-42K" secondAttribute="trailing" id="nU8-ek-tfo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ベストスコア一覧" id="6Bu-Wx-Q3I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIz-YP-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091" y="996"/>
+            <point key="canvasLocation" x="3090.4000000000001" y="995.35232383808102"/>
         </scene>
         <!--Analysis-->
         <scene sceneID="Tgh-Br-aMp">

@@ -1238,7 +1238,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="xwl-Hl-aHa">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="dTc-xn-rBC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bestScoreTableView" destination="7mj-pR-asW" id="2W7-x9-73m"/>
