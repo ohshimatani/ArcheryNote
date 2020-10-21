@@ -26,6 +26,7 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var isEdit: Bool = false
     
+    var isCPPlayer: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,15 @@ class BowSettingsViewController: UIViewController, UITableViewDelegate, UITableV
         let nib = UINib(nibName: "BowSettingsTableViewCell", bundle: .main)
         tableView.register(nib, forCellReuseIdentifier: "bowSettingsCell")
         tableView.tableFooterView = UIView()
+        
+        isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
+        if isCPPlayer == true {
+            segmentedControl.selectedSegmentIndex = 1
+        } else {
+            segmentedControl.selectedSegmentIndex = 0
+        }
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

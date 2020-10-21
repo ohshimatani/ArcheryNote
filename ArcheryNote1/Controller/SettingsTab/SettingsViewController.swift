@@ -21,12 +21,12 @@ class SettingsViewController: UIViewController{
     @IBOutlet weak var RCCPSegmentedControl: UISegmentedControl!
     
     var distance: String!
-    var isRightHanded: Bool!
+    var isLeftHanded: Bool!
     var isCPPlayer: Bool!
     
     var idx: Int = 0
     
-    let keysList =  ["free_72", "free_36", "free_144", "70", "70W", "1440M"]
+    let keysList =  ["free_72", "free_36", "free_144", "70W", "50W", "SH", "1440M", "1440W", "18W", "30W"]
     var dataSource: [String] = []
     var nowIndex: Int = 0
     
@@ -35,8 +35,9 @@ class SettingsViewController: UIViewController{
         
         distanceChangeButton.delegate = self
         
+        
         distance = UserDefaults.standard.string(forKey: "defaultDistance") ?? "フリー（72射）"
-        isRightHanded = UserDefaults.standard.bool(forKey: "isRightHanded")
+        isLeftHanded = UserDefaults.standard.bool(forKey: "isLeftHanded")
         isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
         
         initializeSegmentedControlls()
@@ -59,10 +60,10 @@ class SettingsViewController: UIViewController{
     }
     
     func initializeSegmentedControlls() {
-        if isRightHanded == false {
-            handSegmentedControl.selectedSegmentIndex = 0
-        } else {
+        if isLeftHanded == true {
             handSegmentedControl.selectedSegmentIndex = 1
+        } else {
+            handSegmentedControl.selectedSegmentIndex = 0
         }
         if isCPPlayer == false {
             RCCPSegmentedControl.selectedSegmentIndex = 0
@@ -78,9 +79,9 @@ class SettingsViewController: UIViewController{
     
     @IBAction func handSegmentedControlDidChange(_ sender: Any) {
         if handSegmentedControl.selectedSegmentIndex == 0 {
-            UserDefaults.standard.set(false, forKey: "isRightHanded")
+            UserDefaults.standard.set(false, forKey: "isLeftHanded")
         } else {
-            UserDefaults.standard.set(true, forKey: "isRightHanded")
+            UserDefaults.standard.set(true, forKey: "isLeftHanded")
         }
     }
     

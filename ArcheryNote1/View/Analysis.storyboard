@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="2026" y="996"/>
         </scene>
-        <!--ベストスコア一覧-->
+        <!--Best Score List View Controller-->
         <scene sceneID="oWS-dj-b9z">
             <objects>
                 <viewController id="bAu-bA-VAb" customClass="BestScoreListViewController" customModule="ArcheryNote1" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,9 +154,23 @@
                             <constraint firstItem="zIk-oO-MWi" firstAttribute="trailing" secondItem="iuV-tY-42K" secondAttribute="trailing" id="nU8-ek-tfo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ベストスコア一覧" id="6Bu-Wx-Q3I"/>
+                    <navigationItem key="navigationItem" id="6Bu-Wx-Q3I">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Z8q-c5-4Cz">
+                            <rect key="frame" x="104" y="6" width="167" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="RC"/>
+                                <segment title="CP"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentIndexDidChange:" destination="bAu-bA-VAb" eventType="valueChanged" id="kQ3-Lr-Y9C"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="bestScoreTableView" destination="zIk-oO-MWi" id="3Gg-3c-nPv"/>
+                        <outlet property="segmentedControl" destination="Z8q-c5-4Cz" id="euf-ON-waI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIz-YP-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

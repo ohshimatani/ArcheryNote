@@ -80,6 +80,8 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var defaultDistance: String!
     
+    var isCPPlayer: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -213,7 +215,12 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.scoreTableCollectionView?.setCollectionViewLayout(layout, animated: true)
         
-        
+        isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
+        if isCPPlayer == true {
+            RCorCPSegmentedControl.selectedSegmentIndex = 1
+        } else {
+            RCorCPSegmentedControl.selectedSegmentIndex = 0
+        }
         
     }
     

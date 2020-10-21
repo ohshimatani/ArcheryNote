@@ -23,6 +23,8 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var passResult = ScoreSheet()
     
+    var isCPPlayer: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,14 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let nib = UINib(nibName: "ScoreTableTableViewCell", bundle: .main)
         scoreTableView.register(nib, forCellReuseIdentifier: "scoreTableCell")
         scoreTableView.tableFooterView = UIView()
+        
+        isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
+        if isCPPlayer == true {
+            RCorCPSegmentedControl.selectedSegmentIndex = 1
+        } else {
+            RCorCPSegmentedControl.selectedSegmentIndex = 0
+        }
+
         
     }
     

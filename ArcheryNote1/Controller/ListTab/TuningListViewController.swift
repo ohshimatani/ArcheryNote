@@ -29,7 +29,7 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
     var passResultCP = TuningCP()
     var isEdit = false
     
-    
+    var isCPPlayer: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +40,13 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
         let nib = UINib(nibName: customCellVCName, bundle: .main)
         tuningTableView.register(nib, forCellReuseIdentifier: customCellKeyName)
         tuningTableView.tableFooterView = UIView()
+        
+        isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
+        if isCPPlayer == true {
+            segmentedControl.selectedSegmentIndex = 1
+        } else {
+            segmentedControl.selectedSegmentIndex = 0
+        }
         
     }
     
