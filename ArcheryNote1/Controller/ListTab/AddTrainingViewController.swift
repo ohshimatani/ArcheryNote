@@ -84,15 +84,11 @@ class AddTrainingViewController: UIViewController {
     
     
     @IBAction func cansel(_ sender: Any) {
-//        if (checkPointTextField.text == "") && (memoTextView.text == ""){
-//            self.dismiss(animated: true, completion: nil)
-//        }else{
-//            MyFunctions.Alert(alertType: "cansel", viewController: self)
-//        }
         if (titleTextField.text == "") && (detailTextView.text == "" || memoTextView.text == ""){
             self.dismiss(animated: true, completion: nil)
-        }else{
-            MyFunctions.Alert(alertType: "cansel", viewController: self)
+        } else {
+            print("else")
+            MyFunctions.Alert(alertType: "cancel", viewController: self)
         }
 
     }
@@ -100,7 +96,7 @@ class AddTrainingViewController: UIViewController {
     
     @IBAction func trash(_ sender: Any) {
         if isEdit == false {
-            return
+            self.dismiss(animated: true, completion: nil)
         }else{
             let alart = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
             let yesAction = UIAlertAction(title: "はい", style: .default) { (action) in
@@ -111,14 +107,16 @@ class AddTrainingViewController: UIViewController {
                         realm.delete(self.result)
                     }
                 }
+                self.dismiss(animated: true, completion: nil)
             }
             let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
                 print("no")
+                alart.dismiss(animated: true, completion: nil)
             }
             alart.addAction(yesAction)
             alart.addAction(noAction)
             self.present(alart, animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
         }
         
     }

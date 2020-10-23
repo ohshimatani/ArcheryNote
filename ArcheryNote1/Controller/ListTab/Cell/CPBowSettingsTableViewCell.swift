@@ -39,13 +39,16 @@ class CPBowSettingsTableViewCell: UITableViewCell {
         // sight
         titleList.append(["- 名前", "- スコープ倍率", "- スコープ径", "- ドット", "- リング", "- ファイバー"])
         // stabilizer
-        titleList.append(["- 名前", "- 長さ", "- ウェイト数・比率"])
+        titleList.append(["- 名前", "- 長さ", "- ウェイトバランス"])
         // arrow
         titleList.append(["- 名前", "- スパイン", "- 長さ", "- ポイント", "- ノック", "- 羽"])
         // releaser
         titleList.append(["- 種類"])
         // others
 //        titleList.append(["- その他"])
+        
+        sectionLabel.textColor = .white
+        rowLabel.textColor = .white
         
     }
 
@@ -67,7 +70,9 @@ class CPBowSettingsTableViewCell: UITableViewCell {
         textField.text = textArray[indexPath.section][indexPath.row]
         sectionLabel.text = String(indexPath.section)
         rowLabel.text = String(indexPath.row)
-        
+        if indexPath == [2, 2] {
+            label.font = .systemFont(ofSize: 10)
+        }
     }
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {

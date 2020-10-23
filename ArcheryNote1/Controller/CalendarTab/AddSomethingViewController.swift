@@ -29,16 +29,11 @@ class AddSomethingViewController: UIViewController {
     var dateLabelText = "9999年99月99日（日）"
     let weekdayList = ["日", "月", "火", "水", "木", "金", "土"]
     
-    
-
+    var dialySheet: Results<DialySheet>!
+    let shotNum: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // set todays date(from previous VC)
-        let weekdayString = weekdayList[weekday-1]
-        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日（" + weekdayString + "）"
-        dateLabel.text = dateLabelText
         
         // settings buttons interface
         let buttonsList = [addScheduleButton, addScoreButton, addDialyButton]
@@ -52,20 +47,36 @@ class AddSomethingViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        var scheduleText = ""
+        
         let realm = try! Realm()
-        let dateText: String = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
-        print(dateText)
+        // set todays date(from previous VC)
+        let weekdayString = weekdayList[weekday-1]
+        dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日（" + weekdayString + "）"
+        let dateText = String(format: "%04d", year) + String(format: "%02d", month) + String(format: "%02d", day)
+        dialySheet = realm.objects(DialySheet.self).filter("date == %@", dateText)
+        if let shotNum = dialySheet.first?.shotNum {
+            dateLabelText += " : " + String(shotNum) + "本"
+        }
+        
+        dateLabel.text = dateLabelText
+        
+
+        
+        var scheduleText = ""
         let _todaySchedules: Results<Schedule> = realm.objects(Schedule.self).filter("date == %@", dateText)
         if _todaySchedules.count != 0{
             for schedule in _todaySchedules{
                 let scheduleCategoryList = ["（試　合）", "（練　習）", "（その他）"]
                 scheduleText += "- " + scheduleCategoryList[schedule.category] +  schedule.title + "\n"
                 todayScheduleTextView.text = scheduleText
+                todayScheduleTextView.font = .systemFont(ofSize: 20.0, weight: .bold)
             }
         }else{
-            todayScheduleTextView.text = "今日の予定はありません．"
+            todayScheduleTextView.text = "未登録"
         }
+        
+        
+        
     }
     
     

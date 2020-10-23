@@ -82,18 +82,38 @@ class TrainingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
-            
-            let realm = try! Realm()
-            try! realm.write{
-                realm.delete(self.trainingMenuList[indexPath.row])
-                print("deleted")
+            let alert = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "はい", style: .cancel) { (action) in
+                print("ok")
+                
+                let realm = try! Realm()
+                try! realm.write{
+                    realm.delete(self.trainingMenuList[indexPath.row])
+                    print("deleted")
+                }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completionHandler(true)
+                
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let NGAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+                completionHandler(false)
+            }
+            alert.addAction(OKAction)
+            alert.addAction(NGAction)
+            self.present(alert, animated: true, completion: nil)
+
             
-            completionHandler(true)
         }
         
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lmk-ya-wN4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FWh-nb-YrZ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -83,7 +83,6 @@
                         <outlet property="shotNumButton" destination="Zxa-Ig-ZmO" id="4q3-jk-IhV"/>
                         <segue destination="TLa-AV-N4n" kind="show" identifier="toShotNum3month" id="ccw-Dy-aeD"/>
                         <segue destination="DEo-zq-kew" kind="show" identifier="toScore3month" id="YES-r8-P4r"/>
-                        <segue destination="bAu-bA-VAb" kind="show" identifier="toBestScore" id="lav-09-TYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNf-sX-b9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,7 +155,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6Bu-Wx-Q3I">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Z8q-c5-4Cz">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Z8q-c5-4Cz">
                             <rect key="frame" x="104" y="6" width="167" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -168,6 +167,7 @@
                             </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bestScoreTableView" destination="zIk-oO-MWi" id="3Gg-3c-nPv"/>
                         <outlet property="segmentedControl" destination="Z8q-c5-4Cz" id="euf-ON-waI"/>
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIz-YP-IMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3090.4000000000001" y="995.35232383808102"/>
+            <point key="canvasLocation" x="4029.5999999999999" y="995.35232383808102"/>
         </scene>
         <!--Analysis-->
         <scene sceneID="Tgh-Br-aMp">
@@ -195,6 +195,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9U-Jx-b1C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1039.1304347826087" y="93.75"/>
+        </scene>
+        <!--analysis-->
+        <scene sceneID="T66-Ou-ewc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FWh-nb-YrZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="analysis" image="analysis" id="obO-88-qUC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7mB-0I-73R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bAu-bA-VAb" kind="relationship" relationship="rootViewController" id="v0G-07-LU8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0e-P8-oxo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3090.4000000000001" y="995.35232383808102"/>
         </scene>
     </scenes>
     <resources>

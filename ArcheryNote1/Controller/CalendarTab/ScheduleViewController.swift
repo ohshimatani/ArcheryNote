@@ -58,11 +58,17 @@ class ScheduleViewController: UIViewController {
             result = realm.objects(Schedule.self).filter("date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText!, titleTextFieldText, selectedNumber, memoTextViewText).first
         }
         
+        if titleLabel.text != ""{
+            saveButton.isEnabled = true
+        }else{
+            saveButton.isEnabled = false
+        }
+        
     }
     
     
     @IBAction func textFieldButtonActionInActive(_ sender: Any) {
-        if titleLabel.text != nil{
+        if titleLabel.text != ""{
             saveButton.isEnabled = true
         }else{
             saveButton.isEnabled = false
@@ -86,11 +92,15 @@ class ScheduleViewController: UIViewController {
         }
     }
     
-    
+   
     
     
     
     @IBAction func save(_ sender: Any) {
+        if titleLabel.text == "" {
+            print("in")
+            return
+        }
         let realm = try! Realm()
         if isEdit{
             try! realm.write {
@@ -127,7 +137,9 @@ class ScheduleViewController: UIViewController {
         memoTextView.text = ""
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
     

@@ -35,6 +35,7 @@ class MyFunctions: NSObject{
         switch alertType {
         case "cancel":
             // --------------このアラートのUXどうなん？-------------
+            print("in")
             let alert = UIAlertController(title: "キャンセル", message: "本当にキャンセルしますか？", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "はい", style: .cancel) { (action) in
                 viewController.dismiss(animated: true, completion: nil)
@@ -68,6 +69,8 @@ class MyFunctions: NSObject{
             break
         }
     }
+    
+            
     
     class func distanceKeytoLabelText(key: String) -> String {
         switch key {
@@ -161,6 +164,7 @@ class MyFunctions: NSObject{
     
     
 }
+
 
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {

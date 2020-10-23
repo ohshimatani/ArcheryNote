@@ -59,7 +59,13 @@ class AddRCTuningViewController: UIViewController {
             titleTextField.text = today
         }
 
+        memoTextView.delegate = self
+        nockingPointTextView.delegate = self
+        
     }
+    
+    
+
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -158,18 +164,38 @@ class AddRCTuningViewController: UIViewController {
                         realm.delete(self.result)
                     }
                 }
+                self.dismiss(animated: true, completion: nil)
             }
             let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
                 print("no")
+                alart.dismiss(animated: true, completion: nil)
             }
             alart.addAction(yesAction)
             alart.addAction(noAction)
             self.present(alart, animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
         }
 
     }
     
     
     
+}
+
+extension AddRCTuningViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let upHeight: CGFloat = 125.0
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= upHeight
+        } else {
+            let suggestionHeight = self.view.frame.origin.y + upHeight
+            self.view.frame.origin.y -= suggestionHeight
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 }

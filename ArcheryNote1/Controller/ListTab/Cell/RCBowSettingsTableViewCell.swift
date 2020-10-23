@@ -55,7 +55,8 @@ class RCBowSettingsTableViewCell: UITableViewCell, UITextFieldDelegate {
 //        titleList.append(["- その他"])
         // ---------------------
         
-        
+        sectionLabel.textColor = .white
+        rowLabel.textColor = .white
         
     }
 

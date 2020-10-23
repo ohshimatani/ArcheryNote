@@ -138,7 +138,7 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
         self.navigationItem.hidesBackButton = true
         
         navigationController?.delegate = self
-        
+        memoTextView.delegate = self
     }
     
     
@@ -201,7 +201,28 @@ class AddScoreInformationMoreViewController: UIViewController, UINavigationContr
 //        }
 //    }
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
 }
+
+extension AddScoreInformationMoreViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let upHeight: CGFloat = 125.0
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= upHeight
+        } else {
+            let suggestionHeight = self.view.frame.origin.y + upHeight
+            self.view.frame.origin.y -= suggestionHeight
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}
+

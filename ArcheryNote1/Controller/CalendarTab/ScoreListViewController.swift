@@ -493,8 +493,8 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        
+        MyFunctions.Alert(alertType: "cancel", viewController: self)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func save(_ sender: Any) {
@@ -558,7 +558,6 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     
     

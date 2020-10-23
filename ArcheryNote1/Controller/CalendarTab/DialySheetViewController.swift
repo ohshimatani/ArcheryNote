@@ -52,7 +52,7 @@ class DialySheetViewController: UIViewController{
         self.listupTableView.tableFooterView = UIView()
         
         // only call number pad (sum of shooting)
-        self.sumOfShootingTextField.keyboardType = UIKeyboardType.decimalPad
+        self.sumOfShootingTextField.keyboardType = UIKeyboardType.numberPad
 
         
         // reflect date label
@@ -94,6 +94,7 @@ class DialySheetViewController: UIViewController{
             reflectionTextView.text = todaysDialy.reflection
         }else{ return }
     }
+    
     
     
     @IBAction func save(_ sender: Any) {
@@ -153,7 +154,9 @@ class DialySheetViewController: UIViewController{
     }
     
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     
     
@@ -280,3 +283,4 @@ extension DialySheetViewController: UITableViewDelegate, UITableViewDataSource{
     
 
 }
+

@@ -40,6 +40,9 @@ class SettingsViewController: UIViewController{
         isLeftHanded = UserDefaults.standard.bool(forKey: "isLeftHanded")
         isCPPlayer = UserDefaults.standard.bool(forKey: "isCPPlayer")
         
+        print(isLeftHanded)
+        
+        
         initializeSegmentedControlls()
         
         distanceLabel.text = distance
@@ -60,7 +63,7 @@ class SettingsViewController: UIViewController{
     }
     
     func initializeSegmentedControlls() {
-        if isLeftHanded == true {
+        if isLeftHanded == false {
             handSegmentedControl.selectedSegmentIndex = 1
         } else {
             handSegmentedControl.selectedSegmentIndex = 0
@@ -79,9 +82,9 @@ class SettingsViewController: UIViewController{
     
     @IBAction func handSegmentedControlDidChange(_ sender: Any) {
         if handSegmentedControl.selectedSegmentIndex == 0 {
-            UserDefaults.standard.set(false, forKey: "isLeftHanded")
-        } else {
             UserDefaults.standard.set(true, forKey: "isLeftHanded")
+        } else {
+            UserDefaults.standard.set(false, forKey: "isLeftHanded")
         }
     }
     

@@ -41,7 +41,7 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
         dateLabelText = String(year) + "年" + String(month) + "月" + String(day) + "日（" + weekdayString + "）"
         self.navigationItem.title = dateLabelText
         
-        
+        scheduleListTableView.tableFooterView = UIView()
         
     }
     
@@ -51,6 +51,7 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
         let realm = try! Realm()
         _schedule = realm.objects(Schedule.self).filter("date == %@", dateText!)
         scheduleListTableView.reloadData()
+        print(_schedule!)
         
     }
     
@@ -96,7 +97,12 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _schedule.count
+        if _schedule == nil {
+            return 0
+        } else {
+            return _schedule.count
+        }
+        
     }
     
     
@@ -123,15 +129,29 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
-            
-            let realm = try! Realm()
-            try! realm.write{
-                realm.delete(self._schedule[indexPath.row])
-                print("deleted")
+            let alert = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "はい", style: .cancel) { (action) in
+                print("ok")
+                
+                let realm = try! Realm()
+                try! realm.write{
+                    realm.delete(self._schedule[indexPath.row])
+                    print("deleted")
+                }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completionHandler(true)
+                
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let NGAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+                completionHandler(false)
+            }
+            alert.addAction(OKAction)
+            alert.addAction(NGAction)
+            self.present(alert, animated: true, completion: nil)
+
             
-            completionHandler(true)
         }
         
         return UISwipeActionsConfiguration(actions: [action])

@@ -140,22 +140,38 @@ class TuningListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "削除") { (_, _, completionHandler) in
-            
-            let realm = try! Realm()
-            try! realm.write{
-                if self.selectedNumber == 0{
-                    realm.delete(self.RCTuningList[indexPath.row])
-                }else{
-                    realm.delete(self.CPTuningList[indexPath.row])
+            let alert = UIAlertController(title: "削除", message: "本当に削除しますか？", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "はい", style: .cancel) { (action) in
+                print("ok")
+                
+                let realm = try! Realm()
+                try! realm.write{
+                    if self.selectedNumber == 0{
+                        realm.delete(self.RCTuningList[indexPath.row])
+                    }else{
+                        realm.delete(self.CPTuningList[indexPath.row])
+                    }
+                    print("deleted")
                 }
-                print("deleted")
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                completionHandler(true)
+                
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let NGAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+                completionHandler(false)
+            }
+            alert.addAction(OKAction)
+            alert.addAction(NGAction)
+            self.present(alert, animated: true, completion: nil)
+
             
-            completionHandler(true)
         }
         
         return UISwipeActionsConfiguration(actions: [action])
+
+        
     }
 
     

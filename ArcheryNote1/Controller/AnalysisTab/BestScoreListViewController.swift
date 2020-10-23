@@ -47,6 +47,12 @@ class BestScoreListViewController: UIViewController, UITableViewDelegate, UITabl
         bestScoreTableView.delegate = self
         bestScoreTableView.dataSource = self
 
+                
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         defaultDistance = UserDefaults.standard.string(forKey: "defaultDistance")
         if defaultDistance != nil && defaultDistance != "free_36" && defaultDistance != "free_72" && defaultDistance != "free_144"{
             let key = MyFunctions.labelTexttoDistanceKey(text: defaultDistance)
@@ -60,13 +66,9 @@ class BestScoreListViewController: UIViewController, UITableViewDelegate, UITabl
             }
             keysList.insert(key, at: 0)
         }
-        
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+
         bestScoreTableView.reloadData()
+        
     }
     
     @IBAction func segmentIndexDidChange(_ sender: Any) {

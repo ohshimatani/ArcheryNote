@@ -134,14 +134,16 @@ class AddCheckPointViewController: UIViewController {
                         realm.delete(self.result)
                     }
                 }
+                self.dismiss(animated: true, completion: nil)
             }
             let noAction = UIAlertAction(title: "いいえ", style: .default) { (action) in
                 print("no")
+                alart.dismiss(animated: true, completion: nil)
             }
             alart.addAction(yesAction)
             alart.addAction(noAction)
             self.present(alart, animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
         }
 
     }

@@ -26,6 +26,10 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     let weekdayLabel = ["日", "月", "火", "水", "木", "金", "土"]
     
+    var isLeftHanded: Bool!
+    
+    let addButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +41,6 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 //        try! realm.write{
 //            realm.deleteAll()
 //        }
-        
-        
-        
-        
-        
         
         self.calendar.dataSource = self
         self.calendar.delegate = self
@@ -60,22 +59,48 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             }
         }
                 
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        isLeftHanded = UserDefaults.standard.bool(forKey: "isLeftHanded")
+        
         // add todays something(score, daily and schedule)
-        let addButton = UIButton()
-        addButton.frame = CGRect(x: displayWidth/2 - displayWidth/10, y: displayHeight * 0.8, width: displayWidth/5, height: displayWidth/5)
+//        let addButton = UIButton()
+        
+        if isLeftHanded == true {
+            print("left")
+            addButton.frame = CGRect(x: displayWidth/10, y: displayHeight * 0.77, width: displayWidth/5, height: displayWidth/5)
+        } else {
+            print("right")
+            addButton.frame = CGRect(x: 9*displayWidth/10 - displayWidth/5, y: displayHeight * 0.77, width: displayWidth/5, height: displayWidth/5)
+        }
+
         addButton.setTitle("+", for: .normal)
         addButton.titleLabel?.font = UIFont.systemFont(ofSize: displayWidth/7.5, weight: .light)
         addButton.setTitleColor(.white, for: .normal)
-        addButton.backgroundColor = .blue
+        addButton.backgroundColor = UIColor(hex: "3949AB")
         addButton.layer.cornerRadius = addButton.bounds.width / 2.0
         addButton.clipsToBounds = true
+        
+        addButton.layer.shadowColor = UIColor(hex: "607D8B").cgColor
+        addButton.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+        addButton.layer.shadowOpacity = 0.5
+        addButton.layer.shadowRadius = 10.0
         
         // Action: tap addButton
         addButton.addTarget(self, action: #selector(addTodaysThings(_:)), for: .touchUpInside)
         self.view.addSubview(addButton)
-        
-        
+
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        addButton.removeFromSuperview()
+    }
+    
+    
+    
     
     func getToday() -> (Int, Int, Int, Int){
         let date = Date()
