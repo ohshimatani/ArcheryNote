@@ -147,11 +147,7 @@ class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableVi
         return UISwipeActionsConfiguration(actions: [action])
 
     }
-    
-    @IBAction func toBestAndAverageScore(_ sender: Any) {
-        performSegue(withIdentifier: "toBestScores", sender: nil)
-    }
-    
+        
     @IBAction func RCCPSegmentedControlDidChange(_ sender: Any) {
         scoreTableView.reloadData()
     }
