@@ -56,6 +56,7 @@ class ScheduleViewController: UIViewController {
             let realm = try! Realm()
 //            let predicate = NSPredicate(format: "date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText, titleTextFieldText, selectedNumber, memoTextViewText)
             result = realm.objects(Schedule.self).filter("date == %@ AND title == %@ AND category == %@ AND memo == %@", dateText!, titleTextFieldText, selectedNumber, memoTextViewText).first
+            
         }
         
         if titleLabel.text != ""{
@@ -102,9 +103,8 @@ class ScheduleViewController: UIViewController {
             return
         }
         let realm = try! Realm()
-        if isEdit{
+        if isEdit {
             try! realm.write {
-                print(titleLabel.text!)
                 result.title = titleLabel.text!
                 result.category = selectedNumber
                 result.memo = memoTextView.text

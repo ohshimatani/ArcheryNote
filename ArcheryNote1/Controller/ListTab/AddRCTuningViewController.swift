@@ -184,7 +184,7 @@ class AddRCTuningViewController: UIViewController {
 
 extension AddRCTuningViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        let upHeight: CGFloat = 125.0
+        let upHeight: CGFloat = 200.0
         if self.view.frame.origin.y == 0 {
             self.view.frame.origin.y -= upHeight
         } else {

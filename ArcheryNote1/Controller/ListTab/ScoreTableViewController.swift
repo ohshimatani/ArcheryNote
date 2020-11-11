@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+@available(iOS 13.0, *)
 class ScoreTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     

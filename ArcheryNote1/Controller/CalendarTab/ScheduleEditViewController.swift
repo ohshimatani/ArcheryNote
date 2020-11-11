@@ -63,13 +63,14 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewSchedule"{
-            if isEdit {
+            if isEdit == false {
                 let NC = segue.destination as! UINavigationController
                 let VC = NC.topViewController as! ScheduleViewController
                 VC.year = year
                 VC.month = month
                 VC.day = day
                 VC.weekday = weekday
+                VC.isEdit = false
             }else{
                 let NC = segue.destination as! UINavigationController
                 let VC = NC.topViewController as! ScheduleViewController
@@ -81,7 +82,8 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
                 VC.selectedNumber = passCategory
                 VC.titleTextFieldText = passTitle
                 VC.memoTextViewText = passMemo
-                VC.isEdit = false
+                VC.isEdit = true
+                isEdit = false
                 passCategory = 0
                 passTitle = ""
                 passMemo = ""
@@ -122,7 +124,7 @@ class ScheduleEditViewController: UIViewController, UITableViewDelegate, UITable
         passTitle = _schedule[indexPath.row].title
         passCategory = _schedule[indexPath.row].category
         passMemo = _schedule[indexPath.row].memo
-        
+        isEdit = true
         performSegue(withIdentifier: "addNewSchedule", sender: nil)
     }
     

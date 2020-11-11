@@ -43,6 +43,7 @@ class AddListDialyViewController: UIViewController, UITableViewDelegate, UITable
         addTableView.register(nib, forCellReuseIdentifier: customCellKeyName)
         addTableView.tableFooterView = UIView()
         
+        addTableView.allowsSelection = false
         
         let realm = try! Realm()
         checkPointList = realm.objects(CheckPoint.self).sorted(byKeyPath: "howImportant", ascending: false)
