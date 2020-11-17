@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 class AddSomethingViewController: UIViewController {
     
     
@@ -78,6 +79,8 @@ class AddSomethingViewController: UIViewController {
         
         
     }
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

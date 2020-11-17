@@ -120,7 +120,7 @@ class ScheduleViewController: UIViewController {
                 print("done")
             }
         }
-        
+        print(dateText)
         self.dismiss(animated: true, completion: nil)
         
     }

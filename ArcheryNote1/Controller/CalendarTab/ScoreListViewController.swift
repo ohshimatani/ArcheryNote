@@ -86,7 +86,7 @@ class ScoreListViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         
         cardView.layer.cornerRadius = 12.0
-        cardView.layer.borderColor = UIColor.systemGray.cgColor
+//        cardView.layer.borderColor = UIColor.systemGray.cgColor
         cardView.layer.borderWidth = 2.0
         
         if UserDefaults.standard.bool(forKey: "isCPPlayer") == false{

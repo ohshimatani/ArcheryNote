@@ -19,7 +19,6 @@ let displayHeight = UIScreen.main.bounds.size.height
 class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     
-    
     @IBOutlet weak var calendar: FSCalendar!
     
     var selectedDate: Date!
@@ -58,7 +57,7 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
                 self.calendar.calendarWeekdayView.weekdayLabels[i].textColor = UIColor.black
             }
         }
-                
+            
         
         
     }
@@ -92,13 +91,13 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         // Action: tap addButton
         addButton.addTarget(self, action: #selector(addTodaysThings(_:)), for: .touchUpInside)
         self.view.addSubview(addButton)
-
+        
+                
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         addButton.removeFromSuperview()
     }
-    
     
     
     
@@ -116,6 +115,7 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     func toAddSomethingViewController(year: Int, month: Int, day: Int, weekday: Int){
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "toAddSomething") as! AddSomethingViewController
+        VC.presentationController?.delegate = self
         VC.year = year
         VC.month = month
         VC.day = day
@@ -209,7 +209,23 @@ class CalenderViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         }
     }
     
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let _date: String = String(year) + String(month) + String(format: "%02d", day)
+        
+        var tmpList: Results<Schedule>!
+        let realm = try! Realm()
+        tmpList = realm.objects(Schedule.self).filter("date == %@", _date)
+        return tmpList.count
+    }
     
     
-    
+}
+extension CalenderViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        calendar.reloadData()
+    }
 }
